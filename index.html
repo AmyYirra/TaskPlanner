@@ -19,8 +19,9 @@
     <title>⏰Task Planner</title>
   </head>
   <body>
+
+    <!-- start task  -->
     <section class="container">
-      <!-- start task  -->
       <h1 class="display-4 text-center">Tasks List</h1>
       <div class="card-deck">
         <!--start first card -->
@@ -39,7 +40,15 @@
             <li class="list-group-item">Status</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
+            <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              Delete
+            </button>
             <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
           </div>
         </div>
@@ -60,7 +69,15 @@
             <li class="list-group-item">Status</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
+            <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              Delete
+            </button>
             <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
           </div>
         </div>
@@ -81,7 +98,15 @@
             <li class="list-group-item">Status</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              Delete
+            </button>
+            <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
             <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
           </div>
         </div>
@@ -103,7 +128,15 @@
             <li class="list-group-item">Status</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
+            <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              Delete
+            </button>
             <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
           </div>
         </div>
@@ -125,22 +158,28 @@
             <li class="list-group-item">Status</li>
           </ul>
           <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
+            <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-toggle="modal"
+              data-target="#exampleModal"
+            >
+              Delete
+            </button>
             <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
           </div>
         </div>
 
         <!-- end 5th card -->
       </div>
-      <!-- end task -->
-
-     <div class="text-right my-4">
-        <a href="AddTask.html" class="btn btn-primary"
-          >Add New task</a
-        >
+    
+      <div class="text-right my-4">
+        <a href="AddTask.html" class="btn btn-primary">Add New task</a>
       </div>
     </section>
-
+    
+ <!-- end task -->
     <!-- Start Modal -->
     <!-- Button trigger modal -->
     <!-- <button
@@ -155,7 +194,7 @@
     <!-- EndButton trigger modal -->
     <!-- Modal -->
     <div
-      class="modal fade"
+      class="modal fade text-center"
       id="exampleModal"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
@@ -164,7 +203,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
             <button
               type="button"
               class="close"
@@ -174,16 +213,16 @@
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">...</div>
+          <div class="modal-body">Are you sure to delete the task?</div>
           <div class="modal-footer">
             <button
               type="button"
               class="btn btn-secondary"
               data-dismiss="modal"
             >
-              Close
+              Yes
             </button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <button type="button" class="btn btn-primary">No</button>
           </div>
         </div>
       </div>
