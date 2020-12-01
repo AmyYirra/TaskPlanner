@@ -1,3 +1,38 @@
-body{
+/* body{
    background-color:#bedbbb;
+} */
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #28A745;
+  font-weight: bold;
+}
+.font-white-bold 
+{
+  color:#ffffff;
+  font-weight: bold;
+}
+.font-white {
+  color:#ffffff;
+  
+}
+.font-black {
+  color:black;
+  font-weight: bold;
+  
+}
+.bg-white{
+  background-color: white;
+}
+.bg-grey
+{
+  background-color: #6C757D;
+}
+.tab-pane .fade .nav-item .nav-link
+{
+  color:#ffffff;
+}
+.bg-green
+{
+  background-color: #28A745;
 }

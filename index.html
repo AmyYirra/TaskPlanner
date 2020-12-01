@@ -19,127 +19,191 @@
     <title>⏰Task Planner</title>
   </head>
   <body>
-    <section class="container">
-      <!-- start task  -->
-      <h1 class="display-4 text-center">Tasks List</h1>
-      <div class="card-deck">
-        <!--start first card -->
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Task1</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-          <ul class="list-group list-group-flush card-body">
-            <li class="list-group-item">AssignedTo</li>
-            <li class="list-group-item">DueDate</li>
-            <li class="list-group-item">Status</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
-            <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
-          </div>
-        </div>
-        <!-- end first card -->
-        <!-- second card -->
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Task2</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-          <ul class="list-group list-group-flush card-body">
-            <li class="list-group-item">AssignedTo</li>
-            <li class="list-group-item">DueDate</li>
-            <li class="list-group-item">Status</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
-            <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
-          </div>
-        </div>
-        <!-- end second card -->
-        <!-- third card -->
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Task2</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-          <ul class="list-group list-group-flush card-body">
-            <li class="list-group-item">AssignedTo</li>
-            <li class="list-group-item">DueDate</li>
-            <li class="list-group-item">Status</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
-            <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
-          </div>
-        </div>
+    <!-- begin navbar here -->
+    <nav class="navbar navbar-dark bg-dark navbar-expand-sm font-white-bold">
+      <span class="h2 bg-success p-1 font-weight-bold">TP</span>
+      <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
 
-        <!-- end third card -->
-        <!-- 4th card -->
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Task4</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-          <ul class="list-group list-group-flush card-body">
-            <li class="list-group-item">AssignedTo</li>
-            <li class="list-group-item">DueDate</li>
-            <li class="list-group-item">Status</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
-            <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
+      <ul class="navbar-nav nav nav-pills text-right font-white-bold">
+        <li class="nav-item active">
+          <a
+            class="nav-link active"
+            id="tab-1"
+            data-toggle="tab"
+            role="tab"
+            href="#content-1"
+            aria-selected="true"
+            aria-controls="content-1"
+            >Task List
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="tab-2"
+            data-toggle="tab"
+            role="tab"
+            href="#content-2"
+            aria-selected="false"
+            aria-controls="content-2"
+          >
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <main role="main" class="container-full">
+      <div class="container-full">
+        <div class="tab-content">
+          <div
+            class="tab-pane fade show active"
+            id="content-1"
+            aria-labelledby="tab-1"
+            role="tabpanel"
+          >
+            add task
+            <section class="container">
+              <!-- start task  -->
+              <div class="col-12 border border-dark m-0 p-0">
+                <p class="bg-green m-0 p-0 text-center font-black">Task List</p>
+              </div>
+              <div class="card-deck">
+                <!--start first card -->
+                <div class="card">
+                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Task1</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                  <ul class="list-group list-group-flush card-body">
+                    <li class="list-group-item">AssignedTo:</li>
+                    <li class="list-group-item">DueDate</li>
+                    <li class="list-group-item">Status</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link btn btn-primary">Delete</a>
+                    <a href="EditTask.html" class="card-link btn btn-primary"
+                      >Edit</a
+                    >
+                  </div>
+                </div>
+                <!-- end first card -->
+                <!-- second card -->
+                <div class="card">
+                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Task2</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                  <ul class="list-group list-group-flush card-body">
+                    <li class="list-group-item">AssignedTo</li>
+                    <li class="list-group-item">DueDate</li>
+                    <li class="list-group-item">Status</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link btn btn-primary">Delete</a>
+                    <a href="EditTask.html" class="card-link btn btn-primary"
+                      >Edit</a
+                    >
+                  </div>
+                </div>
+                <!-- end second card -->
+                <!-- third card -->
+                <div class="card">
+                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Task2</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                  <ul class="list-group list-group-flush card-body">
+                    <li class="list-group-item">AssignedTo</li>
+                    <li class="list-group-item">DueDate</li>
+                    <li class="list-group-item">Status</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link btn btn-primary">Delete</a>
+                    <a href="EditTask.html" class="card-link btn btn-primary"
+                      >Edit</a
+                    >
+                  </div>
+                </div>
+
+                <!-- end third card -->
+                <!-- 4th card -->
+                <div class="card">
+                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Task4</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                  <ul class="list-group list-group-flush card-body">
+                    <li class="list-group-item">AssignedTo</li>
+                    <li class="list-group-item">DueDate</li>
+                    <li class="list-group-item">Status</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link btn btn-primary">Delete</a>
+                    <a href="EditTask.html" class="card-link btn btn-primary"
+                      >Edit</a
+                    >
+                  </div>
+                </div>
+
+                <!-- end 4th card -->
+                <!-- 5th card -->
+                <div class="card">
+                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                  <div class="card-body">
+                    <h5 class="card-title">Task5</h5>
+                    <p class="card-text">
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </p>
+                  </div>
+                  <ul class="list-group list-group-flush card-body">
+                    <li class="list-group-item">AssignedTo</li>
+                    <li class="list-group-item">DueDate</li>
+                    <li class="list-group-item">Status</li>
+                  </ul>
+                  <div class="card-body">
+                    <a href="#" class="card-link btn btn-primary">Delete</a>
+                    <a href="EditTask.html" class="card-link btn btn-primary"
+                      >Edit</a
+                    >
+                  </div>
+                </div>
+
+                <!-- end 5th card -->
+              </div>
+              <!-- end task -->
+
+              <div class="text-right my-4">
+                <a href="AddTask.html" class="btn btn-primary">Add New task</a>
+              </div>
+            </section>
+            <div
+              class="tab-pane fade"
+              id="content-2"
+              aria-labelledby="tab-2"
+              role="tabpanel"
+            >
+              Content 2
+            </div>
           </div>
         </div>
-
-        <!-- end 4th card -->
-        <!-- 5th card -->
-        <div class="card">
-          <img src="..." class="card-img-top" alt="..." />
-          <div class="card-body">
-            <h5 class="card-title">Task5</h5>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
-          </div>
-          <ul class="list-group list-group-flush card-body">
-            <li class="list-group-item">AssignedTo</li>
-            <li class="list-group-item">DueDate</li>
-            <li class="list-group-item">Status</li>
-          </ul>
-          <div class="card-body">
-            <a href="#" class="card-link btn btn-primary">Delete</a>
-            <a href="EditTask.html" class="card-link btn btn-primary">Edit</a>
-          </div>
-        </div>
-
-        <!-- end 5th card -->
       </div>
-      <!-- end task -->
-
-     <div class="text-right my-4">
-        <a href="AddTask.html" class="btn btn-primary"
-          >Add New task</a
-        >
-      </div>
-    </section>
+    </main>
 
     <!-- Start Modal -->
     <!-- Button trigger modal -->
