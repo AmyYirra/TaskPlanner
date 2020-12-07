@@ -85,7 +85,10 @@
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
                       </p>
-                      <p class="card-text spantextarea p-1 m-1 text-left">
+                      <p
+                        class="card-text spantextarea p-1 m-1 text-left"
+                        id="viewComment"
+                      >
                         <span class="spantextarea p-0 m-0">
                           <textarea
                             id="comment"
@@ -97,11 +100,20 @@
                           >
                         </span>
                       </p>
-
+                      <p
+                        class="card-text spantextarea p-1 m-1 text-left"
+                        id="editComment"
+                      >
+                        <span class="spantextarea p-0 m-0">
+                          <textarea id="comment" name="comment" class="p-0 m-0">
+ Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</textarea
+                          >
+                        </span>
+                      </p>
                       <p class="card-text p-1 m-1 text-left" id="viewAssign">
                         <span>Assign to :</span><span>&nbsp;Amy</span>
                       </p>
-                      <p class="card-text p-1 m-1 text-left" id="editAssign">  
+                      <p class="card-text p-1 m-1 text-left" id="editAssign">
                         <span>Assign to :</span
                         ><span>
                           <select name="assign">
@@ -113,7 +125,7 @@
                       </p>
                       <p class="card-text p-1 m-1 text-left" id="viewStatus">
                         <span>Status&nbsp;&nbsp;&nbsp; :</span
-                        ><span>&nbsp;Progress1</span>
+                        ><span>&nbsp;Progress</span>
                       </p>
                       <p class="card-text p-1 m-1 text-left" id="myDIV">
                         <span>Status&nbsp;&nbsp;&nbsp;&nbsp;:</span
@@ -126,36 +138,49 @@
                           </select></span
                         >
                       </p>
-                      <p class="card-text p-1 m-1 text-left">
+                      <p class="card-text p-1 m-1 text-left" id="viewDdate">
+                        <span>Due Date: </span><span>12/12/2020 </span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left" id="editDdate">
                         <span>Due Date: </span
                         ><span
-                          ><input type="text" name="sname" id="sname"
+                          ><input type="text" name="ddate" id="ddate"
                         /></span>
                       </p>
                       <div>
                         <p class="card-text p-1 m-1 text-left" id="editBtn">
-                        
-                            <button class="card-link btn btn-success" onclick="myFunction();return  false;">
+                          <span>
+                            <button
+                              class="card-link btn btn-success"
+                              onclick="myFunction();return  false;"
+                            >
                               Edit
                             </button></span
                           ><span>
-                            <button class="card-link btn btn-success" onclick="getConfirmation()">
+                            <button
+                              class="card-link btn btn-success"
+                              onclick="getConfirmation()"
+                            >
                               Delete
                             </button>
-                            </span
-                          >
+                          </span>
                         </p>
-                         <p class="card-text p-1 m-1 text-left" id="updateBtn">
-                        
-                            <button class="card-link btn btn-success" onclick="callalert()";return  false;">
+                        <p class="card-text p-1 m-1 text-left" id="updateBtn">
+                          <span>
+                            <button
+                              class="card-link btn btn-success"
+                              onclick="callalert(); "
+                            >
                               Update
                             </button></span
                           ><span>
-                            <button class="card-link btn btn-success" onclick="getConfirmation()">
+                            <button
+                              class="card-link btn btn-success"
+                              onclick="getConfirmation()"
+                            >
                               Delete
                             </button>
-                            </span
-                          >
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -342,7 +367,7 @@
                 <!-- end task -->
 
                 <div class="text-right my-4">
-                  <a href="AddTask.html" class="btn btn-primary"
+                  <a href="AddTask.html" class="card-link btn btn-success"
                     >Add New task</a
                   >
                 </div>
@@ -427,42 +452,50 @@
     ></script>
     <script>
       function myFunction() {
-        var x = document.getElementById("myDIV");
-        var y = document.getElementById("updateBtn");
-        var z = document.getElementById("editBtn");
-         var k = document.getElementById("viewStatus");
-         var p = document.getElementById("editAssign");
-          var o = document.getElementById("viewAssign");
-       // var jseditStatus=document.getElementById("viewStatus");
+        let varEditStatus = document.getElementById("myDIV");
+        let varUpdateBtn = document.getElementById("updateBtn");
+        let varEditBtn = document.getElementById("editBtn");
+        let varViewStatus = document.getElementById("viewStatus");
+        let varEditAssign = document.getElementById("editAssign");
+        var varEditDdate = document.getElementById("editDdate");
+        var varViewAssign = document.getElementById("viewAssign");
+        var varViewDdate = document.getElementById("viewDdate");
+        var varViewComment = document.getElementById("viewComment");
+        var varEditComment = document.getElementById("editComment");
+
+        // var jseditStatus=document.getElementById("viewStatus");
         // if (x.style.display === "none") {
         //   x.style.display = "block";
         // } else {
         //   x.style.display = "none";
         // }
-        
-        x.style.display = "block";
-        y.style.display = "block";
-        z.style.display = "none";
-        k.style.display = "none";
-        p.style.display = "block";
-         o.style.display = "none";
-        
-      //  return false;
+
+        varEditStatus.style.display = "block";
+        varUpdateBtn.style.display = "block";
+        varEditBtn.style.display = "none";
+        varViewStatus.style.display = "none";
+        varViewAssign.style.display = "none";
+        varEditAssign.style.display = "block";
+        varEditDdate.style.display = "block";
+        varEditComment.style.display = "block";
+        varViewComment.style.display = "none";
+        varViewDdate.style.display = "none";
+
+        //  return false;
       }
       function getConfirmation() {
-               var retVal = confirm("Do you want to delete the task?");
-               if( retVal == true ) {
-                 alert("Task deleted successfully");
-                  return true;
-               } else {
-                  //document.write ("User does not want to continue!");
-                  return false;
-               }
-            }
-            function callalert()
-            {
-              alert("Task updated successfully");
-            }
+        var retVal = confirm("Do you want to delete the task?");
+        if (retVal == true) {
+          alert("Task deleted successfully");
+          return true;
+        } else {
+          //document.write ("User does not want to continue!");
+          return false;
+        }
+      }
+      function callalert() {
+        alert("Task updated successfully");
+      }
     </script>
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
