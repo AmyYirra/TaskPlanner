@@ -70,18 +70,38 @@ input {
   width: 0.2em;
   height: 0.2em;
 }
-#myDIV {
-  display: none;
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #28a745;
+  font-weight: bold;
 }
-#updateBtn {
-  display: none;
+.nav-link {
+  color: #fff;
+  background-color: #28a745;
+  font-weight: bold;
 }
-#editAssign {
-  display: none;
+.font-white-bold {
+  color: #ffffff;
+  font-weight: bold;
 }
-#editDdate {
-  display: none;
+.font-white {
+  color: #ffffff;
 }
-#editComment {
-  display: none;
+.font-black {
+  color: black;
+  font-weight: bold;
+}
+.bg-white {
+  background-color: white;
+}
+.bg-grey {
+  background-color: #6c757d;
+}
+.tab-pane .fade .nav-item .nav-link {
+  color: #ffffff;
+}
+.bg-green {
+  background-color: #28a745;
 }
