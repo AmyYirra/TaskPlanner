@@ -19,245 +19,108 @@
     <title>⏰Task Planner</title>
   </head>
   <body>
-    <!-- begin navbar here -->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-sm font-white-bold">
-      <span class="h2 bg-success p-1 font-weight-bold">TP</span>
-      <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
+    <!-- begin form here -->
+    <form action="">
+      <!-- begin navbar here -->
+      <nav class="navbar navbar-dark bg-dark navbar-expand-sm font-white-bold">
+        <span class="h2 bg-success p-1 font-weight-bold">TP</span>
+        <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
 
-      <ul class="navbar-nav nav nav-pills text-right font-white-bold">
-        <li class="nav-item active">
-          <a
-            class="nav-link active"
-            id="tab-1"
-            data-toggle="tab"
-            role="tab"
-            href="#content-1"
-            aria-selected="true"
-            aria-controls="content-1"
-            >Task List
-          </a>
-        </li>
-        <li class="nav-item">
-          <a
+        <ul class="navbar-nav nav nav-pills text-right font-white-bold">
+          <li class="nav-item active">
+            <a
+              class="nav-link active"
+              id="tab-1"
+              data-toggle="tab"
+              role="tab"
+              href="#content-1"
+              aria-selected="true"
+              aria-controls="content-1"
+              >Task List
+            </a>
+          </li>
+          <li class="nav-item">
+            <!-- <a
             class="nav-link"
             id="tab-2"
             data-toggle="tab"
             role="tab"
-            href="#content-2"
+            href="AddTask.html"
             aria-selected="false"
-            aria-controls="content-2"
-          >
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <main role="main" class="container-full">
-      <div class="container-full">
-        <div class="tab-content">
-          <div
-            class="tab-pane fade show active"
-            id="content-1"
-            aria-labelledby="tab-1"
-            role="tabpanel"
-          >
-            add task
-            <section class="container">
-              <!-- start task  -->
-              <div class="col-12 border border-dark m-0 p-0">
-                <p class="bg-green m-0 p-0 text-center font-black">Task List</p>
+
+                  </div>
+                  <!-- end first card -->
+                  <!-- second card -->
+                  <div class="card p-0 m-0">
+                    <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                    <div class="card-body p-0 m-0 border border-dark cardwidth">
+                      <p class="card-title bg-green cardheader">Gardening</p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Description :</span>
+                      </p>
+                      <p class="card-text spantextarea p-1 m-1 text-left">
+                        <span class="spantextarea p-0 m-0">
+                          <textarea id="comment" name="comment" class="p-0 m-0">
+ Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.Some quick example text to build on the card title and make up the bulk of the card's content.</textarea
+                          >
+                        </span>
+                      </p>
+
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Assigned to :</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Status:</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Target Date: </span>
+                      </p>
+                      <div>
+                        <p class="card-text p-1 m-1 text-left">
+                          <span
+                            ><a
+                              href="EditTask.html"
+                              class="card-link btn btn-success"
+                              onclick="myFunction();"
+                              >Edit</a
+                            ></span
+                          ><span>
+                            <a href="#" class="card-link btn btn-success"
+                              >Delete</a
+                            ></span
+                          >
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  </div>
+                  <!-- end 5th card -->
+                </div>
+                <!-- end task -->
+
+                <div class="text-right my-4">
+                  <a href="AddTask.html" class="card-link btn btn-success"
+                    >Add New task</a
+                  >
+                </div>
+              </section>
+              <div
+                class="tab-pane fade"
+                id="content-2"
+                aria-labelledby="tab-2"
+                role="tabpanel"
+              >
+                Content 2
               </div>
-              <div class="card-deck">
-                <!--start first card -->
-                <div class="card">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body">
-                    <h5 class="card-title">Task1</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <ul class="list-group list-group-flush card-body">
-                    <li class="list-group-item">AssignedTo:</li>
-                    <li class="list-group-item">DueDate</li>
-                    <li class="list-group-item">Status</li>
-                  </ul>
-                  <div class="card-body">
-
-                    <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-
-                    <a href="EditTask.html" class="card-link btn btn-primary"
-                      >Edit</a
-                    >
-                  </div>
-                </div>
-                <!-- end first card -->
-                <!-- second card -->
-                <div class="card">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body">
-                    <h5 class="card-title">Task2</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <ul class="list-group list-group-flush card-body">
-                    <li class="list-group-item">AssignedTo</li>
-                    <li class="list-group-item">DueDate</li>
-                    <li class="list-group-item">Status</li>
-                  </ul>
-                  <div class="card-body">
-
-                    <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-
-                    <a href="EditTask.html" class="card-link btn btn-primary"
-                      >Edit</a
-                    >
-                  </div>
-                </div>
-                <!-- end second card -->
-                <!-- third card -->
-                <div class="card">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body">
-                    <h5 class="card-title">Task2</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <ul class="list-group list-group-flush card-body">
-                    <li class="list-group-item">AssignedTo</li>
-                    <li class="list-group-item">DueDate</li>
-                    <li class="list-group-item">Status</li>
-                  </ul>
-                  <div class="card-body">
-
-                    <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-
-                    <a href="EditTask.html" class="card-link btn btn-primary"
-                      >Edit</a
-                    >
-                  </div>
-                </div>
-
-                <!-- end third card -->
-                <!-- 4th card -->
-                <div class="card">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body">
-                    <h5 class="card-title">Task4</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <ul class="list-group list-group-flush card-body">
-                    <li class="list-group-item">AssignedTo</li>
-                    <li class="list-group-item">DueDate</li>
-                    <li class="list-group-item">Status</li>
-                  </ul>
-                  <div class="card-body">
-
-                    <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-
-                    <a href="EditTask.html" class="card-link btn btn-primary"
-                      >Edit</a
-                    >
-                  </div>
-                </div>
-
-                <!-- end 4th card -->
-                <!-- 5th card -->
-                <div class="card">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body">
-                    <h5 class="card-title">Task5</h5>
-                    <p class="card-text">
-                      Some quick example text to build on the card title and
-                      make up the bulk of the card's content.
-                    </p>
-                  </div>
-                  <ul class="list-group list-group-flush card-body">
-                    <li class="list-group-item">AssignedTo</li>
-                    <li class="list-group-item">DueDate</li>
-                    <li class="list-group-item">Status</li>
-                  </ul>
-                  <div class="card-body">
-
-                    <!-- <a href="#" class="card-link btn btn-primary">Delete</a> -->
-                    <button
-                      type="button"
-                      class="btn btn-primary"
-                      data-toggle="modal"
-                      data-target="#exampleModal"
-                    >
-                      Delete
-                    </button>
-
-                    <a href="EditTask.html" class="card-link btn btn-primary"
-                      >Edit</a
-                    >
-                  </div>
-                </div>
-
-                <!-- end 5th card -->
-              </div>
-              <!-- end task -->
-
-              <div class="text-right my-4">
-                <a href="AddTask.html" class="btn btn-primary">Add New task</a>
-              </div>
-            </section>
-            <div
-              class="tab-pane fade"
-              id="content-2"
-              aria-labelledby="tab-2"
-              role="tabpanel"
-            >
-              Content 2
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
 
-    <!-- Start Modal -->
-    <!-- Button trigger modal -->
-    <!-- <button
+      <!-- Start Modal -->
+      <!-- Button trigger modal -->
+      <!-- <button
       type="button"
       class="btn btn-primary"
       data-toggle="modal"
@@ -266,44 +129,13 @@
       Add New task
     </button> -->
 
-    <!-- EndButton trigger modal -->
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Confirm</h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Yes
-            </button>
-            <button type="button" class="btn btn-primary">No</button>
+
           </div>
         </div>
       </div>
-    </div>
-    <!-- End Modal -->
-
+      <!-- End Modal -->
+      <!-- End Form here -->
+    </form>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
@@ -317,7 +149,53 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
+    <script>
+      function myFunction() {
+        let varEditStatus = document.getElementById("myDIV");
+        let varUpdateBtn = document.getElementById("updateBtn");
+        let varEditBtn = document.getElementById("editBtn");
+        let varViewStatus = document.getElementById("viewStatus");
+        let varEditAssign = document.getElementById("editAssign");
+        var varEditDdate = document.getElementById("editDdate");
+        var varViewAssign = document.getElementById("viewAssign");
+        var varViewDdate = document.getElementById("viewDdate");
+        var varViewComment = document.getElementById("viewComment");
+        var varEditComment = document.getElementById("editComment");
 
+        // var jseditStatus=document.getElementById("viewStatus");
+        // if (x.style.display === "none") {
+        //   x.style.display = "block";
+        // } else {
+        //   x.style.display = "none";
+        // }
+
+        varEditStatus.style.display = "block";
+        varUpdateBtn.style.display = "block";
+        varEditBtn.style.display = "none";
+        varViewStatus.style.display = "none";
+        varViewAssign.style.display = "none";
+        varEditAssign.style.display = "block";
+        varEditDdate.style.display = "block";
+        varEditComment.style.display = "block";
+        varViewComment.style.display = "none";
+        varViewDdate.style.display = "none";
+
+        //  return false;
+      }
+      function getConfirmation() {
+        var retVal = confirm("Do you want to delete the task?");
+        if (retVal == true) {
+          alert("Task deleted successfully");
+          return true;
+        } else {
+          //document.write ("User does not want to continue!");
+          return false;
+        }
+      }
+      function callalert() {
+        alert("Task updated successfully");
+      }
+    </script>
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
