@@ -122,5 +122,12 @@ input {
 .adjmargin {
   margin: 0.01px;
   padding: 0.08px;
+  /* border-color: black;
+  border-style: solid; */
 }
 
+.modal-dialog {
+  border-color: black;
+  border-style: solid;
+  border-bottom-left-radius: 3px;
+}
