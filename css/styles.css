@@ -1,38 +1,110 @@
 /* body{
    background-color:#bedbbb;
 } */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #28A745;
+  background-color: #28a745;
   font-weight: bold;
 }
-.font-white-bold 
-{
-  color:#ffffff;
+.font-white-bold {
+  color: #ffffff;
   font-weight: bold;
 }
 .font-white {
-  color:#ffffff;
-  
+  color: #ffffff;
 }
 .font-black {
-  color:black;
+  color: black;
   font-weight: bold;
-  
 }
-.bg-white{
+.bg-white {
   background-color: white;
 }
-.bg-grey
-{
-  background-color: #6C757D;
+.bg-grey {
+  background-color: #6c757d;
 }
-.tab-pane .fade .nav-item .nav-link
-{
-  color:#ffffff;
+.tab-pane .fade .nav-item .nav-link {
+  color: #ffffff;
 }
-.bg-green
-{
-  background-color: #28A745;
+.bg-green {
+  background-color: #28a745;
+}
+.font-blackbig {
+  color: black;
+  font-weight: bold;
+  font-size: medium;
+}
+.bg-box {
+  background-color: #343a40;
+}
+textarea {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+}
+input {
+  width: 80px;
+  height: 20px;
+}
+.spantextarea {
+  width: 200px;
+  height: 150px;
+}
+.cardwidth {
+  width: 90%;
+  height: 70%;
+}
+.cardwidth {
+  width: 100%;
+  height: 70%;
+}
+.cardheader {
+  text-align: left;
+  color: black;
+  margin: 0px;
+  padding: 0px;
+  font-weight: bold;
+}
+.imgwh {
+  width: 0.2em;
+  height: 0.2em;
+}
+
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #28a745;
+  font-weight: bold;
+}
+.nav-link {
+  color: #fff;
+  background-color: #28a745;
+  font-weight: bold;
+}
+.font-white-bold {
+  color: #ffffff;
+  font-weight: bold;
+}
+.font-white {
+  color: #ffffff;
+}
+.font-black {
+  color: black;
+  font-weight: bold;
+}
+.bg-white {
+  background-color: white;
+}
+.bg-grey {
+  background-color: #6c757d;
+}
+.tab-pane .fade .nav-item .nav-link {
+  color: #ffffff;
+}
+.bg-green {
+  background-color: #28a745;
 }
