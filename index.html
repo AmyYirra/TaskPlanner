@@ -25,7 +25,9 @@
         <span class="h2 bg-success p-1 font-weight-bold">TP</span>
         <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
 
-        <a href="AddTask.html" class="btn-success">Add New Task</a>
+         <a href="AddTask.html" class="btn-success"data-toggle="modal"
+          data-target="#exampleModal">Add New Task</a>
+
       </nav>
       <main role="main" class="container-full">
         <div class="container-full">
@@ -78,10 +80,19 @@
                       <div>
                         <p class="card-text p-1 m-1 text-left" id="editBtn">
                           <span>
-                            <button class="card-link btn btn-success">
+                            <!-- <button class="card-link btn btn-success">
                               Edit
-                            </button></span
-                          ><span>
+                            </button> -->
+                           <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#exampleModal"
+                            >
+                              Edit
+                            </button>
+                          </span>
+                          <span>
                             <button
                               class="card-link btn btn-success"
                               onclick="getConfirmation()"
@@ -123,13 +134,21 @@
                       </p>
                       <div>
                         <p class="card-text p-1 m-1 text-left">
-                          <span
-                            ><a
+                          <span>
+                            <!-- <a
                               href="EditTask.html"
                               class="card-link btn btn-success"
                               onclick="myFunction();"
                               >Edit</a
-                            ></span
+                            > -->
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#exampleModal"
+                            >
+                              Edit
+                            </button> </span
                           ><span>
                             <a href="#" class="card-link btn btn-success"
                               >Delete</a
@@ -169,17 +188,25 @@
                       </p>
                       <div>
                         <p class="card-text p-1 m-1 text-left">
-                          <span
-                            ><a
+                          <span>
+                            <!-- <a
                               href="EditTask.html"
                               class="card-link btn btn-success"
-                              >Edit</a
-                            ></span
-                          ><span>
+                              >Edit</a> -->
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#exampleModal"
+                            >
+                              Edit
+                            </button>
+                          </span>
+                          <span>
                             <a href="#" class="card-link btn btn-success"
                               >Delete</a
-                            ></span
-                          >
+                            >
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -217,12 +244,20 @@
                       </p>
                       <div>
                         <p class="card-text p-1 m-1 text-left">
-                          <span
-                            ><a
+                          <span>
+                            <!-- <a
                               href="EditTask.html"
                               class="card-link btn btn-success"
                               >Edit</a
-                            ></span
+                            > -->
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#exampleModal"
+                            >
+                              Edit
+                            </button> </span
                           ><span>
                             <a href="#" class="card-link btn btn-success"
                               >Delete</a
@@ -263,12 +298,16 @@
                       </p>
                       <div>
                         <p class="card-text p-1 m-1 text-left">
-                          <span
-                            ><a
-                              href="EditTask.html"
-                              class="card-link btn btn-success"
-                              >Edit</a
-                            ></span
+                          <span>
+                           
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#exampleModal"
+                            >
+                              Edit
+                            </button> </span
                           ><span>
                             <a href="#" class="card-link btn btn-success"
                               >Delete</a
@@ -310,7 +349,7 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Task Form</h5>
               <button
                 type="button"
                 class="close"
@@ -320,7 +359,93 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <div class="modal-body">...</div>
+            
+            <div class="modal-body">
+              <!-- Add Modal body by Amy -->
+              <section class="container">
+                <!-- <h1 class="display-4 text-center">Add New Task</h1> -->
+                <form>
+                  <div class="form-group row">
+                    <label for="name" class="col-sm-2 col-form-label"
+                      >Name</label
+                    >
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" id="name" />
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="text" class="col-sm-2 col-form-label"
+                      >Description</label
+                    >
+                    <div class="col-sm-10">
+                      <textarea
+                        class="form-control"
+                        id="exampleFormControlTextarea1"
+                        rows="3"
+                      ></textarea>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label
+                      for="exampleFormControlSelect1"
+                      class="col-sm-2 col-form-label"
+                      >Assign To</label
+                    >
+                    <div class="col-sm-10">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                      >
+                        <option>Amy</option>
+                        <option>Tom</option>
+                        <option>John</option>
+                        <option>Sam</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group row">
+                    <label
+                      for="exampleFormControlSelect1"
+                      class="col-sm-2 col-form-label"
+                      >Due Date</label
+                    >
+                    <div class="col-sm-10">
+                      <select
+                        class="form-control"
+                        id="exampleFormControlSelect1"
+                      >
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                        <option></option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group row">
+                    <label
+                      for="exampleFormControlSelect2"
+                      class="col-sm-2 col-form-label"
+                      >Status</label
+                    >
+                    <div class="col-sm-10">
+                      <select
+                        multiple
+                        class="form-control"
+                        id="exampleFormControlSelect2"
+                      >
+                        <option>TO DO</option>
+                        <option>IN PROGRESS</option>
+                        <option>REVIEW</option>
+                        <option>DONE</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </section>
+              <!-- End Modal body -->
+            </div>
             <div class="modal-footer">
               <button
                 type="button"
