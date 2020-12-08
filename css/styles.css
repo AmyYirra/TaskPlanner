@@ -66,6 +66,13 @@ input {
   padding: 0px;
   font-weight: bold;
 }
+.modalreader {
+  text-align: center;
+  color: black;
+  margin: 1px;
+  padding: 1px;
+  font-weight: bold;
+}
 .imgwh {
   width: 0.2em;
   height: 0.2em;
@@ -89,7 +96,7 @@ input {
 .font-white {
   color: #ffffff;
 }
-.font-black {
+.font-black-bold {
   color: black;
   font-weight: bold;
 }
@@ -104,4 +111,18 @@ input {
 }
 .bg-green {
   background-color: #28a745;
+}
+.form-control1
+{
+  width: 200px;
+  height: 150px;
+}
+.row{
+  width:500px;
+  
+}
+.adjmargin
+{
+  margin: 0.01px;
+  padding:0.08px;
 }
