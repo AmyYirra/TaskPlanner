@@ -507,7 +507,7 @@
                 class="text-center font-black-bold p-1 m-1"
                 id="exampleModalLabel"
               >
-                Add Task
+                Task List
               </h5>
             </div>
 
@@ -523,7 +523,12 @@
                       >Name</label
                     >
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="name1" />
+                      <!-- Change id="name1" to id="newTaskNameInput" -->
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="newTaskNameInput"
+                      />
                     </div>
                   </div>
                   <div class="form-group row">
@@ -531,9 +536,10 @@
                       >Description</label
                     >
                     <div class="col-sm-10">
+                      <!-- Change id="exampleFormControlTextarea1" to id="newTaskDescription" -->
                       <textarea
                         class="form-control"
-                        id="exampleFormControlTextarea1"
+                        id="newTaskDescription"
                         rows="3"
                       ></textarea>
                     </div>
@@ -546,9 +552,10 @@
                       >Assign To</label
                     >
                     <div class="col-sm-10">
+                      <!-- Change id="exampleFormControlSelect1" to id="newTaskAssignedTo" -->
                       <select
                         class="form-control adjmargin"
-                        id="exampleFormControlSelect1"
+                        id="newTaskAssignedTo"
                       >
                         <option>Amy</option>
                         <option>Tom</option>
@@ -562,9 +569,14 @@
                       for="exampleFormControlSelect1"
                       class="col-sm-2 col-form-label adjmargin"
                       >Due Date</label
-                    >
+                    >date1
+                    <!-- Change id="date1" to id="newTaskStatus" -->
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="date1" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="newTaskDueDate"
+                      />
                     </div>
                   </div>
 
@@ -574,11 +586,9 @@
                       class="col-sm-2 col-form-label adjmargin"
                       >Status</label
                     >
+                    <!-- Change id="exampleFormControlSelect2" to id="newTaskStatus" -->
                     <div class="col-sm-10">
-                      <select
-                        class="form-control"
-                        id="exampleFormControlSelect2"
-                      >
+                      <select class="form-control" id="newTaskStatus">
                         <option>To-do</option>
                         <option>In progress</option>
                         <option>Review</option>
@@ -589,6 +599,15 @@
                 </form>
               </section>
               <!-- End Modal body -->
+            </div>
+            <!-- add alert box -->
+            <div
+              id="alertMessage"
+              style="display: none"
+              class="alert alert-danger"
+              role="alert"
+            >
+              Error message
             </div>
             <div class="modal-footer">
               <button
