@@ -507,7 +507,7 @@
                 class="text-center font-black-bold p-1 m-1"
                 id="exampleModalLabel"
               >
-                Add Task
+                Task List
               </h5>
             </div>
 
@@ -516,24 +516,32 @@
               <section class="container m-0 p-0">
                 <!-- <h1 class="display-4 text-center">Add New Task</h1> -->
                 <form>
+                  <!-- Change id="name1" to id="newTaskNameInput" -->
                   <div class="form-group row">
                     <label
-                      for="name"
+                      for="newTaskNameInput"
                       class="col-sm-2 col-form-label card-text adjmargin"
                       >Name</label
                     >
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="name1" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="newTaskNameInput"
+                      />
                     </div>
                   </div>
+                  <!-- Change id="exampleFormControlTextarea1" to id="newTaskDescription" -->
                   <div class="form-group row">
-                    <label for="text" class="col-sm-2 col-form-label adjmargin"
+                    <label
+                      for="newTaskDescription"
+                      class="col-sm-2 col-form-label adjmargin"
                       >Description</label
                     >
                     <div class="col-sm-10">
                       <textarea
                         class="form-control"
-                        id="exampleFormControlTextarea1"
+                        id="newTaskDescription"
                         rows="3"
                       ></textarea>
                     </div>
@@ -541,14 +549,15 @@
 
                   <div class="form-group row">
                     <label
-                      for="exampleFormControlSelect1"
+                      for="newTaskAssignedTo"
                       class="col-sm-2 col-form-label adjmargin"
                       >Assign To</label
                     >
                     <div class="col-sm-10">
+                      <!-- Change id="exampleFormControlSelect1" to id="newTaskAssignedTo" -->
                       <select
                         class="form-control adjmargin"
-                        id="exampleFormControlSelect1"
+                        id="newTaskAssignedTo"
                       >
                         <option>Amy</option>
                         <option>Tom</option>
@@ -557,28 +566,32 @@
                       </select>
                     </div>
                   </div>
+                  <!-- Change id="date1" to id="newTaskStatus" -->
                   <div class="form-group row">
                     <label
-                      for="exampleFormControlSelect1"
+                      for="newTaskDueDate"
                       class="col-sm-2 col-form-label adjmargin"
                       >Due Date</label
                     >
+
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="date1" />
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="newTaskDueDate"
+                      />
                     </div>
                   </div>
-
+                  <!-- Change id="exampleFormControlSelect2" to id="newTaskStatus" -->
                   <div class="form-group row">
                     <label
-                      for="exampleFormControlSelect2"
+                      for="newTaskStatus"
                       class="col-sm-2 col-form-label adjmargin"
                       >Status</label
                     >
+
                     <div class="col-sm-10">
-                      <select
-                        class="form-control"
-                        id="exampleFormControlSelect2"
-                      >
+                      <select class="form-control" id="newTaskStatus">
                         <option>To-do</option>
                         <option>In progress</option>
                         <option>Review</option>
@@ -589,6 +602,15 @@
                 </form>
               </section>
               <!-- End Modal body -->
+            </div>
+            <!-- add alert box -->
+            <div
+              id="alertMessage"
+              style="display: none"
+              class="alert alert-danger"
+              role="alert"
+            >
+              Error message
             </div>
             <div class="modal-footer">
               <button
