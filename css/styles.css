@@ -133,5 +133,12 @@ input {
 }
 .showerrormsg {
   color: red;
-  background-color:white;
+  background-color: white;
+  font-size: small;
+  vertical-align: bottom;
+  padding-top: 0.1em;
+  margin-top: 0.1em;
+}
+.textsize{
+  width: 50px;
 }

@@ -512,8 +512,11 @@
               <section class="container m-0 p-0">
                 <!-- <h1 class="display-4 text-center">Add New Task</h1> -->
 
-                <div class="form-group">
-                  <label for="newTaskNameInput">Name</label>
+                <div class="form-row">
+                  <label for="newTaskNameInput">Name </label>&nbsp;<span
+                    id="errorName"
+                    class="showerrormsg"
+                  ></span>
                   <input
                     type="text"
                     class="form-control"
@@ -521,8 +524,11 @@
                   />
                 </div>
 
-                <div class="form-group">
-                  <label for="newTaskDescription">Description</label>
+                <div class="form-row">
+                  <label for="newTaskDescription">Description</label>&nbsp;<span
+                    id="errorDescription"
+                    class="showerrormsg"
+                  ></span>
                   <textarea
                     type="text"
                     class="form-control"
@@ -530,27 +536,32 @@
                   ></textarea>
                 </div>
                 <div class="form-row">
-                  <label for="newStatus">Status</label>
-                  <select class="form-control" id="newStatus">
-                    <option>To-do</option>
-                    <option>In progress</option>
-                    <option>Review</option>
-                    <option>Done</option>
+                  <label for="newTaskStatus">Status</label>&nbsp;
+                  <span id="errorTaskStatus" class="showerrormsg"></span>
+                  <select class="form-control" id="newTaskStatus">
+                    <option value="0">-Select Status-</option>
+                    <option value="1">To-do</option>
+                    <option value="2">In progress</option>
+                    <option value="3">Review</option>
+                    <option value="4">Done</option>
                   </select>
                 </div>
                 <div class="form-row">
-                  <div class="form-group col">
-                    <label for="newTaskAssignedTo">Assigned To</label>
+                  <div class="form-row col">
+                    <label for="newTaskAssignedTo">Assigned To</label>&nbsp;
+                    <span id="errorAssignTo" class="showerrormsg"></span>
                     <!-- <input type="text" class="form-control" id="newTaskAssignedTo"> -->
                     <select class="form-control" id="newTaskAssignedTo">
-                      <option>Amy</option>
-                      <option>Tom</option>
-                      <option>John</option>
-                      <option>Sam</option>
+                      <option value="0">-Select-</option>
+                      <option value="1">Amy</option>
+                      <option value="2">Tom</option>
+                      <option value="3">John</option>
+                      <option value="4">Sam</option>
                     </select>
                   </div>
-                  <div class="form-group col">
-                    <label for="newTaskDueDate">Due Date</label>
+                  <div class="form-row col">
+                    <label for="newTaskDueDate">Due Date</label>&nbsp;
+                    <span id="errorDueDate" class="showerrormsg"></span>
                     <input
                       type="date"
                       class="form-control"
@@ -561,17 +572,20 @@
               </section>
               <!-- End Modal body -->
             </div>
-             <div
-                id="alertMessage"
-                style="display: none"
-                class="alert alert-danger showerrormsg"
-                role="alert"
-              >
-                Error message
-              </div>
+            <div
+              id="alertMessage"
+              style="display: none"
+              class="alert alert-danger showerrormsg"
+              role="alert"
+            >
+              Error message
+            </div>
             <div class="modal-footer">
-             
-              <button type="submit" class="btn btn-success btn-block">
+              <button
+                type="submit"
+                class="btn btn-success btn-block"
+                onclick="validatedate();"
+              >
                 Add Task
               </button>
             </div>
