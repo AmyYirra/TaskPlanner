@@ -1,14 +1,3 @@
-function getConfirmation() {
-  var retVal = confirm("Do you want to delete the task?");
-  if (retVal == true) {
-    alert("Task deleted successfully");
-    return true;
-  } else {
-    //document.write ("User does not want to continue!");
-    return false;
-  }
-}
-// Select the New Task Form
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 
@@ -40,3 +29,19 @@ newTaskForm.addEventListener("submit", (event) => {
     errorMessage.style.display = "none";
   }
 });
+
+function validFormFieldInput(data) {
+  return data !== null && data !== "";
+}
+
+function getConfirmation() {
+  //('#btnCancel').addClass('btn-secondary');
+  var retVal = confirm("Do you want to delete the task?");
+  if (retVal == true) {
+    alert("Task deleted successfully");
+    return true;
+  } else {
+    //document.write ("User does not want to continue!");
+    return false;
+  }
+}
