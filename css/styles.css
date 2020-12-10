@@ -131,3 +131,7 @@ input {
   border-style: solid;
   border-bottom-left-radius: 3px;
 }
+.showerrormsg {
+  color: red;
+  background-color:white;
+}

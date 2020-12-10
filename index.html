@@ -520,6 +520,7 @@
                     id="newTaskNameInput"
                   />
                 </div>
+
                 <div class="form-group">
                   <label for="newTaskDescription">Description</label>
                   <textarea
@@ -529,23 +530,23 @@
                   ></textarea>
                 </div>
                 <div class="form-row">
-                  <label for="newTaskAssignedTo">Assigned To</label>
-                  <!-- <input type="text" class="form-control" id="newTaskAssignedTo"> -->
-                  <select class="form-control" id="newTaskAssignedTo">
-                    <option>Amy</option>
-                    <option>Tom</option>
-                    <option>John</option>
-                    <option>Sam</option>
+                  <label for="newStatus">Status</label>
+                  <select class="form-control" id="newStatus">
+                    <option>To-do</option>
+                    <option>In progress</option>
+                    <option>Review</option>
+                    <option>Done</option>
                   </select>
                 </div>
                 <div class="form-row">
                   <div class="form-group col">
-                    <label for="newStatus">Status</label>
-                    <select class="form-control" id="newStatus">
-                      <option>To-do</option>
-                      <option>In progress</option>
-                      <option>Review</option>
-                      <option>Done</option>
+                    <label for="newTaskAssignedTo">Assigned To</label>
+                    <!-- <input type="text" class="form-control" id="newTaskAssignedTo"> -->
+                    <select class="form-control" id="newTaskAssignedTo">
+                      <option>Amy</option>
+                      <option>Tom</option>
+                      <option>John</option>
+                      <option>Sam</option>
                     </select>
                   </div>
                   <div class="form-group col">
@@ -560,21 +561,16 @@
               </section>
               <!-- End Modal body -->
             </div>
-            <div class="modal-footer">
-              <div
+             <div
                 id="alertMessage"
                 style="display: none"
-                class="alert alert-danger"
-                role="alert"
-              ></div>
-              <div
-                id="alertMessage"
-                style="display: none"
-                class="alert alert-danger"
+                class="alert alert-danger showerrormsg"
                 role="alert"
               >
                 Error message
               </div>
+            <div class="modal-footer">
+             
               <button type="submit" class="btn btn-success btn-block">
                 Add Task
               </button>
