@@ -19,7 +19,7 @@
     <title>⏰Task Planner</title>
   </head>
   <body>
-    <form action="">
+    <form id="newTaskForm">
       <!-- begin navbar here -->
       <nav class="navbar navbar-dark bg-dark navbar-expand-sm font-white-bold">
         <span class="h2 bg-success p-1 font-weight-bold">TP</span>
@@ -98,7 +98,7 @@
                           </span>
                           <span>
                             <button
-                              class="card-link btn btn-success"
+                              class="btn btn-success"
                               onclick="getConfirmation()"
                             >
                               Delete
@@ -389,78 +389,74 @@
               <!-- Add Modal body by Amy -->
               <section class="container m-0 p-0">
                 <!-- <h1 class="display-4 text-center">Add New Task</h1> -->
-                <form>
-                  <div class="form-group row">
-                    <label
-                      for="name"
-                      class="col-sm-2 col-form-label card-text adjmargin"
-                      >Name</label
-                    >
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="name" />
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label for="text" class="col-sm-2 col-form-label adjmargin"
-                      >Description</label
-                    >
-                    <div class="col-sm-10">
-                      <textarea
-                        class="form-control"
-                        id="exampleFormControlTextarea1"
-                        rows="3"
-                      ></textarea>
-                    </div>
-                  </div>
 
-                  <div class="form-group row">
-                    <label
-                      for="exampleFormControlSelect1"
-                      class="col-sm-2 col-form-label adjmargin"
-                      >Assign To</label
-                    >
-                    <div class="col-sm-10">
-                      <select
-                        class="form-control adjmargin"
-                        id="exampleFormControlSelect1"
-                      >
-                        <option>Amy</option>
-                        <option>Tom</option>
-                        <option>John</option>
-                        <option>Sam</option>
-                      </select>
-                    </div>
+                <div class="form-group row">
+                  <label
+                    for="name"
+                    class="col-sm-2 col-form-label card-text adjmargin"
+                    >Name</label
+                  >
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" />
                   </div>
-                  <div class="form-group row">
-                    <label
-                      for="exampleFormControlSelect1"
-                      class="col-sm-2 col-form-label adjmargin"
-                      >Due Date</label
-                    >
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="date" />
-                    </div>
+                </div>
+                <div class="form-group row">
+                  <label for="text" class="col-sm-2 col-form-label adjmargin"
+                    >Description</label
+                  >
+                  <div class="col-sm-10">
+                    <textarea
+                      class="form-control"
+                      id="exampleFormControlTextarea1"
+                      rows="3"
+                    ></textarea>
                   </div>
+                </div>
 
-                  <div class="form-group row">
-                    <label
-                      for="exampleFormControlSelect2"
-                      class="col-sm-2 col-form-label adjmargin"
-                      >Status</label
+                <div class="form-group row">
+                  <label
+                    for="exampleFormControlSelect1"
+                    class="col-sm-2 col-form-label adjmargin"
+                    >Assign To</label
+                  >
+                  <div class="col-sm-10">
+                    <select
+                      class="form-control adjmargin"
+                      id="exampleFormControlSelect1"
                     >
-                    <div class="col-sm-10">
-                      <select
-                        class="form-control"
-                        id="exampleFormControlSelect2"
-                      >
-                        <option>To-do</option>
-                        <option>In progress</option>
-                        <option>Review</option>
-                        <option>Done</option>
-                      </select>
-                    </div>
+                      <option>Amy</option>
+                      <option>Tom</option>
+                      <option>John</option>
+                      <option>Sam</option>
+                    </select>
                   </div>
-                </form>
+                </div>
+                <div class="form-group row">
+                  <label
+                    for="exampleFormControlSelect1"
+                    class="col-sm-2 col-form-label adjmargin"
+                    >Due Date</label
+                  >
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="date" />
+                  </div>
+                </div>
+
+                <div class="form-group row">
+                  <label
+                    for="exampleFormControlSelect2"
+                    class="col-sm-2 col-form-label adjmargin"
+                    >Status</label
+                  >
+                  <div class="col-sm-10">
+                    <select class="form-control" id="exampleFormControlSelect2">
+                      <option>To-do</option>
+                      <option>In progress</option>
+                      <option>Review</option>
+                      <option>Done</option>
+                    </select>
+                  </div>
+                </div>
               </section>
               <!-- End Modal body -->
             </div>
@@ -507,7 +503,7 @@
                 class="text-center font-black-bold p-1 m-1"
                 id="exampleModalLabel"
               >
-                Task List
+                Add Task
               </h5>
             </div>
 
@@ -515,112 +511,73 @@
               <!-- Add Modal body by Amy -->
               <section class="container m-0 p-0">
                 <!-- <h1 class="display-4 text-center">Add New Task</h1> -->
-                <form>
-                  <!-- Change id="name1" to id="newTaskNameInput" -->
-                  <div class="form-group row">
-                    <label
-                      for="newTaskNameInput"
-                      class="col-sm-2 col-form-label card-text adjmargin"
-                      >Name</label
-                    >
-                    <div class="col-sm-10">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="newTaskNameInput"
-                      />
-                    </div>
-                  </div>
-                  <!-- Change id="exampleFormControlTextarea1" to id="newTaskDescription" -->
-                  <div class="form-group row">
-                    <label
-                      for="newTaskDescription"
-                      class="col-sm-2 col-form-label adjmargin"
-                      >Description</label
-                    >
-                    <div class="col-sm-10">
-                      <textarea
-                        class="form-control"
-                        id="newTaskDescription"
-                        rows="3"
-                      ></textarea>
-                    </div>
-                  </div>
 
-                  <div class="form-group row">
-                    <label
-                      for="newTaskAssignedTo"
-                      class="col-sm-2 col-form-label adjmargin"
-                      >Assign To</label
-                    >
-                    <div class="col-sm-10">
-                      <!-- Change id="exampleFormControlSelect1" to id="newTaskAssignedTo" -->
-                      <select
-                        class="form-control adjmargin"
-                        id="newTaskAssignedTo"
-                      >
-                        <option>Amy</option>
-                        <option>Tom</option>
-                        <option>John</option>
-                        <option>Sam</option>
-                      </select>
-                    </div>
+                <div class="form-group">
+                  <label for="newTaskNameInput">Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="newTaskNameInput"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="newTaskDescription">Description</label>
+                  <textarea
+                    type="text"
+                    class="form-control"
+                    id="newTaskDescription"
+                  ></textarea>
+                </div>
+                <div class="form-row">
+                  <label for="newTaskAssignedTo">Assigned To</label>
+                  <!-- <input type="text" class="form-control" id="newTaskAssignedTo"> -->
+                  <select class="form-control" id="newTaskAssignedTo">
+                    <option>Amy</option>
+                    <option>Tom</option>
+                    <option>John</option>
+                    <option>Sam</option>
+                  </select>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col">
+                    <label for="newStatus">Status</label>
+                    <select class="form-control" id="newStatus">
+                      <option>To-do</option>
+                      <option>In progress</option>
+                      <option>Review</option>
+                      <option>Done</option>
+                    </select>
                   </div>
-                  <!-- Change id="date1" to id="newTaskStatus" -->
-                  <div class="form-group row">
-                    <label
-                      for="newTaskDueDate"
-                      class="col-sm-2 col-form-label adjmargin"
-                      >Due Date</label
-                    >
-
-                    <div class="col-sm-10">
-                      <input
-                        type="text"
-                        class="form-control"
-                        id="newTaskDueDate"
-                      />
-                    </div>
+                  <div class="form-group col">
+                    <label for="newTaskDueDate">Due Date</label>
+                    <input
+                      type="date"
+                      class="form-control"
+                      id="newTaskDueDate"
+                    />
                   </div>
-                  <!-- Change id="exampleFormControlSelect2" to id="newTaskStatus" -->
-                  <div class="form-group row">
-                    <label
-                      for="newTaskStatus"
-                      class="col-sm-2 col-form-label adjmargin"
-                      >Status</label
-                    >
-
-                    <div class="col-sm-10">
-                      <select class="form-control" id="newTaskStatus">
-                        <option>To-do</option>
-                        <option>In progress</option>
-                        <option>Review</option>
-                        <option>Done</option>
-                      </select>
-                    </div>
-                  </div>
-                </form>
+                </div>
               </section>
               <!-- End Modal body -->
             </div>
-            <!-- add alert box -->
-            <div
-              id="alertMessage"
-              style="display: none"
-              class="alert alert-danger"
-              role="alert"
-            >
-              Error message
-            </div>
             <div class="modal-footer">
-              <button
-                type="button"
-                class="btn btn-success"
-                data-dismiss="modal"
+              <div
+                id="alertMessage"
+                style="display: none"
+                class="alert alert-danger"
+                role="alert"
+              ></div>
+              <div
+                id="alertMessage"
+                style="display: none"
+                class="alert alert-danger"
+                role="alert"
               >
-                Close
+                Error message
+              </div>
+              <button type="submit" class="btn btn-success btn-block">
+                Add Task
               </button>
-              <button type="button" class="btn btn-success">Save</button>
             </div>
           </div>
         </div>
@@ -642,18 +599,7 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
-    <script>
-      function getConfirmation() {
-        var retVal = confirm("Do you want to delete the task?");
-        if (retVal == true) {
-          alert("Task deleted successfully");
-          return true;
-        } else {
-          //document.write ("User does not want to continue!");
-          return false;
-        }
-      }
-    </script>
+    <script src="js/index.js"></script>
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
