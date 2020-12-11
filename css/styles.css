@@ -1,12 +1,12 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.nav-pills .nav-link.active,
+ /* .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #28a745;
   font-weight: bold;
-}
+}  */
 .font-white-bold {
   color: #ffffff;
   font-weight: bold;
@@ -78,12 +78,12 @@ input {
   height: 0.2em;
 }
 
-.nav-pills .nav-link.active,
+/* .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #28a745;
   font-weight: bold;
-}
+} */
 .nav-link {
   color: #fff;
   background-color: #28a745;
