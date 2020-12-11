@@ -1,5 +1,11 @@
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
+//to disable the past dates in calendar
+$(function () {
+  let maxDate = validatedate1();
+  $("#newTaskDueDate").attr("min", maxDate);
+  //document.querySelector("#newTaskNameInput").focus();
+});
 
 // Add an 'onsubmit' event listener
 newTaskForm.addEventListener("submit", (event) => {
@@ -13,24 +19,13 @@ newTaskForm.addEventListener("submit", (event) => {
   const newTaskAssignedTo = document.querySelector("#newTaskAssignedTo");
   const newTaskDueDate = document.querySelector("#newTaskDueDate");
   const errorMessage = document.querySelector("#alertMessage");
-
-  /*
-        Validation code here
-    */
-
   // Get the values of the inputs
   const name = newTaskNameInput.value;
   const description = newTaskDescription.value;
   const taskStatus = newTaskStatus.value;
   const assignedTo = newTaskAssignedTo.value;
   const dueDate = newTaskDueDate.value;
-  // if (!validFormFieldInput(name)) {
-  //   errorMessage.innerHTML = "Invalid name input";
-  //   errorMessage.style.display = "block";
-  // } else {
-  //   errorMessage.style.display = "none";
-  // }
-  if (!validFormFieldInput(name)) {
+    if (!validFormFieldInput(name)) {
     errorName.innerHTML = "Invalid Name ";
     errorName.style.display = "block";
   } else {
@@ -80,21 +75,18 @@ function getConfirmation() {
     alert("Task deleted successfully");
     return true;
   } else {
-    //document.write ("User does not want to continue!");
-    return false;
+       return false;
   }
 }
 function validatedate(dueDate) {
   var today = new Date();
   var Tdd = today.getDate();
-
   var Tmm = today.getMonth() + 1;
-
   var Tyyyy = today.getFullYear();
-
+  // return Tyyyy + "-" + Tmm + "-" + Tdd;
   // Match the date format through regular expression
   if (dueDate != "") {
-    // document.form1.text1.focus();
+    // document.form1.text1.foc+us();
     //Test which seperator is used '/' or '-'
     var opera1 = dueDate.split("/");
     //alert(opera1);
@@ -112,7 +104,7 @@ function validatedate(dueDate) {
     var mm = parseInt(pdate[1]);
     var dd = parseInt(pdate[2]);
     Tyyyy = parseInt(Tyyyy);
-    //alert(Tyyyy + "<" + yyyy);
+    //alert(Tyyyy + "<" + yyyy);*/
     if (Tyyyy > yyyy) {
       return "select the corrrect year";
     } else if (Tmm > mm) {
@@ -123,4 +115,13 @@ function validatedate(dueDate) {
       return null;
     }
   }
+}
+function validatedate1() {
+  var today = new Date();
+  var Tdd = today.getDate();
+
+  var Tmm = today.getMonth() + 1;
+
+  var Tyyyy = today.getFullYear();
+  return Tyyyy + "-" + Tmm + "-" + Tdd;
 }
