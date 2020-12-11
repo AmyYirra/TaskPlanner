@@ -1,4 +1,4 @@
-/ Select the New Task Form
+//Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 //to disable the past dates in calendar
 $(function () {
