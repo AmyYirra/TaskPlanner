@@ -12,7 +12,7 @@ newTaskForm.addEventListener('submit', (event) => {
   const newTaskStatus = document.querySelector("#newTaskStatus");
   const newTaskAssignedTo = document.querySelector("#newTaskAssignedTo");
   const newTaskDueDate = document.querySelector("#newTaskDueDate");
-  const errorMessage = document.querySelector("#alertMessage");
+  // const errorMessage = document.querySelector("#alertMessage");
 
   /*
         Validation code here
@@ -64,12 +64,12 @@ newTaskForm.addEventListener('submit', (event) => {
   } else {
     errorAssignTo.style.display = "none";
   }
-      if (!isValidDate(dueDate)) {
-        errorMessage.innerHTML = "Invalid date input";
-        errorMessage.style.display = "block";
-      } else {
-        errorMessage.style.display = "none";
-      }
+      // if (!isValidDate(dueDate)) {
+      //   errorMessage.innerHTML = "Invalid date input";
+      //   errorMessage.style.display = "block";
+      // } else {
+      //   errorMessage.style.display = "none";
+      // }
 
 });
 
@@ -93,7 +93,7 @@ function getConfirmation() {
 }
 function validatedate(dueDate) {
   var today = new Date();
-  var Tdd = today.getDate();
+    var Tdd = today.getDate();
 
   var Tmm = today.getMonth() + 1;
 
