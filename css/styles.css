@@ -1,7 +1,7 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
- /* .nav-pills .nav-link.active,
+/* .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
   background-color: #28a745;
@@ -17,6 +17,7 @@ body {
 .font-black {
   color: black;
   font-weight: bold;
+  font-size: small;
 }
 .bg-white {
   background-color: white;
@@ -136,9 +137,7 @@ input {
   background-color: white;
   font-size: small;
   vertical-align: bottom;
-  padding-top: 0.1em;
-  margin-top: 0.1em;
+  padding-top: 0em;
+  margin-top: 0em;
 }
-.textsize{
-  width: 50px;
-}
+

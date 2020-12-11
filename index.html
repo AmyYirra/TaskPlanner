@@ -24,8 +24,8 @@
       <span class="h2 bg-success p-1 font-weight-bold">TP</span>
       <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
 
-      <a class="btn-success" data-toggle="modal" data-target="#addModal"
-        >Add New Task</a
+      <a class="btn-success" data-toggle="modal" data-target="#addModal">
+        <button class="btn btn-success font-black">Add Task +</button></a
       >
     </nav>
     <main role="main" class="container-full">
@@ -440,7 +440,10 @@
                     for="editTaskAssignedTo"
                     class="col-sm-2 col-form-label adjmargin"
                     >Assigned To</label
-                  >&nbsp;<span id="errorAssignedToE" class="showerrormsg"></span>
+                  >&nbsp;<span
+                    id="errorAssignedToE"
+                    class="showerrormsg"
+                  ></span>
                   <div class="col-sm-10">
                     <select
                       class="form-control adjmargin"
@@ -465,7 +468,8 @@
                       type="date"
                       class="form-control"
                       id="editTaskDueDate"
-                      min="";
+                      min=""
+                      ;
                     />
                   </div>
                 </div>
@@ -522,10 +526,8 @@
                 <!-- <h1 class="display-4 text-center">Add New Task</h1> -->
 
                 <div class="form-row">
-                  <label for="newTaskNameInput">Name </label>&nbsp;<span
-                    id="errorName"
-                    class="showerrormsg"
-                  ></span>
+                  <label for="newTaskNameInput" class="font-black">Name </label
+                  >&nbsp;<span id="errorName" class="showerrormsg"></span>
                   <input
                     type="text"
                     class="form-control"
@@ -534,7 +536,9 @@
                 </div>
 
                 <div class="form-row">
-                  <label for="newTaskDescription">Description</label>&nbsp;<span
+                  <label for="newTaskDescription" class="font-black"
+                    >Description</label
+                  >&nbsp;<span
                     id="errorDescription"
                     class="showerrormsg"
                   ></span>
@@ -545,10 +549,10 @@
                   ></textarea>
                 </div>
                 <div class="form-row">
-                  <label for="newTaskStatus">Status</label>&nbsp;
+                  <label for="newTaskStatus" class="font-black">Status</label
+                  >&nbsp;
                   <span id="errorTaskStatus" class="showerrormsg"></span>
                   <select class="form-control" id="newTaskStatus">
-                    <option value="0">-Select Status-</option>
                     <option value="1">To-do</option>
                     <option value="2">In progress</option>
                     <option value="3">Review</option>
@@ -557,7 +561,9 @@
                 </div>
                 <div class="form-row">
                   <div class="form-row col">
-                    <label for="newTaskAssignedTo">Assigned To</label>&nbsp;
+                    <label for="newTaskAssignedTo" class="font-black"
+                      >Assigned To</label
+                    >&nbsp;
                     <span id="errorAssignTo" class="showerrormsg"></span>
                     <!-- <input type="text" class="form-control" id="newTaskAssignedTo"> -->
                     <select class="form-control" id="newTaskAssignedTo">
@@ -569,7 +575,9 @@
                     </select>
                   </div>
                   <div class="form-row col">
-                    <label for="newTaskDueDate">Due Date</label>&nbsp;
+                    <label for="newTaskDueDate" class="font-black"
+                      >Due Date</label
+                    >&nbsp;
                     <span id="errorDueDate" class="showerrormsg"></span>
                     <input
                       type="date"
