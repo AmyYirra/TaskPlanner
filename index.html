@@ -19,326 +19,329 @@
     <title>⏰Task Planner</title>
   </head>
   <body>
-    <!-- begin navbar here -->
-    <nav class="navbar navbar-dark bg-dark navbar-expand-sm font-white-bold">
-      <span class="h2 bg-success p-1 font-weight-bold">TP</span>
-      <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
+    <form id="newTaskForm">
+      <!-- begin navbar here -->
+      <nav class="navbar navbar-dark bg-dark navbar-expand-sm font-white-bold">
+        <span class="h2 bg-success p-1 font-weight-bold">TP</span>
+        <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
 
-      <a class="btn-success" data-toggle="modal" data-target="#addModal">
-        <button class="btn btn-success font-black">Add Task +</button></a
-      >
-    </nav>
-    <main role="main" class="container-full">
-      <div class="container-full">
-        <div class="tab-content">
-          <div
-            class="tab-pane fade show active"
-            id="content-1"
-            aria-labelledby="tab-1"
-            role="tabpanel"
-          >
-            <h2 class="text-center">Task List</h2>
-            <!-- add task -->
+        <a class="btn-success" data-toggle="modal" data-target="#addModal">
+          <button class="btn btn-success font-black" onclick="fnClick();">
+            Add Task +
+          </button></a
+        >
+      </nav>
+      <main role="main" class="container-full">
+        <div class="container-full">
+          <div class="tab-content">
+            <div
+              class="tab-pane fade show active"
+              id="content-1"
+              aria-labelledby="tab-1"
+              role="tabpanel"
+            >
+              <h2 class="text-center">Task List</h2>
+              <!-- add task -->
 
-            <section class="container">
-              <!-- start task  -->
-              <div class="card-deck cardwidth">
-                <!--start first card -->
-                <div class="card p-0 m-0">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body p-0 m-0 border border-dark cardwidth">
-                    <p class="card-title bg-green cardheader">
-                      <span> Buying Grocery</span>
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Description :</span>
-                    </p>
-                    <p
-                      class="card-text spantextarea p-1 m-1 text-left"
-                      id="viewComment"
-                    >
-                      <span class="spantextarea p-0 m-0"
-                        >Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Perferendis recusandae quas i</span
+              <section class="container">
+                <!-- start task  -->
+                <div class="card-deck cardwidth">
+                  <!--start first card -->
+                  <div class="card p-0 m-0">
+                    <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                    <div class="card-body p-0 m-0 border border-dark cardwidth">
+                      <p class="card-title bg-green cardheader">
+                        <span> Buying Grocery</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Description :</span>
+                      </p>
+                      <p
+                        class="card-text spantextarea p-1 m-1 text-left"
+                        id="viewComment"
                       >
-                    </p>
+                        <span class="spantextarea p-0 m-0"
+                          >Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Perferendis recusandae quas i</span
+                        >
+                      </p>
 
-                    <p class="card-text p-1 m-1 text-left" id="viewAssign">
-                      <span>Assign to :</span><span>&nbsp;Amy</span>
-                    </p>
+                      <p class="card-text p-1 m-1 text-left" id="viewAssign">
+                        <span>Assign to :</span><span>&nbsp;Amy</span>
+                      </p>
 
-                    <p class="card-text p-1 m-1 text-left" id="viewStatus">
-                      <span>Status&nbsp;&nbsp;&nbsp; :</span
-                      ><span>&nbsp;Progress</span>
-                    </p>
+                      <p class="card-text p-1 m-1 text-left" id="viewStatus">
+                        <span>Status&nbsp;&nbsp;&nbsp; :</span
+                        ><span>&nbsp;Progress</span>
+                      </p>
 
-                    <p class="card-text p-1 m-1 text-left" id="viewDdate">
-                      <span>Due Date: </span><span>12/12/2020 </span>
-                    </p>
+                      <p class="card-text p-1 m-1 text-left" id="viewDdate">
+                        <span>Due Date: </span><span>12/12/2020 </span>
+                      </p>
 
-                    <div>
-                      <p class="card-text p-1 m-1 text-left" id="editBtn">
-                        <span>
-                          <!-- <button class="card-link btn btn-success">
+                      <div>
+                        <p class="card-text p-1 m-1 text-left" id="editBtn">
+                          <span>
+                            <!-- <button class="card-link btn btn-success">
                               Edit
                             </button> -->
-                          <button
-                            type="button"
-                            class="btn btn-success"
-                            data-toggle="modal"
-                            data-target="#editModal"
-                          >
-                            Edit
-                          </button>
-                        </span>
-                        <span>
-                          <button
-                            class="btn btn-success"
-                            onclick="getConfirmation()"
-                          >
-                            Delete
-                          </button>
-                        </span>
-                      </p>
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#editModal"
+                            >
+                              Edit
+                            </button>
+                          </span>
+                          <span>
+                            <button
+                              class="btn btn-success"
+                              onclick="getConfirmation()"
+                            >
+                              Delete
+                            </button>
+                          </span>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <!-- end first card -->
-                <!-- second card -->
-                <div class="card p-0 m-0">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body p-0 m-0 border border-dark cardwidth">
-                    <p class="card-title bg-green cardheader">Gardening</p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Description :</span>
-                    </p>
-                    <p
-                      class="card-text spantextarea p-1 m-1 text-left"
-                      id="viewComment"
-                    >
-                      <span class="spantextarea p-0 m-0"
-                        >Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Perferendis recusandae quas i</span
-                      >
-                    </p>
-
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Assigned to :</span>
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Status:</span>
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Target Date: </span>
-                    </p>
-                    <div>
+                  <!-- end first card -->
+                  <!-- second card -->
+                  <div class="card p-0 m-0">
+                    <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                    <div class="card-body p-0 m-0 border border-dark cardwidth">
+                      <p class="card-title bg-green cardheader">Gardening</p>
                       <p class="card-text p-1 m-1 text-left">
-                        <span>
-                          <!-- <a
+                        <span>Description :</span>
+                      </p>
+                      <p
+                        class="card-text spantextarea p-1 m-1 text-left"
+                        id="viewComment"
+                      >
+                        <span class="spantextarea p-0 m-0"
+                          >Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Perferendis recusandae quas i</span
+                        >
+                      </p>
+
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Assigned to :</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Status:</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Target Date: </span>
+                      </p>
+                      <div>
+                        <p class="card-text p-1 m-1 text-left">
+                          <span>
+                            <!-- <a
                               href="EditTask.html"
                               class="card-link btn btn-success"
                               onclick="myFunction();"
                               >Edit</a
                             > -->
-                          <button
-                            type="button"
-                            class="btn btn-success"
-                            data-toggle="modal"
-                            data-target="#editModal"
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#editModal"
+                            >
+                              Edit
+                            </button> </span
+                          ><span>
+                            <button
+                              class="card-link btn btn-success"
+                              onclick="getConfirmation()"
+                            >
+                              Delete
+                            </button></span
                           >
-                            Edit
-                          </button> </span
-                        ><span>
-                          <button
-                            class="card-link btn btn-success"
-                            onclick="getConfirmation()"
-                          >
-                            Delete
-                          </button></span
-                        >
-                      </p>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <!-- end second card -->
-                <!-- third card -->
-                <div class="card p-0 m-0">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body p-0 m-0 border border-dark cardwidth">
-                    <p class="card-title bg-green cardheader">House chores</p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Description :</span>
-                    </p>
-                    <p
-                      class="card-text spantextarea p-1 m-1 text-left"
-                      id="viewComment"
-                    >
-                      <span class="spantextarea p-0 m-0"
-                        >Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Perferendis recusandae quas i</span
-                      >
-                    </p>
-
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Assigned to :</span>
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Status:</span>
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Target Date: </span>
-                    </p>
-                    <div>
+                  <!-- end second card -->
+                  <!-- third card -->
+                  <div class="card p-0 m-0">
+                    <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                    <div class="card-body p-0 m-0 border border-dark cardwidth">
+                      <p class="card-title bg-green cardheader">House chores</p>
                       <p class="card-text p-1 m-1 text-left">
-                        <span>
-                          <!-- <a
+                        <span>Description :</span>
+                      </p>
+                      <p
+                        class="card-text spantextarea p-1 m-1 text-left"
+                        id="viewComment"
+                      >
+                        <span class="spantextarea p-0 m-0"
+                          >Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Perferendis recusandae quas i</span
+                        >
+                      </p>
+
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Assigned to :</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Status:</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Target Date: </span>
+                      </p>
+                      <div>
+                        <p class="card-text p-1 m-1 text-left">
+                          <span>
+                            <!-- <a
                               href="EditTask.html"
                               class="card-link btn btn-success"
                               >Edit</a> -->
-                          <button
-                            type="button"
-                            class="btn btn-success"
-                            data-toggle="modal"
-                            data-target="#editModal"
-                          >
-                            Edit
-                          </button>
-                        </span>
-                        <span>
-                          <button
-                            class="card-link btn btn-success"
-                            onclick="getConfirmation()"
-                          >
-                            Delete
-                          </button>
-                        </span>
-                      </p>
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#editModal"
+                            >
+                              Edit
+                            </button>
+                          </span>
+                          <span>
+                            <button
+                              class="card-link btn btn-success"
+                              onclick="getConfirmation()"
+                            >
+                              Delete
+                            </button>
+                          </span>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <!-- end third card -->
-                <!-- 4th card -->
-                <div class="card p-0 m-0">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body p-0 m-0 border border-dark cardwidth">
-                    <p class="card-title bg-green cardheader">
-                      Organizing wadrobes
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Description :</span>
-                    </p>
-                    <p
-                      class="card-text spantextarea p-1 m-1 text-left"
-                      id="viewComment"
-                    >
-                      <span class="spantextarea p-0 m-0"
-                        >Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Perferendis recusandae quas i</span
-                      >
-                    </p>
-
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Assigned to :</span>
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Status:</span>
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Target Date: </span>
-                    </p>
-                    <div>
+                  <!-- end third card -->
+                  <!-- 4th card -->
+                  <div class="card p-0 m-0">
+                    <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                    <div class="card-body p-0 m-0 border border-dark cardwidth">
+                      <p class="card-title bg-green cardheader">
+                        Organizing wadrobes
+                      </p>
                       <p class="card-text p-1 m-1 text-left">
-                        <span>
-                          <!-- <a
+                        <span>Description :</span>
+                      </p>
+                      <p
+                        class="card-text spantextarea p-1 m-1 text-left"
+                        id="viewComment"
+                      >
+                        <span class="spantextarea p-0 m-0"
+                          >Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Perferendis recusandae quas i</span
+                        >
+                      </p>
+
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Assigned to :</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Status:</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Target Date: </span>
+                      </p>
+                      <div>
+                        <p class="card-text p-1 m-1 text-left">
+                          <span>
+                            <!-- <a
                               href="EditTask.html"
                               class="card-link btn btn-success"
                               >Edit</a
                             > -->
-                          <button
-                            type="button"
-                            class="btn btn-success"
-                            data-toggle="modal"
-                            data-target="#editModal"
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#editModal"
+                            >
+                              Edit
+                            </button> </span
+                          ><span>
+                            <button
+                              class="card-link btn btn-success"
+                              onclick="getConfirmation()"
+                            >
+                              Delete
+                            </button></span
                           >
-                            Edit
-                          </button> </span
-                        ><span>
-                          <button
-                            class="card-link btn btn-success"
-                            onclick="getConfirmation()"
-                          >
-                            Delete
-                          </button></span
-                        >
-                      </p>
+                        </p>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <!-- end 4th card -->
-                <!-- 5th card -->
-                <div class="card p-0 m-0">
-                  <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                  <div class="card-body p-0 m-0 border border-dark cardwidth">
-                    <p class="card-title bg-green cardheader">Washing car</p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Description :</span>
-                    </p>
-                    <p
-                      class="card-text spantextarea p-1 m-1 text-left"
-                      id="viewComment"
-                    >
-                      <span class="spantextarea p-0 m-0"
-                        >Lorem ipsum dolor sit, amet consectetur adipisicing
-                        elit. Perferendis recusandae quas i</span
-                      >
-                    </p>
-
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Assigned to :</span>
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Status:</span>
-                    </p>
-                    <p class="card-text p-1 m-1 text-left">
-                      <span>Target Date: </span>
-                    </p>
-                    <div>
+                  <!-- end 4th card -->
+                  <!-- 5th card -->
+                  <div class="card p-0 m-0">
+                    <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                    <div class="card-body p-0 m-0 border border-dark cardwidth">
+                      <p class="card-title bg-green cardheader">Washing car</p>
                       <p class="card-text p-1 m-1 text-left">
-                        <span>
-                          <button
-                            type="button"
-                            class="btn btn-success"
-                            data-toggle="modal"
-                            data-target="#editModal"
-                          >
-                            Edit
-                          </button> </span
-                        ><span>
-                          <button
-                            class="card-link btn btn-success"
-                            onclick="getConfirmation()"
-                          >
-                            Delete
-                          </button></span
+                        <span>Description :</span>
+                      </p>
+                      <p
+                        class="card-text spantextarea p-1 m-1 text-left"
+                        id="viewComment"
+                      >
+                        <span class="spantextarea p-0 m-0"
+                          >Lorem ipsum dolor sit, amet consectetur adipisicing
+                          elit. Perferendis recusandae quas i</span
                         >
                       </p>
+
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Assigned to :</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Status:</span>
+                      </p>
+                      <p class="card-text p-1 m-1 text-left">
+                        <span>Target Date: </span>
+                      </p>
+                      <div>
+                        <p class="card-text p-1 m-1 text-left">
+                          <span>
+                            <button
+                              type="button"
+                              class="btn btn-success"
+                              data-toggle="modal"
+                              data-target="#editModal"
+                            >
+                              Edit
+                            </button> </span
+                          ><span>
+                            <button
+                              class="card-link btn btn-success"
+                              onclick="getConfirmation()"
+                            >
+                              Delete
+                            </button></span
+                          >
+                        </p>
+                      </div>
                     </div>
                   </div>
+                  <!-- end 5th card -->
                 </div>
-                <!-- end 5th card -->
-              </div>
-              <!-- end task -->
-            </section>
+                <!-- end task -->
+              </section>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
 
-    <!-- Start Modal -->
-    <!-- Button trigger modal -->
-    <!-- <button
+      <!-- Start Modal -->
+      <!-- Button trigger modal -->
+      <!-- <button
       type="button"
       class="btn btn-primary"
       data-toggle="modal"
@@ -347,40 +350,40 @@
       Add New task
     </button> -->
 
-    <!-- EndButton trigger modal -->
-    <!-- edit task -->
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="editModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <!-- <div class="modal-dialog">
+      <!-- EndButton trigger modal -->
+      <!-- edit task -->
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="editModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <!-- <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header"> -->
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <p class="text-right">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </p>
-          <div class="modal-header bg-green modalreader">
-            <h5
-              class="text-center font-black-bold p-1 m-1"
-              id="exampleModalLabel"
-            >
-              Edit Task
-            </h5>
-          </div>
-          <form id="editTaskForm">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <p class="text-right">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </p>
+            <div class="modal-header bg-green modalreader">
+              <h5
+                class="text-center font-black-bold p-1 m-1"
+                id="exampleModalLabel"
+              >
+                Edit Task
+              </h5>
+            </div>
+            <!-- <form id="editTaskForm"> -->
             <div class="modal-body">
               <!-- Add Modal body by Amy -->
               <section class="container m-0 p-0">
@@ -481,45 +484,45 @@
                 Save Changes
               </button>
             </div>
-          </form>
+            <!-- </form> -->
+          </div>
         </div>
       </div>
-    </div>
-    <!-- End Modal -->
+      <!-- End Modal -->
 
-    <!-- add task modal -->
-    <div
-      class="modal fade"
-      id="addModal"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel1"
-      aria-hidden="true"
-    >
-      <!-- <div class="modal-dialog">
+      <!-- add task modal -->
+      <div
+        class="modal fade"
+        id="addModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel1"
+        aria-hidden="true"
+      >
+        <!-- <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header"> -->
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <p class="text-right">
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </p>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <p class="text-right">
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </p>
 
-          <div class="modal-header bg-green modalreader">
-            <h5
-              class="text-center font-black-bold p-1 m-1"
-              id="exampleModalLabel"
-            >
-              Add Task
-            </h5>
-          </div>
-          <form id="newTaskForm">
+            <div class="modal-header bg-green modalreader">
+              <h5
+                class="text-center font-black-bold p-1 m-1"
+                id="exampleModalLabel"
+              >
+                Add Task
+              </h5>
+            </div>
+
             <div class="modal-body">
               <!-- Add Modal body by Amy -->
               <section class="container m-0 p-0">
@@ -530,8 +533,11 @@
                   >&nbsp;<span id="errorName" class="showerrormsg"></span>
                   <input
                     type="text"
+                     autofocus="autofocus"
                     class="form-control"
                     id="newTaskNameInput"
+                    tabindex="1"
+                    TabStop="true" 
                   />
                 </div>
 
@@ -546,13 +552,14 @@
                     type="text"
                     class="form-control"
                     id="newTaskDescription"
+                    tabindex="2"
                   ></textarea>
                 </div>
                 <div class="form-row">
                   <label for="newTaskStatus" class="font-black">Status</label
                   >&nbsp;
                   <span id="errorTaskStatus" class="showerrormsg"></span>
-                  <select class="form-control" id="newTaskStatus">
+                  <select class="form-control" id="newTaskStatus" tabindex="3">
                     <option value="1">To-do</option>
                     <option value="2">In progress</option>
                     <option value="3">Review</option>
@@ -566,7 +573,11 @@
                     >&nbsp;
                     <span id="errorAssignTo" class="showerrormsg"></span>
                     <!-- <input type="text" class="form-control" id="newTaskAssignedTo"> -->
-                    <select class="form-control" id="newTaskAssignedTo">
+                    <select
+                      class="form-control"
+                      id="newTaskAssignedTo"
+                      tabindex="4"
+                    >
                       <option value="0">-Select-</option>
                       <option value="1">Amy</option>
                       <option value="2">Tom</option>
@@ -583,6 +594,7 @@
                       type="date"
                       class="form-control"
                       id="newTaskDueDate"
+                      tabindex="5"
                     />
                   </div>
                 </div>
@@ -598,35 +610,39 @@
               Error message
             </div> -->
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success btn-block">
+              <button
+                type="submit"
+                class="btn btn-success btn-block"
+                tabindex="6"
+              >
                 Add Task
               </button>
             </div>
-          </form>
+            <!-- </form> -->
+          </div>
         </div>
       </div>
-    </div>
-    <!-- end add task modal -->
+      <!-- end add task modal -->
 
-    <!-- Optional JavaScript; choose one of the two! -->
+      <!-- Optional JavaScript; choose one of the two! -->
 
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script
-      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/index.js"></script>
-    <script src="js/test.js"></script>
-    <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
+      <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+      <script
+        src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"
+      ></script>
+      <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+        crossorigin="anonymous"
+      ></script>
+      <script src="js/index.js"></script>
+      <script src="js/test.js"></script>
+      <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
-    -->
+    --></form>
   </body>
 </html>

@@ -1,5 +1,5 @@
 // Select the New Task Form
-const editTaskForm = document.querySelector("#editTaskForm");
+const editTaskForm = document.querySelector("#newTaskForm");
 
 // Add an 'onsubmit' event listener
 editTaskForm.addEventListener("submit", (event) => {
