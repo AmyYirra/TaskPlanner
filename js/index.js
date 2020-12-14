@@ -113,7 +113,7 @@ function getTodayDate() {
   }
   return yyyy + "-" + mm + "-" + dd;
 }
-function fn() {
+function fnEdit() {
   document.getElementById("value_Task").innerHTML = "Edit Task";
   let idBtnedit = document.getElementById("idBtnName");
   idBtnedit.innerHTML = "Edit Task";
