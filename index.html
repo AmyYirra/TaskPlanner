@@ -26,7 +26,7 @@
         <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
 
         <a class="btn-success" data-toggle="modal" data-target="#addModal">
-          <button class="btn btn-success font-black" onclick="fnClick();">
+          <button class="btn btn-success font-black" onclick="clickAdd();">
             Add Task +
           </button></a
         >
@@ -89,7 +89,8 @@
                               type="button"
                               class="btn btn-success"
                               data-toggle="modal"
-                              data-target="#editModal"
+                              data-target="#addModal"
+                              onclick="fn();"
                             >
                               Edit
                             </button>
@@ -372,8 +373,8 @@
                 data-dismiss="modal"
                 aria-label="Close"
               >
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <span aria-hidden="true">&times;</span></button
+              ><span></span>
             </p>
             <div class="modal-header bg-green modalreader">
               <h5
@@ -383,6 +384,7 @@
                 Edit Task
               </h5>
             </div>
+
             <!-- <form id="editTaskForm"> -->
             <div class="modal-body">
               <!-- Add Modal body by Amy -->
@@ -516,32 +518,32 @@
 
             <div class="modal-header bg-green modalreader">
               <h5
-                class="text-center font-black-bold p-1 m-1"
+                class="text-center font-black-bold p-0 m-0"
                 id="exampleModalLabel"
               >
-                Add Task
+                <span>&nbsp;</span>
+                <label id="value_Task" class="text-left lblheader">Task </label>
               </h5>
             </div>
-
             <div class="modal-body">
               <!-- Add Modal body by Amy -->
               <section class="container m-0 p-0">
                 <!-- <h1 class="display-4 text-center">Add New Task</h1> -->
 
-                <div class="form-row">
+                <div class="form-row m-0 p-0">
                   <label for="newTaskNameInput" class="font-black">Name </label
                   >&nbsp;<span id="errorName" class="showerrormsg"></span>
                   <input
                     type="text"
-                     autofocus="autofocus"
+                    autofocus="autofocus"
                     class="form-control"
                     id="newTaskNameInput"
                     tabindex="1"
-                    TabStop="true" 
+                    TabStop="true"
                   />
                 </div>
 
-                <div class="form-row">
+                <div class="form-row m-0 p-0">
                   <label for="newTaskDescription" class="font-black"
                     >Description</label
                   >&nbsp;<span
@@ -614,8 +616,9 @@
                 type="submit"
                 class="btn btn-success btn-block"
                 tabindex="6"
+                id="idBtnName"
               >
-                Add Task
+                Submit
               </button>
             </div>
             <!-- </form> -->

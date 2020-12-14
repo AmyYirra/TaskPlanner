@@ -15,7 +15,11 @@ $(function () {
 //onload addmodal --to set focus on first element
 $("#addModal").on("shown.bs.modal", function () {
   newTaskNameInput.focus();
-  // $("input:first").trigger("focus");
+  if (document.getElementById("id_Edit").value == "ADD") {
+    document.getElementById("add_Header").style.display = "block";
+    document.getElementById("edit_Header").style.display = "none";
+    document.getElementById("other_Header").style.display = "none";
+  }
 });
 // Add an 'onsubmit' event listener
 newTaskForm.addEventListener("submit", (event) => {
@@ -108,4 +112,14 @@ function getTodayDate() {
     mm = "0" + mm;
   }
   return yyyy + "-" + mm + "-" + dd;
+}
+function fn() {
+  document.getElementById("value_Task").innerHTML = "Edit Task";
+  let idBtnedit = document.getElementById("idBtnName");
+  idBtnedit.innerHTML = "Edit Task";
+}
+function clickAdd() {
+  document.getElementById("value_Task").innerHTML = "Add Task";
+  let idBtnadd = document.getElementById("idBtnName");
+  idBtnadd.innerHTML = "Add Task";
 }
