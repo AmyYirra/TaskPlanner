@@ -1,3 +1,4 @@
+const taskManager = new TaskManager(4);
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 // Select the inputs
@@ -21,6 +22,7 @@ $("#addModal").on("shown.bs.modal", function () {
     document.getElementById("other_Header").style.display = "none";
   }
 });
+
 // Add an 'onsubmit' event listener
 newTaskForm.addEventListener("submit", (event) => {
   // Prevent default action
@@ -81,6 +83,10 @@ newTaskForm.addEventListener("submit", (event) => {
   } else {
     errorDueDate.style.display = "none";
   }
+taskManager.addTask(name, description, assignedTo, dueDate,status);
+
+  taskManager.render();
+
 });
 
 function validFormFieldInput(data) {
