@@ -4,7 +4,7 @@ const createTaskHtml = (name, description, assignedTo, dueDate, status) => `
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader">
-                       <span> Task:${name}</span>
+                       <span class="p-1 m-1"> Task:  ${name}</span>
                     </p>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
@@ -76,23 +76,25 @@ class TaskManager {
 
   // Create the render method to display the task on the browser
   render() {
+  
     //Create a variable storing an empty array to hold the HTML of all the tasks' html, tasksHtmlList.
     const tasksHtmlList = [];
 
     for (let i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
       //  Create a date variable, storing a new Date(), passing in the current task's dueDate to the Date constructor.
-      const date = new Date();
+      //const date = new Date();
       // Create a formattedDate variable, storing a readable string representing the date, using methods of the date we just created.
-      const formattedDate =
-        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+     //show us only today date-commented by cecilia on 17/12/2020
+     // const formattedDate =
+        //date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
       // Create a taskHtml variable to store the HTML of the current task, by calling the createTaskHtml function and using the properties of the current task, as well as the new formattedDate variable for the parameters.
       const taskHtml = createTaskHtml(
         task.name,
         task.description,
         task.assignedTo,
-        formattedDate,
+        task.dueDate,
         task.status
       );
       //push the taskHtml into the tasksHtmlList array.
@@ -103,12 +105,12 @@ class TaskManager {
     //Select the tasks list element and set its innerHTML to the tasksHtml.
     const tasksList = document.querySelector("#addTask");
     tasksList.innerHTML = tasksHtml;
-  }//end of render
+  } //end of render
 }
 // end of class
 // //  instances of TaskManager
-//  const newTaskList = new TaskManager(0);
-//   newTaskList.addTask('shopping', 'milk', 'Tom', '17-12-2020','toDO');
+const newTaskList = new TaskManager(0);
+
 //   newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020",'toDo');
 //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
-//   newTaskList.render();
+  newTaskList.render();

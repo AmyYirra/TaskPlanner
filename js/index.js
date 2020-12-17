@@ -1,4 +1,6 @@
 const taskManager = new TaskManager(0);
+ taskManager.addTask("Shopping", "dsdg ddfdf dfdfd dfdfdf fdfdf vdd yeyhj efeej", "Amy", "22-12-2020", "To-do");
+ taskManager.render();
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 // Select the inputs
@@ -84,11 +86,21 @@ newTaskForm.addEventListener("submit", (event) => {
     }
   } else {
     errorDueDate.style.display = "none";
+    taskManager.addTask(
+      "Cleaning",
+      "dsdg ddfdf dfdfd dfdfdf fdfdf vdd yeyhj efeej",
+      "Cecilia",
+      "29-12-2020",
+      "To-do"
+    );
+    
+    //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
+     taskManager.render();
   }
 
-taskManager.addTask("shopping", "milk", "Tom", "17-12-2020", "toDO");
 
-  taskManager.render();
+
+ 
 
 });
 
