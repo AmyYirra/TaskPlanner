@@ -76,28 +76,39 @@ class TaskManager {
 
   // Create the render method to display the task on the browser
   render() {
-   
-    const tasksList = document.querySelector("#addTask");
-    
-    for (let i = 0; i < this.tasks.length; i++) {
-      
-      // Create the task html
-      const taskHtml = createTaskHtml(
-        this.tasks[i].name,
-        this.tasks[i].description,
-        this.tasks[i].assignedTo,
-        this.tasks[i].dueDate,
-        this.tasks[i].status
-      );
+    //Create a variable storing an empty array to hold the HTML of all the tasks' html, tasksHtmlList.
+    const tasksHtmlList = [];
 
-      tasksList.innerHTML += taskHtml;
-    }
-  }
+    for (let i = 0; i < this.tasks.length; i++) {
+      const task = this.tasks[i];
+      //  Create a date variable, storing a new Date(), passing in the current task's dueDate to the Date constructor.
+      const date = new Date();
+      // Create a formattedDate variable, storing a readable string representing the date, using methods of the date we just created.
+      const formattedDate =
+        date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
+
+      // Create a taskHtml variable to store the HTML of the current task, by calling the createTaskHtml function and using the properties of the current task, as well as the new formattedDate variable for the parameters.
+      const taskHtml = createTaskHtml(
+        task.name,
+        task.description,
+        task.assignedTo,
+        formattedDate,
+        task.status
+      );
+      //push the taskHtml into the tasksHtmlList array.
+      tasksHtmlList.push(taskHtml);
+    } //end of looping
+    //create a tasksHtml variable, set the variable to a string of HTML of all the tasks by joining the tasksHtmlList array together, separating each task's html with a newline.
+    const tasksHtml = tasksHtmlList.join("\n");
+    //Select the tasks list element and set its innerHTML to the tasksHtml.
+    const tasksList = document.querySelector("#addTask");
+    tasksList.innerHTML = tasksHtml;
+  }//end of render
 }
 // end of class
-// instances of TaskManager
-const newTaskList = new TaskManager(0);
- newTaskList.addTask('shopping', 'milk', 'Tom', '17-12-2020','toDO');
- newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020",'toDo');
- newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
- newTaskList.render();
+// //  instances of TaskManager
+//  const newTaskList = new TaskManager(0);
+//   newTaskList.addTask('shopping', 'milk', 'Tom', '17-12-2020','toDO');
+//   newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020",'toDo');
+//   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
+//   newTaskList.render();

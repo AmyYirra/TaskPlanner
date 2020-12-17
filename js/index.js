@@ -1,4 +1,4 @@
-const taskManager = new TaskManager(4);
+const taskManager = new TaskManager(0);
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 // Select the inputs
@@ -33,6 +33,8 @@ newTaskForm.addEventListener("submit", (event) => {
   const taskStatus = newTaskStatus.value;
   const assignedTo = newTaskAssignedTo.value;
   const dueDate = newTaskDueDate.value;
+  const status = newTaskStatus.innerHTML;
+  
 
   if (!validFormFieldInput(name)) {
     errorName.innerHTML = "Invalid Name ";
@@ -83,7 +85,8 @@ newTaskForm.addEventListener("submit", (event) => {
   } else {
     errorDueDate.style.display = "none";
   }
-taskManager.addTask(name, description, assignedTo, dueDate,status);
+
+taskManager.addTask("shopping", "milk", "Tom", "17-12-2020", "toDO");
 
   taskManager.render();
 
