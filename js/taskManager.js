@@ -3,6 +3,8 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const value = "idDone" + id;
   const btnst = "btn_Status" + id;
   // alert(value);
+
+  
   return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
@@ -42,8 +44,9 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                               onclick="fnUpdate( ${id});"
                             >
                             Mark as done
-                            </button> </span
-                          ><!--<span>
+                            </button> </span>
+                    <span hidden><input type="textbox" id="txt"  value= ${id} ></span>
+                          <!--<span>
                             <button
                               class="card-link btn btn-success"
                               onclick="getConfirmation()"
@@ -87,14 +90,7 @@ class TaskManager {
 
     for (let i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
-      // let value;
-      // if (i==0) {
-      // value=1;
-      // }
-      // else
-      // {
-      //   value=i;
-      // }
+     
       //  Create a date variable, storing a new Date(), passing in the current task's dueDate to the Date constructor.
       //const date = new Date();
       // Create a formattedDate variable, storing a readable string representing the date, using methods of the date we just created.
@@ -103,8 +99,7 @@ class TaskManager {
       //date.getDate() + "/" + (date.getMonth() + 1) + "/" + date.getFullYear();
 
       // Create a taskHtml variable to store the HTML of the current task, by calling the createTaskHtml function and using the properties of the current task, as well as the new formattedDate variable for the parameters.
-      //let taskId=task.currentId;
-      //alert(taskId);
+     
       const taskHtml = createTaskHtml(
         task.id,
         task.name,
@@ -148,6 +143,10 @@ class TaskManager {
 // const newTaskList = new TaskManager(0);
 
 
+
 // newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
 // //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
 // newTaskList.render();
+
+
+
