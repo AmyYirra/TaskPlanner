@@ -1,6 +1,13 @@
+//added new task 
 const taskManager = new TaskManager(0);
- taskManager.addTask("Shopping", "dsdg ddfdf dfdfd dfdfdf fdfdf vdd yeyhj efeej", "Amy", "22-12-2020", "To-do");
- taskManager.render();
+taskManager.addTask(
+  "Shopping",
+  "dsdg ddfdf dfdfd dfdfdf fdfdf vdd yeyhj efeej",
+  "Amy",
+  "22-12-2020",
+  "To-do"
+);
+taskManager.render();
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 // Select the inputs
@@ -33,10 +40,16 @@ newTaskForm.addEventListener("submit", (event) => {
   const name = newTaskNameInput.value;
   const description = newTaskDescription.value;
   const taskStatus = newTaskStatus.value;
+  const txtTaskStatus = document.getElementById("newTaskStatus").options[
+    document.getElementById("newTaskStatus").selectedIndex
+  ].text;
+
   const assignedTo = newTaskAssignedTo.value;
+  const txtAssignTo = document.getElementById("newTaskAssignedTo").options[
+    document.getElementById("newTaskAssignedTo").selectedIndex
+  ].text;
   const dueDate = newTaskDueDate.value;
   const status = newTaskStatus.innerHTML;
-  
 
   if (!validFormFieldInput(name)) {
     errorName.innerHTML = "Invalid Name ";
@@ -86,23 +99,26 @@ newTaskForm.addEventListener("submit", (event) => {
     }
   } else {
     errorDueDate.style.display = "none";
+    var FormatDueDate = updateDueDate(dueDate);
     taskManager.addTask(
-      "Cleaning",
-      "dsdg ddfdf dfdfd dfdfdf fdfdf vdd yeyhj efeej",
-      "Cecilia",
-      "29-12-2020",
-      "To-do"
+      name,
+      description,
+      txtAssignTo,
+      FormatDueDate,
+      txtTaskStatus
     );
-    
+
     //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
-     taskManager.render();
+    taskManager.render();
   }
-
-
-
- 
-
 });
+//Format due date
+function updateDueDate(dueDate) {
+  //var strDueDate = dueDate;
+  var strDueDate = dueDate.split("-");
+  var rtnDueDate = strDueDate[2] + "-" + strDueDate[1] + "-" + strDueDate[0];
+  return rtnDueDate;
+}
 
 function validFormFieldInput(data) {
   return data !== null && data !== "";
@@ -134,6 +150,7 @@ function getTodayDate() {
   }
   return yyyy + "-" + mm + "-" + dd;
 }
+
 function fnEdit() {
   document.getElementById("value_Task").innerHTML = "Edit Task";
   let idBtnedit = document.getElementById("idBtnName");
