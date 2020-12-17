@@ -106,7 +106,7 @@ class TaskManager {
       //let taskId=task.currentId;
       //alert(taskId);
       const taskHtml = createTaskHtml(
-        i,
+        task.id,
         task.name,
         task.description,
         task.assignedTo,
@@ -122,12 +122,32 @@ class TaskManager {
     const tasksList = document.querySelector("#addTask");
     tasksList.innerHTML = tasksHtml;
   } //end of render
+    
+
+  //Add a new method, getTaskById(), it should accept a taskId as a parameter.
+  getTaskById() {
+    // create a foundTask variable to store the found task.
+    let foundTask;
+
+    // Loop over the tasks and find the task with the id passed as a parameter
+    for (let i = 0; i < this.tasks.length; i++) {
+      // Store the current task in a variable called task
+      const task = this.tasks[i];
+
+      // Compare task.id to the passed in taskId, if its a match, store the task to the variable foundTask
+      if (task.id === taskId) {
+        foundTask = task;
+      }
+    }
+    // Return the found task
+    return foundTask;
+  }
 }
 // end of class
-// //  instances of TaskManager
-const newTaskList = new TaskManager(0);
-let id = 0;
+// instances of TaskManager
+// const newTaskList = new TaskManager(0);
 
-newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
-//   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
-newTaskList.render();
+
+// newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
+// //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
+// newTaskList.render();
