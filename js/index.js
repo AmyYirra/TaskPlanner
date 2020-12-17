@@ -107,10 +107,20 @@ newTaskForm.addEventListener("submit", (event) => {
       FormatDueDate,
       txtTaskStatus
     );
+    newTaskNameInput.value="";
+    newTaskDescription.value="";
+    newTaskStatus.value=1;
+    newTaskAssignedTo.value="";
+    newTaskDueDate.value="";
+
     $("#addModal").modal().hide();
     $("#addModal .close").click();
+   // name="";
+    //event.preventDefault();
     //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
     taskManager.render();
+    
+  
   }
 });
 //Format due date
@@ -152,28 +162,29 @@ function getTodayDate() {
   return yyyy + "-" + mm + "-" + dd;
 }
 function fnUpdate(id) {
-   //alert(nb);
+  //alert(nb);
   const btnUpdate = "btn_Status" + id;
   const spanId = "idDone" + id;
   document.getElementById(btnUpdate).style.display = "none";
   document.getElementById(spanId).innerHTML = "Status : Done";
   document.getElementById(spanId).style.backgroundColor = "#28a745";
   document.getElementById(spanId).style.fontWeight = "bold";
+  return id;
 }
 
-function fnEdit() {
-  // document.getElementById("btn_Status").innerHTML = "Edit Task";
-  //alert(val);
-  //alert("idDone" + val);
-  document.getElementById("btn_Status" + val).style.display = "none";
-  // alert(document.getElementById("btn_Status" + val));
-  document.getElementById("idDone" + val).innerHTML = "Status : Done";
-  document.getElementById("idDone" + val).style.backgroundColor = "#28a745";
-  document.getElementById("idDone" + val).style.fontWeight = "bold";
+// function fnEdit() {
+//   // document.getElementById("btn_Status").innerHTML = "Edit Task";
+//   //alert(val);
+//   //alert("idDone" + val);
+//   document.getElementById("btn_Status" + val).style.display = "none";
+//   // alert(document.getElementById("btn_Status" + val));
+//   document.getElementById("idDone" + val).innerHTML = "Status : Done";
+//   document.getElementById("idDone" + val).style.backgroundColor = "#28a745";
+//   document.getElementById("idDone" + val).style.fontWeight = "bold";
 
-  let idBtnedit = document.getElementById("idBtnName");
-  idBtnedit.innerHTML = "Edit Task";
-}
+//   let idBtnedit = document.getElementById("idBtnName");
+//   idBtnedit.innerHTML = "Edit Task";
+// }
 function clickAdd() {
   document.getElementById("value_Task").innerHTML = "Add Task";
   let idBtnadd = document.getElementById("idBtnName");
