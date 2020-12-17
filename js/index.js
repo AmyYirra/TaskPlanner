@@ -1,12 +1,12 @@
-//added new task 
+//added new task
 const taskManager = new TaskManager(0);
-taskManager.addTask(
+/*taskManager.addTask(
   "Shopping",
   "dsdg ddfdf dfdfd dfdfdf fdfdf vdd yeyhj efeej",
   "Amy",
   "22-12-2020",
   "To-do"
-);
+);*/
 taskManager.render();
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
@@ -107,7 +107,8 @@ newTaskForm.addEventListener("submit", (event) => {
       FormatDueDate,
       txtTaskStatus
     );
-
+    $("#addModal").modal().hide();
+    $("#addModal .close").click();
     //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
     taskManager.render();
   }
@@ -150,9 +151,26 @@ function getTodayDate() {
   }
   return yyyy + "-" + mm + "-" + dd;
 }
+function fnUpdate(id) {
+   //alert(nb);
+  const btnUpdate = "btn_Status" + id;
+  const spanId = "idDone" + id;
+  document.getElementById(btnUpdate).style.display = "none";
+  document.getElementById(spanId).innerHTML = "Status : Done";
+  document.getElementById(spanId).style.backgroundColor = "#28a745";
+  document.getElementById(spanId).style.fontWeight = "bold";
+}
 
 function fnEdit() {
-  document.getElementById("value_Task").innerHTML = "Edit Task";
+  // document.getElementById("btn_Status").innerHTML = "Edit Task";
+  //alert(val);
+  //alert("idDone" + val);
+  document.getElementById("btn_Status" + val).style.display = "none";
+  // alert(document.getElementById("btn_Status" + val));
+  document.getElementById("idDone" + val).innerHTML = "Status : Done";
+  document.getElementById("idDone" + val).style.backgroundColor = "#28a745";
+  document.getElementById("idDone" + val).style.fontWeight = "bold";
+
   let idBtnedit = document.getElementById("idBtnName");
   idBtnedit.innerHTML = "Edit Task";
 }
