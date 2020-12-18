@@ -3,12 +3,12 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const value = "idDone" + id;
   const btnst = "btn_Status" + id;
   // alert(value);
-  if (status=="Done"){
-return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
+  if (status == "Done") {
+    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader">
-                       <span class="p-1 m-1"> Task:  ${name}</span>
+                       <span class="p-1 m-1"> Task  ${id}:  ${name}</span>
                     </p>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
@@ -21,7 +21,6 @@ return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
                           >${description}</span
                         >
                       </p>
-
                       <p class="card-text p-1 m-1 text-left">
                         <span>Assigned to :${assignedTo}</span>
                       </p>
@@ -33,13 +32,12 @@ return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
                       </p>
                        <p hidden = "hidden"> <span ><input type="textbox" id="txt"  value= ${id} ></span></p>
                        </div> </div>`;
-  }
-  else{
+  } else {
     return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader">
-                       <span class="p-1 m-1"> Task:  ${name}</span>
+                       <span class="p-1 m-1"> Task  ${id}:  ${name}</span>
                     </p>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
@@ -52,7 +50,6 @@ return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
                           >${description}</span
                         >
                       </p>
-
                       <p class="card-text p-1 m-1 text-left">
                         <span>Assigned to :${assignedTo}</span>
                       </p>
@@ -88,15 +85,13 @@ return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
                       </div>
                     </div>
                   </div>`;
-
   }
- 
 };
 // task manager class
 class TaskManager {
-  constructor(currentId=0) {
+  constructor(currentId = 0) {
     this.tasks = [];
-    this.currentId = currentId +1;
+    this.currentId = currentId + 1;
     //alert(this.currentId);
   }
 
@@ -121,8 +116,8 @@ class TaskManager {
 
     for (let i = 0; i < this.tasks.length; i++) {
       const task = this.tasks[i];
-    // Create a taskHtml variable to store the HTML of the current task, by calling the createTaskHtml function and using the properties of the current task, as well as the new formattedDate variable for the parameters.
-    
+      // Create a taskHtml variable to store the HTML of the current task, by calling the createTaskHtml function and using the properties of the current task, as well as the new formattedDate variable for the parameters.
+
       const taskHtml = createTaskHtml(
         task.id,
         task.name,
@@ -140,24 +135,21 @@ class TaskManager {
     const tasksList = document.querySelector("#addTask");
     tasksList.innerHTML = tasksHtml;
   } //end of render
-  getTaskById(id){
+  getTaskById(id) {
     let foundTask;
-    for (let k = 0; k < this.tasks.length ; k++) {
+    for (let k = 0; k < this.tasks.length; k++) {
       const value = this.tasks[k];
       if (this.tasks[k].id === id) {
-      //  alert(id);
-       foundTask = value;
+        //  alert(id);
+        foundTask = value;
       }
     }
     return foundTask;
-
-   
   }
 }
 // end of class
 // //  instances of TaskManager
 const newTaskList = new TaskManager(0);
-
 
 //newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
 //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");

@@ -107,19 +107,18 @@ newTaskForm.addEventListener("submit", (event) => {
       FormatDueDate,
       txtTaskStatus
     );
-    newTaskNameInput.value="";
-    newTaskDescription.value="";
-    newTaskStatus.value=1;
-    newTaskAssignedTo.value="";
-    newTaskDueDate.value="";
+    newTaskNameInput.value = "";
+    newTaskDescription.value = "";
+    newTaskStatus.value = 1;
+    newTaskAssignedTo.value = "";
+    newTaskDueDate.value = "";
 
     $("#addModal").modal().hide();
     $("#addModal .close").click();
-   
+
     //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
     taskManager.render();
-  
-   }
+  }
 });
 //Format due date
 function updateDueDate(dueDate) {
@@ -159,8 +158,11 @@ function getTodayDate() {
   }
   return yyyy + "-" + mm + "-" + dd;
 }
+//updating the status
 function fnUpdate(id) {
-   const task = taskManager.getTaskById(id);
+  //finding the task according to id
+  const task = taskManager.getTaskById(id);
+  //updating the status
   task.status = "Done";
   taskManager.render();
 }
