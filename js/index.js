@@ -25,10 +25,10 @@ $(function () {
 //onload addmodal --to set focus on first element
 $("#addModal").on("shown.bs.modal", function () {
   newTaskNameInput.focus();
-  if (document.getElementById("id_Edit").value == "ADD") {
-    document.getElementById("add_Header").style.display = "block";
-    document.getElementById("edit_Header").style.display = "none";
-    document.getElementById("other_Header").style.display = "none";
+  if (document.querySelector("#id_Edit").value == "ADD") {
+    document.querySelector("#add_Header").style.display = "block";
+    document.querySelector("#edit_Header").style.display = "none";
+    document.querySelector("#other_Header").style.display = "none";
   }
 });
 
@@ -40,13 +40,13 @@ newTaskForm.addEventListener("submit", (event) => {
   const name = newTaskNameInput.value;
   const description = newTaskDescription.value;
   const taskStatus = newTaskStatus.value;
-  const txtTaskStatus = document.getElementById("newTaskStatus").options[
-    document.getElementById("newTaskStatus").selectedIndex
+  const txtTaskStatus = document.querySelector("#newTaskStatus").options[
+    document.querySelector("#newTaskStatus").selectedIndex
   ].text;
 
   const assignedTo = newTaskAssignedTo.value;
-  const txtAssignTo = document.getElementById("newTaskAssignedTo").options[
-    document.getElementById("newTaskAssignedTo").selectedIndex
+  const txtAssignTo = document.querySelector("#newTaskAssignedTo").options[
+    document.querySelector("#newTaskAssignedTo").selectedIndex
   ].text;
   const dueDate = newTaskDueDate.value;
   const status = newTaskStatus.innerHTML;
@@ -107,8 +107,15 @@ newTaskForm.addEventListener("submit", (event) => {
       FormatDueDate,
       txtTaskStatus
     );
+    newTaskNameInput.value = "";
+    newTaskDescription.value = "";
+    newTaskStatus.value = 1;
+    newTaskAssignedTo.value = "";
+    newTaskDueDate.value = "";
+
     $("#addModal").modal().hide();
     $("#addModal .close").click();
+
     //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
     taskManager.render();
   }
@@ -151,31 +158,11 @@ function getTodayDate() {
   }
   return yyyy + "-" + mm + "-" + dd;
 }
+//updating the status
 function fnUpdate(id) {
-   //alert(nb);
-  const btnUpdate = "btn_Status" + id;
-  const spanId = "idDone" + id;
-  document.getElementById(btnUpdate).style.display = "none";
-  document.getElementById(spanId).innerHTML = "Status : Done";
-  document.getElementById(spanId).style.backgroundColor = "#28a745";
-  document.getElementById(spanId).style.fontWeight = "bold";
-}
-
-function fnEdit() {
-  // document.getElementById("btn_Status").innerHTML = "Edit Task";
-  //alert(val);
-  //alert("idDone" + val);
-  document.getElementById("btn_Status" + val).style.display = "none";
-  // alert(document.getElementById("btn_Status" + val));
-  document.getElementById("idDone" + val).innerHTML = "Status : Done";
-  document.getElementById("idDone" + val).style.backgroundColor = "#28a745";
-  document.getElementById("idDone" + val).style.fontWeight = "bold";
-
-  let idBtnedit = document.getElementById("idBtnName");
-  idBtnedit.innerHTML = "Edit Task";
-}
-function clickAdd() {
-  document.getElementById("value_Task").innerHTML = "Add Task";
-  let idBtnadd = document.getElementById("idBtnName");
-  idBtnadd.innerHTML = "Add Task";
+  //finding the task according to id
+  const task = taskManager.getTaskById(id);
+  //updating the status
+  task.status = "Done";
+  taskManager.render();
 }
