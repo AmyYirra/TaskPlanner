@@ -138,7 +138,7 @@ class TaskManager {
     
 
   //Add a new method, getTaskById(), it should accept a taskId as a parameter.
-  getTaskById() {
+  getTaskById(id) {
     // create a foundTask variable to store the found task.
     let foundTask;
 
@@ -148,7 +148,7 @@ class TaskManager {
       const task = this.tasks[i];
 
       // Compare task.id to the passed in taskId, if its a match, store the task to the variable foundTask
-      if (task.id === taskId) {
+      if (task.id === id) {
         foundTask = task;
       }
     }
