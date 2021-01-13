@@ -143,7 +143,10 @@ function validFormDropdown(data) {
 }
 function getConfirmation(deleteId) {
   //('#btnCancel').addClass('btn-secondary');
-  var retVal = confirm("Do you want to delete the task?");
+   const task = taskManager.getTaskById(deleteId);
+   const taskName = task.name;
+  var retVal = confirm(`Do you want to delete the task ${taskName}?`);
+ //var retVal = confirm("Do you want to delete the task?");
   if (retVal == true) {
     fnDelete(deleteId);
     return true;
