@@ -7,7 +7,9 @@ const taskManager = new TaskManager(0);
   "22-12-2020",
   "To-do"
 );*/
+taskManager.getTasks();
 taskManager.render();
+
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 // Select the inputs
@@ -117,7 +119,10 @@ newTaskForm.addEventListener("submit", (event) => {
     $("#addModal .close").click();
 
     //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
+    taskManager.storeTasks();
     taskManager.render();
+    
+    
   }
 });
 //Format due date
