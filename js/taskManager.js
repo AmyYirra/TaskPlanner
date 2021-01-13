@@ -4,10 +4,10 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const btnst = "btn_Status" + id;
   // alert(value);
   if (status == "Done") {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
+    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" >
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
-                      <p class="card-title bg-green cardheader">
+                      <p class="card-title bg-green cardheader" data-taskId=${id}>
                        <span class="p-1 m-1"> Task  ${id}:  ${name}</span>
                     </p>
                       <p class="card-text p-1 m-1 text-left">
@@ -31,12 +31,20 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                         <span>Due Date:${dueDate} </span>
                       </p>
                        <p hidden = "hidden"> <span ><input type="textbox" id="txt"  value= ${id} ></span></p>
-                       </div> </div>`;
+                       <span>
+                            <button
+                              class="card-link btn btn-success " onclick="fnDelete(${id})"
+                                                       >
+                              Delete
+                            </button></span
+                          >
+                       </div>
+                       </div>`;
   } else {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
+    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" >
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
-                      <p class="card-title bg-green cardheader">
+                      <p class="card-title bg-green cardheader" data-taskId=${id}>
                        <span class="p-1 m-1"> Task  ${id}:  ${name}</span>
                     </p>
                       <p class="card-text p-1 m-1 text-left">
@@ -68,20 +76,19 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                               class="btn btn-success"
                               data-toggle="modal"
                               
-                              onclick="fnUpdate( ${id});"
+                              onclick="fnUpdate(${id})"
                             >
                             Mark as done
                             </button> </span>
                    <span hidden = "hidden" ><input type="textbox" id="txt"  value= ${id} ></span>
-                          <!--<span>
+                         <span>
                             <button
-                              class="card-link btn btn-success"
-                              onclick="getConfirmation()"
+                              class="card-link btn btn-success" onclick="fnDelete(${id})"                              
                             >
                               Delete
                             </button></span
-                          >-->
-                       
+                          >
+                                               
                       </div>
                     </div>
                   </div>`;
@@ -91,7 +98,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
 class TaskManager {
   constructor(currentId = 0) {
     this.tasks = [];
-    this.currentId = currentId + 1;
+    this.currentId = currentId;
     //alert(this.currentId);
   }
 
@@ -132,7 +139,7 @@ class TaskManager {
     //create a tasksHtml variable, set the variable to a string of HTML of all the tasks by joining the tasksHtmlList array together, separating each task's html with a newline.
     const tasksHtml = tasksHtmlList.join("\n");
     //Select the tasks list element and set its innerHTML to the tasksHtml.
-    const tasksList = document.querySelector("#addTask");
+    const tasksList = document.querySelector("#tasksList");
     tasksList.innerHTML = tasksHtml;
   } //end of render
 
@@ -154,12 +161,34 @@ class TaskManager {
     // Return the found task
     return foundTask;
   }
+
+  // Create the deleteTask method
+  deleteTask(id) {
+    // Create an empty array and store it in a new variable, newTasks
+    const newTasks = [];
+
+    // Loop over the tasks
+    for (let i = 0; i < this.tasks.length; i++) {
+      // Get the current task in the loop
+      const task = this.tasks[i];
+
+      // Check if the task id is not the task id passed in as a parameter
+      if (task.id !== id) {
+        // Push the task to the newTasks array
+        newTasks.push(task);
+      }
+    }
+
+    // Set this.tasks to newTasks
+    this.tasks = newTasks;
+  }
+
   // Store task JSON to localStorage
   storeTasks() {
     const taskJson = JSON.stringify(this.tasks);
     localStorage.setItem("tasks", taskJson);
     const currentIdsrting = String(this.currentId);
-    localStorage.setItem("taskId", currentIdsrting);
+    localStorage.setItem("currentId", currentIdsrting);
   }
 
   //get tasks from local storage
@@ -170,15 +199,14 @@ class TaskManager {
     if (localStorage.getItem("tasks")) {
       this.tasks = JSON.parse(localStorage.getItem("tasks"));
     }
-    if (localStorage.getItem("taskId")) {
-      this.currentId = JSON.parse(localStorage.getItem("tasksId"));
+    if (localStorage.getItem("currentId")) {
+      this.currentId = Number(JSON.parse(localStorage.getItem("currentId")));
     }
   }
   // Clear local storage
   clearTasksFromLocalStorage() {
     localStorage.clear();
   }
-  
 }
 // end of class
 // instances of TaskManager
@@ -186,4 +214,3 @@ class TaskManager {
 // newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
 // //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
 // newTaskList.render();
-

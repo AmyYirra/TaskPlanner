@@ -7,6 +7,7 @@ const taskManager = new TaskManager(0);
   "22-12-2020",
   "To-do"
 );*/
+
 taskManager.getTasks();
 taskManager.render();
 
@@ -109,22 +110,23 @@ newTaskForm.addEventListener("submit", (event) => {
       FormatDueDate,
       txtTaskStatus
     );
+    taskManager.storeTasks();
+    taskManager.render();
+
     newTaskNameInput.value = "";
     newTaskDescription.value = "";
     newTaskStatus.value = 1;
-    newTaskAssignedTo.value = "";
+    newTaskAssignedTo.value =0;
     newTaskDueDate.value = "";
 
     $("#addModal").modal().hide();
     $("#addModal .close").click();
 
     //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
-    taskManager.storeTasks();
-    taskManager.render();
-    
-    
   }
 });
+
+
 //Format due date
 function updateDueDate(dueDate) {
   //var strDueDate = dueDate;
@@ -169,5 +171,14 @@ function fnUpdate(id) {
   const task = taskManager.getTaskById(id);
   //updating the status
   task.status = "Done";
+
   taskManager.render();
+  taskManager.storeTasks();
+}
+
+
+function fnDelete(taskId) {
+  taskManager.deleteTask(taskId);
+  taskManager.render();
+  taskManager.storeTasks();
 }
