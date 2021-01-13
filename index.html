@@ -28,11 +28,31 @@
         <a class="btn-success" data-toggle="modal" data-target="#addModal">
           <button class="btn btn-success font-black">Add Task +</button></a
         >
-        <p class="font-white-italic">
-          “It is the time you have wasted for your rose that makes your rose so
-          important.”<br />
+
+        <span class="font-white-italic m-1 text-right">
+          “ It is the time you have wasted for your rose that makes your rose so
+          important. ”<br />
           ― Antoine de Saint-Exupéry, The Little Prince
-        </p>
+        </span>
+        <span>&nbsp;&nbsp;&nbsp;</span>
+        <span class="text-right font-white-medium"> Weather</span>
+
+        <span class="text-right">
+          <input
+            id="city-input"
+            class="form-control Nwidth m-1"
+            type="text"
+            placeholder="enter a city"
+        /></span>
+        <span class="text-right">
+          <button id="go-button" class="btn btn-success">Go!</button>
+         
+        </span>
+        <span class="text-right">
+           <div
+            id="weather-container"
+            class="col-md-8 col-lg-6 text-right font-white-small"
+          ></div> </span>
       </nav>
       <main role="main" class="container-full">
         <div class="container-full">
@@ -360,6 +380,7 @@
       ></script>
       <script src="js/taskManager.js"></script>
       <script src="js/index.js"></script>
+      <script src="js/app.js"></script>
       <!-- <script src="js/test.js"></script> -->
 
       <!-- Option 2: jQuery, Popper.js, and Bootstrap JS

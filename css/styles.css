@@ -53,6 +53,10 @@ input {
   width: 80px;
   height: 20px;
 }
+.Nwidth{
+   width: 120px;
+ 
+}
 .spantextarea {
   display: flex;
   flex-wrap: wrap;
@@ -156,4 +160,14 @@ input {
   color: #ffffff;
   font-size: small;
   font-style: italic;
+}
+.font-white-small {
+  color: #ffffff;
+  font-size:10px;
+  font-style:normal
+}
+.font-white-medium {
+  color: #ffffff;
+  font-size:13px;
+  font-style:normal
 }
