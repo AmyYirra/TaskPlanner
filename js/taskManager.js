@@ -33,7 +33,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                        <p hidden = "hidden"> <span ><input type="textbox" id="txt"  value= ${id} ></span></p>
                        <span>
                             <button
-                              class="card-link btn btn-success " onclick="fnDelete(${id})"
+                              class="card-link btn btn-success " onclick="getConfirmationgit(${id})"
                                                        >
                               Delete
                             </button></span
@@ -83,7 +83,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                    <span hidden = "hidden" ><input type="textbox" id="txt"  value= ${id} ></span>
                          <span>
                             <button
-                              class="card-link btn btn-success" onclick="fnDelete(${id})"                              
+                              class="card-link btn btn-success" onclick="getConfirmation(${id})"                              
                             >
                               Delete
                             </button></span

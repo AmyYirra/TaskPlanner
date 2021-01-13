@@ -141,11 +141,11 @@ function validFormFieldInput(data) {
 function validFormDropdown(data) {
   return data;
 }
-function getConfirmation() {
+function getConfirmation(deleteId) {
   //('#btnCancel').addClass('btn-secondary');
   var retVal = confirm("Do you want to delete the task?");
   if (retVal == true) {
-    alert("Task deleted successfully");
+    fnDelete(deleteId);
     return true;
   } else {
     return false;
