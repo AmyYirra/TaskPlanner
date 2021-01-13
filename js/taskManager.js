@@ -8,7 +8,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader" data-taskId=${id}>
-                       <span class="p-1 m-1"> Task  ${id}:  ${name}</span>
+                       <span class="p-1 m-1"> Task :  ${name}</span>
                     </p>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
@@ -45,7 +45,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader" data-taskId=${id}>
-                       <span class="p-1 m-1"> Task  ${id}:  ${name}</span>
+                       <span class="p-1 m-1"> Task :  ${name}</span>
                     </p>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
