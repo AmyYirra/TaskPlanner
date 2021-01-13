@@ -45,7 +45,7 @@ const getDataForCity = (city) => fetch(`https://api.openweathermap.org/data/2.5/
 const createCardHtml = (name, emoji, temp, feelsLike, description) => `
   
    <p> ${name}
-            ${temp}c, feels like ${feelsLike}c<p>
+            ${temp}c ${emoji}, feels like ${feelsLike}c<p>
           
     
   
