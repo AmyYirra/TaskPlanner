@@ -135,7 +135,6 @@ class TaskManager {
     const tasksList = document.querySelector("#addTask");
     tasksList.innerHTML = tasksHtml;
   } //end of render
-    
 
   //Add a new method, getTaskById(), it should accept a taskId as a parameter.
   getTaskById(id) {
@@ -155,11 +154,35 @@ class TaskManager {
     // Return the found task
     return foundTask;
   }
+  // Store task JSON to localStorage
+  storeTasks() {
+    const taskJson = JSON.stringify(this.tasks);
+    localStorage.setItem("tasks", taskJson);
+    const currentIdsrting = String(this.currentId);
+    localStorage.setItem("taskId", currentIdsrting);
+  }
+
+  //get tasks from local storage
+
+  getTasks() {
+    // 2) Get books out of localstorage and parse into JS array
+    // if localstorage is empty, assign books to empty array
+    if (localStorage.getItem("tasks")) {
+      this.tasks = JSON.parse(localStorage.getItem("tasks"));
+    }
+    if (localStorage.getItem("taskId")) {
+      this.currentId = JSON.parse(localStorage.getItem("tasksId"));
+    }
+  }
+  // Clear local storage
+  clearTasksFromLocalStorage() {
+    localStorage.clear();
+  }
+  
 }
 // end of class
 // instances of TaskManager
 // const newTaskList = new TaskManager(0);
-
 
 // newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
 // //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
