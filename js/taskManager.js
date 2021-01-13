@@ -183,7 +183,7 @@ class TaskManager {
 // end of class
 // instances of TaskManager
 // const newTaskList = new TaskManager(0);
-
 // newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
 // //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
 // newTaskList.render();
+
