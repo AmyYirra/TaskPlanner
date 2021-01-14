@@ -1,22 +1,4 @@
-//commented by cecilia to add weather app
-// // Store task
-// function storebookInLocalStorage(book) {
-//   // TODO:
-//   // 1) Declare variable for books array
-//   let books;
-//   // 2) Get books out of localstorage and parse into JS array
-//   // if localstorage is empty, assign books to empty array
-//   if (localStorage.getItem("books") == null) {
-//     books = [];
-//   } else {
-//     books = JSON.parse(localStorage.getItem("books"));
-//   }
-//   // 3) Push our book onto array
-//   books.push(book);
-//   // 4) Put new array back into localstorage (parse into string first)
-//   localStorage.setItem("books", JSON.stringify(books));
-//   console.log("data added to local storage");
-// }
+
 // Set appId
 const appId = "e859087dd9b104fe708d0f632e8e4b21";
 
@@ -47,6 +29,7 @@ const getDataForCity = (city) =>
       weatherContainer.innerHTML = cardHtml;
     })
     .catch((error) => {
+
       weatherContainer.innerHTML = "City not found";
       // weatherContainer.innerHTML = `<em>Server returned error: "${error.message}".</em>`;
     });
@@ -54,9 +37,9 @@ const getDataForCity = (city) =>
 // createCardHtml function used to render the weather info
 const createCardHtml = (name, emoji, temp, feelsLike, description) => `
   
-   <p> ${name}
-            ${temp}c ${emoji}, feels like ${feelsLike}c<p>
-          
+
+   <p> ${name} ${description} ${temp}&#8451 ${emoji}, feels like ${feelsLike}&#8451</p>
+
     
   
 `;
@@ -95,4 +78,6 @@ goButton.addEventListener("click", (e) => {
   // alert();
   // get the weather data for the city
   getDataForCity(city);
+
 });
+
