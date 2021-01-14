@@ -182,14 +182,20 @@ hr {
 }
 .font-white-small {
   color: #ffffff;
+<<<<<<< HEAD
   font-size:10px;
+||||||| 8ec00c5
+  font-size:8px;
+=======
+  font-size:12px;
+>>>>>>> 5c560bb04966cc2eb0ed5ecb4de8cdbc55b2098f
 
   font-style:normal
 }
 .font-white-medium {
   color: #ffffff;
 
-  font-size:13px;
+  font-size:15px;
 
   font-style:normal
 }
