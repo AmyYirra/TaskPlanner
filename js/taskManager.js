@@ -5,7 +5,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const btndelete="btn_Delete"+id
   // alert(value);
   if (status == "Done") {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 " style="flex: 0 0 auto">
+    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 ">
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
 
@@ -48,7 +48,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                        </div>
                        </div>`;
   } else {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" style="flex: 0 0 auto">
+    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" >
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader">
@@ -226,3 +226,4 @@ class TaskManager {
 // newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
 // //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
 // newTaskList.render();
+module.exports=TaskManager;

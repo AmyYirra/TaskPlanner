@@ -38,7 +38,7 @@ const getDataForCity = (city) =>
 const createCardHtml = (name, emoji, temp, feelsLike, description) => `
   
 
-   <p> ${name} ${description} ${temp}&#8451 ${emoji}, feels like ${feelsLike}&#8451</p>
+   <p> ${name} ${emoji} ${description} ${temp}&#8451 , feels like ${feelsLike}&#8451</p>
 
     
   
