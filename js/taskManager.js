@@ -48,13 +48,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                        </div>
                        </div>`;
   } else {
-<<<<<<< HEAD
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4">
-||||||| 8ec00c5
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" style="flex: 0 0 25%">
-=======
     return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" >
->>>>>>> 5c560bb04966cc2eb0ed5ecb4de8cdbc55b2098f
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader">
@@ -232,11 +226,4 @@ class TaskManager {
 // newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
 // //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
 // newTaskList.render();
-<<<<<<< HEAD
-
-
 module.exports=TaskManager;
-||||||| 8ec00c5
-=======
-module.exports=TaskManager;
->>>>>>> 5c560bb04966cc2eb0ed5ecb4de8cdbc55b2098f
