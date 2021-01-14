@@ -4,7 +4,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const btnst = "btn_Status" + id;
   // alert(value);
   if (status == "Done") {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" >
+    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 " style="flex: 0 0 25%">
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader" >
@@ -41,7 +41,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                        </div>
                        </div>`;
   } else {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" >
+    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" style="flex: 0 0 25%">
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader">
