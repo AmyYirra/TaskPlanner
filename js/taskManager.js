@@ -2,13 +2,15 @@
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const value = "idDone" + id;
   const btnst = "btn_Status" + id;
+  const btndelete="btn_Delete"+id
   // alert(value);
   if (status == "Done") {
     return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 " style="flex: 0 0 25%">
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                     <div class="card-body p-0 m-0 border border-dark ">
+
                       <p class="card-title bg-green cardheader" >
-                       <span class="p-1 m-1"> Task : ${name}</span>
+                       <span class="p-1 m-1"> Task : ${name}</span>                    
                     </p>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
@@ -31,13 +33,18 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                         <span>Due Date:${dueDate} </span>
                       </p>
                        <p hidden = "hidden"> <span ><input type="textbox" id="txt"  value= ${id} ></span></p>
-                       <span>
-                            <button
-                              class="card-link btn btn-success " onclick="getConfirmation(${id})"
-                                                       >
-                              Delete
-                            </button></span
-                          >
+                       <p class="card-text p-1 m-1 text-left">
+                          <span>
+                            
+                            <button id=${btndelete}
+                              type="button"
+                              class="btn btn-success"
+                             
+                              
+                              onclick="getConfirmation(${id})"
+                            >
+                           Delete
+                            </button> </span>      </p>
                        </div>
                        </div>`;
   } else {
@@ -46,6 +53,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                     <div class="card-body p-0 m-0 border border-dark ">
                       <p class="card-title bg-green cardheader">
                        <span class="p-1 m-1"> Task:  ${name}</span>
+
                     </p>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
@@ -68,32 +76,36 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                         <span>Due Date:${dueDate} </span>
                       </p>
                        
-                       <div> <p class="card-text p-1 m-1 text-left">
+                       <p class="card-text p-1 m-1 text-left">
                           <span>
                             
                             <button id=${btnst}
                               type="button"
                               class="btn btn-success"
-                              data-toggle="modal"
+                             
                               
                               onclick="fnUpdate(${id})"
                             >
                             Mark as done
                             </button> </span>
                    <span hidden = "hidden" ><input type="textbox" id="txt"  value= ${id} ></span>
-                         <span>
-                            <button
-                              class="card-link btn btn-success" onclick="getConfirmation(${id})"                              
+                    
+                          <span>
+                            
+                            <button id=${btndelete}
+                              type="button"
+                              class="btn btn-success"
+                             
+                                                            onclick="getConfirmation(${id})"
                             >
-                              Delete
-                            </button></span
-                          >
-                                               
-                      </div>
+                           Delete
+                            </button> </span>      </p>
+                      
                     </div>
                   </div>`;
   }
 };
+
 // task manager class
 class TaskManager {
   constructor(currentId = 0) {

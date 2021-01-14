@@ -1,6 +1,7 @@
+
 // Set appId
-const appId = "d841b14756aebfeb776ffd38bc73dfc7";
-//https://api.openweathermap.org/data/2.5/weather?q=Sydney&appid=d841b14756aebfeb776ffd38bc73dfc7&units=metric
+const appId = "e859087dd9b104fe708d0f632e8e4b21";
+
 // getDataForCity function that fetches weather info from openweathermap api
 const getDataForCity = (city) =>
   fetch(
@@ -28,7 +29,7 @@ const getDataForCity = (city) =>
       weatherContainer.innerHTML = cardHtml;
     })
     .catch((error) => {
-      //
+
       weatherContainer.innerHTML = "City not found";
       // weatherContainer.innerHTML = `<em>Server returned error: "${error.message}".</em>`;
     });
@@ -36,8 +37,9 @@ const getDataForCity = (city) =>
 // createCardHtml function used to render the weather info
 const createCardHtml = (name, emoji, temp, feelsLike, description) => `
   
+
    <p> ${name} ${description} ${temp}&#8451 ${emoji}, feels like ${feelsLike}&#8451</p>
-          
+
     
   
 `;
@@ -76,4 +78,6 @@ goButton.addEventListener("click", (e) => {
   // alert();
   // get the weather data for the city
   getDataForCity(city);
+
 });
+
