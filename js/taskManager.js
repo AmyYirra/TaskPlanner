@@ -226,4 +226,7 @@ class TaskManager {
 // newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
 // //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
 // newTaskList.render();
-module.exports=TaskManager;
+//module.exports=TaskManager;
+if (typeof module != "undefined") {
+  module.exports = TaskManager;
+}

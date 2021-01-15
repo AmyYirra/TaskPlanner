@@ -19,21 +19,23 @@
     <link rel="stylesheet" href="css\styles.css" />
     <title>⏰Task Planner</title>
   </head>
-  <body  >
+  <body>
     <form id="newTaskForm">
       <!-- begin navbar here -->
       <nav class="navbar navbar-dark bg-dark navbar-expand-lg font-white-bold">
         <span class="h2 bg-success p-1 font-weight-bold">TP</span>
         <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
-         <span><div id="clockdate text-left d-flex flex-row-reverse">
-  <div class="clockdate-wrapper">
-    <div id="clock"></div>
-    <div id="date"></div>
-  </div>
-</div><br>
-</span>&nbsp;
+        <span
+          ><div id="clockdate text-left d-flex flex-row-reverse">
+            <div class="clockdate-wrapper">
+              <div id="clock"></div>
+              <div id="date"></div>
+            </div>
+          </div>
+          <br /> </span
+        >&nbsp;
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <!-- <ul class="navbar-nav mr-auto">
+          <!-- <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#"
                 >Home <span class="sr-only">(current)</span></a
@@ -43,41 +45,33 @@
               <a class="nav-link" href="#">News</a>
             </li> -->
 
-            <!-- <li class="nav-item">
+          <!-- <li class="nav-item">
               <a class="nav-link" href="#">About Us</a>
             </li> 
           </ul> -->
-        </div> 
+        </div>
 
-         <!-- <div> 
+        <!-- <div> 
           <div class="text-left d-flex flex-row-reverse" id="myClock"></div>
         </div>  -->
         <div>
-  <span class="text-right font-white-medium "> Weather </span></div>
-   <div>
-      
+          <span class="text-right font-white-medium"> Weather </span>
+        </div>
+        <div>
           <input
             id="city-input"
             class="form-control Nwidth m-1"
             type="text"
             placeholder="enter a city"
-        /> 
-        </div> <div>
-       
-          <button id="go-button" class="btn btn-success">Go!</button></div><br>&nbsp;
-         
-          <div
-            id="weather-container"
-            class="font-white-small d-flex flex-row-reverse" 
-          ></div>
-        
-        
-       
+          />
+        </div>
+        <div>
+          <button id="go-button" class="btn btn-success">Go!</button>
+        </div>
+        <br />&nbsp;
 
-         
-      
+        <div id="weather-container" class="font-white-small"></div>
        
-        
       </nav>
 
       <!-- start crousel -->
