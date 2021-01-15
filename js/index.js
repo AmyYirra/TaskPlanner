@@ -1,5 +1,5 @@
 //
-tick(); 
+//tick(); 
 //added new task
 const taskManager = new TaskManager(0);
 /*taskManager.addTask(
