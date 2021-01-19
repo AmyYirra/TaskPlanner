@@ -2,16 +2,32 @@
 const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const value = "idDone" + id;
   const btnst = "btn_Status" + id;
-  const btndelete="btn_Delete"+id
+  const btndelete = "btn_Delete" + id;
+  const divView="div_nameView" +id;
   // alert(value);
   if (status == "Done") {
     return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 ">
-                    <!-- <img src="..." class="card-img-top" alt="..." /> -->
+                   
                     <div class="card-body p-0 m-0 border border-dark ">
 
-                      <p class="card-title bg-green cardheader" >
-                       <span class="p-1 m-1"> Task : ${name}</span>                    
-                    </p>
+                      <div id   class="card-title bg-green cardheader" >
+                       <div class="p-1 m-1 text-right" > Task : ${name}  </div>  <div class="p-1 m-1 text-right "id="div_nameEdit"+${id}>  </div><div class="editTask" style="position:absolute; right:0;">
+                      <!--  <button
+                              type="button"
+                               class="btn-Black"
+                              onclick="editTask(${id})" >  Edit 
+                           </button> -->
+                      <a
+                class="btn-Black"
+                data-toggle="modal"
+                data-target="#addModal"
+              >
+                <button class="btn-Black font-black btn-lg btn-block"  onclick="editTask(${id})">
+                  edit
+                </button></a
+              >
+                            </div>
+                    </div>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
                       </p>
@@ -44,17 +60,32 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                               onclick="getConfirmation(${id})"
                             >
                            Delete
-                            </button> </span>      </p>
+                            </button> </span> <span> </span>     </p>
                        </div>
                        </div>`;
   } else {
     return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" >
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                    <div class="card-body p-0 m-0 border border-dark ">
-                      <p class="card-title bg-green cardheader">
-                       <span class="p-1 m-1"> Task:  ${name}</span>
+                      <div class="card-body p-0 m-0 border border-dark ">
 
-                    </p>
+                      <div id   class="card-title bg-green cardheader" >
+                       <div class="p-1 m-1 text-right" > Task : ${name}  </div>  <div class="p-1 m-1 text-right "id="div_nameEdit"+${id}>  </div><div class="editTask" style="position:absolute; right:0;">
+                      <!--  <button
+                              type="button"
+                               class="btn-Black"
+                              onclick="editTask(${id})" >  Edit 
+                           </button> -->
+                      <a
+                class="btn-Black"
+                data-toggle="modal"
+                data-target="#addModal"
+              >
+                <button class="btn-Black font-black btn-lg btn-block"  onclick="editTask(${id})">
+                  edit
+                </button></a
+              >
+                            </div>
+                    </div>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
                       </p>
@@ -87,7 +118,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                               onclick="fnUpdate(${id})"
                             >
                             Mark as done
-                            </button> </span>
+                            </button> </span> 
                    <span hidden = "hidden" ><input type="textbox" id="txt"  value= ${id} ></span>
                     
                           <span>

@@ -1,5 +1,5 @@
 //
-//tick(); 
+//tick();
 //added new task
 const taskManager = new TaskManager(0);
 /*taskManager.addTask(
@@ -12,7 +12,9 @@ const taskManager = new TaskManager(0);
 
 taskManager.getTasks();
 taskManager.render();
-
+//edit modal
+document.querySelector("#idAdd").style.display = "";
+document.querySelector("#idUpdate").style.display = "none";
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 // Select the inputs
@@ -30,10 +32,19 @@ $(function () {
 //onload addmodal --to set focus on first element
 $("#addModal").on("shown.bs.modal", function () {
   newTaskNameInput.focus();
+
+  //document.querySelector("#id_Edit").value = "ADD"
   if (document.querySelector("#id_Edit").value == "ADD") {
-    document.querySelector("#add_Header").style.display = "block";
-    document.querySelector("#edit_Header").style.display = "none";
-    document.querySelector("#other_Header").style.display = "none";
+    clearFields();
+    document.querySelector("#value_Task").innerHTML = "Add Task";
+    document.querySelector("#idUpdate").style.display = "none";
+    document.querySelector("#idAdd").style.display = "block";
+    // document.querySelector("#edit_Header").style.display = "none";
+    // document.querySelector("#other_Header").style.display = "none";
+  } else {
+    document.querySelector("#value_Task").innerHTML = "Edit Task";
+    document.querySelector("#idAdd").style.display = "none";
+    document.querySelector("#idUpdate").style.display = "block";
   }
 });
 
@@ -42,6 +53,7 @@ newTaskForm.addEventListener("submit", (event) => {
   // Prevent default action
   event.preventDefault();
   // Get the values of the inputs
+
   const name = newTaskNameInput.value;
   const description = newTaskDescription.value;
   const taskStatus = newTaskStatus.value;
@@ -105,38 +117,49 @@ newTaskForm.addEventListener("submit", (event) => {
   } else {
     errorDueDate.style.display = "none";
     var FormatDueDate = updateDueDate(dueDate);
-    taskManager.addTask(
-      name,
-      description,
-      txtAssignTo,
-      FormatDueDate,
-      txtTaskStatus
-    );
-    taskManager.storeTasks();
-    taskManager.render();
+    if (document.querySelector("#id_Edit").value == "ADD") {
+      taskManager.addTask(
+        name,
+        description,
+        txtAssignTo,
+        FormatDueDate,
+        txtTaskStatus
+      );
 
-    newTaskNameInput.value = "";
-    newTaskDescription.value = "";
-    newTaskStatus.value = 1;
-    newTaskAssignedTo.value =0;
-    newTaskDueDate.value = "";
-
-    $("#addModal").modal().hide();
+      taskManager.storeTasks();
+      taskManager.render();
+      clearFields();
+      
+    } else {
+      updateAllDetails();
+    }
+    //  $("#addModal").modal().hide();
     $("#addModal .close").click();
 
     //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
   }
 });
-
-
+function clearFields() {
+  newTaskNameInput.value = "";
+  newTaskDescription.value = "";
+  newTaskStatus.value = 1;
+  newTaskAssignedTo.value = 0;
+  newTaskDueDate.value = "";
+}
 //Format due date
 function updateDueDate(dueDate) {
   //var strDueDate = dueDate;
   var strDueDate = dueDate.split("-");
   var rtnDueDate = strDueDate[2] + "-" + strDueDate[1] + "-" + strDueDate[0];
   return rtnDueDate;
-}
+} //to show date in date input box in the format yyyy/mm/dd
+function displayDueDate(dueDate) {
+  //var strDueDate = dueDate;
+  var strDueDate = dueDate.split("-");
+  var rtnDueDate = strDueDate[2] + "-" + strDueDate[1] + "-" + strDueDate[0];
 
+  return rtnDueDate;
+}
 function validFormFieldInput(data) {
   return data !== null && data !== "";
 }
@@ -145,10 +168,10 @@ function validFormDropdown(data) {
 }
 function getConfirmation(deleteId) {
   //('#btnCancel').addClass('btn-secondary');
-   const task = taskManager.getTaskById(deleteId);
-   const taskName = task.name;
+  const task = taskManager.getTaskById(deleteId);
+  const taskName = task.name;
   var retVal = confirm(`Do you want to delete the task ${taskName}?`);
- //var retVal = confirm("Do you want to delete the task?");
+  //var retVal = confirm("Do you want to delete the task?");
   if (retVal == true) {
     fnDelete(deleteId);
     return true;
@@ -180,7 +203,57 @@ function fnUpdate(id) {
   taskManager.render();
   taskManager.storeTasks();
 }
+function editTask(id) {
+  const task = taskManager.getTaskById(id);
+  document.querySelector("#id_Edit").value = id;
+  newTaskNameInput.value = task.name;
+  newTaskDescription.value = task.description;
+  let viewDate = displayDueDate(task.dueDate);
+  newTaskDueDate.value = viewDate;
+  let status = task.status;
+  for (var i = 0; i < newTaskStatus.options.length; i++) {
+    if (newTaskStatus.options[i].text === status) {
+      newTaskStatus.selectedIndex = i;
+      newTaskStatus.text = document.querySelector("#newTaskStatus").options[
+        i
+      ].value;
+      break;
+    }
+  }
+  let assignTo = task.assignedTo;
+  for (var k = 0; k < newTaskAssignedTo.options.length; k++) {
+    if (newTaskAssignedTo.options[k].text === task.assignedTo) {
+      newTaskAssignedTo.selectedIndex = k;
+      newTaskAssignedTo.text = document.querySelector(
+        "#newTaskAssignedTo"
+      ).options[k].value;
+      return;
+    }
+  }
 
+}
+function updateAllDetails() {
+  let idn = document.querySelector("#id_Edit").value;
+  result = parseInt(idn);
+  const task = taskManager.getTaskById(result);
+  task.name = newTaskNameInput.value;
+  //alert(task.name);
+  task.status = document.querySelector("#newTaskStatus").options[
+    document.querySelector("#newTaskStatus").selectedIndex
+  ].text;
+  task.description = newTaskDescription.value;
+  task.assignedTo = document.querySelector("#newTaskAssignedTo").options[
+    document.querySelector("#newTaskAssignedTo").selectedIndex
+  ].text;
+  let dueDate = newTaskDueDate.value;
+  var FormatDueDate = updateDueDate(dueDate);
+  task.dueDate = FormatDueDate;
+  taskManager.render();
+  taskManager.storeTasks();
+  // $("#addModal").modal().hide();
+  $("#addModal .close").click();
+  clearFields();
+}
 
 function fnDelete(taskId) {
   taskManager.deleteTask(taskId);
@@ -188,57 +261,61 @@ function fnDelete(taskId) {
   taskManager.storeTasks();
 }
 
-// function startTime() {
-//   var today = new Date();
-//   var h = today.getHours();
-//   var m = today.getMinutes();
-//   var s = today.getSeconds();
 
-//   m = checkTime(m);
-//   s = checkTime(s);
-//   document.getElementById('myClock').innerHTML = h + ":" + m + ":" + s;
+// function showLocale(objD) {
+//   var str, colorhead, colorfoot;
+//   var yy = objD.getYear();
+//   if (yy < 1900) yy = yy + 1900;
+//   var MM = objD.getMonth() + 1;
+//   if (MM < 10) MM = "0" + MM;
+//   var dd = objD.getDate();
+//   if (dd < 10) dd = "0" + dd;
+//   var hh = objD.getHours();
+//   if (hh < 10) hh = "0" + hh;
+//   var mm = objD.getMinutes();
+//   if (mm < 10) mm = "0" + mm;
+//   var ss = objD.getSeconds();
+//   if (ss < 10) ss = "0" + ss;
+//   var ww = objD.getDay();
+//   if (ww == 0) colorhead = '<font color="#FFFFFF">';
+//   if (ww > 0 && ww < 6) colorhead = '<font color="#FFFFFF">';
+//   if (ww == 6) colorhead = '<font color="#FFFFFF">';
+//   if (ww == 0) ww = "Sunday";
+//   if (ww == 1) ww = "Monday";
+//   if (ww == 2) ww = "Tuesday";
+//   if (ww == 3) ww = "Wednesday";
+//   if (ww == 4) ww = "Thursday";
+//   if (ww == 5) ww = "Friday";
+//   if (ww == 6) ww = "Saturday";
+//   colorfoot = "</font>";
+//   str =
+//     colorhead +
+//     dd +
+//     "-" +
+//     MM +
+//     "-" +
+//     yy +
+//     " " +
+//     hh +
+//     ":" +
+//     mm +
+//     ":" +
+//     ss +
+//     " " +
+//     ww +
+//     colorfoot;
+//   return str;
 // }
-// function checkTime(i) {
-//   if (i < 10) {
-//     i = "0" + i;
-//   }
-//   return i;
-// } 
-function showLocale(objD) 
-{ 
-var str,colorhead,colorfoot; 
-var yy = objD.getYear(); 
-if(yy<1900) yy = yy+1900; 
-var MM = objD.getMonth()+1; 
-if(MM<10) MM = '0' + MM; 
-var dd = objD.getDate(); 
-if(dd<10) dd = '0' + dd; 
-var hh = objD.getHours(); 
-if(hh<10) hh = '0' + hh; 
-var mm = objD.getMinutes(); 
-if(mm<10) mm = '0' + mm; 
-var ss = objD.getSeconds(); 
-if(ss<10) ss = '0' + ss; 
-var ww = objD.getDay(); 
-if ( ww==0 ) colorhead="<font color=\"#FFFFFF\">"; 
-if ( ww > 0 && ww < 6 ) colorhead="<font color=\"#FFFFFF\">"; 
-if ( ww==6 ) colorhead="<font color=\"#FFFFFF\">"; 
-if (ww==0) ww="Sunday"; 
-if (ww==1) ww="Monday"; 
-if (ww==2) ww="Tuesday"; 
-if (ww==3) ww="Wednesday"; 
-if (ww==4) ww="Thursday"; 
-if (ww==5) ww="Friday"; 
-if (ww==6) ww="Saturday"; 
-colorfoot="</font>" 
-str = colorhead + dd + "-" + MM + "-" + yy + " " + hh + ":" + mm + ":" + ss + " " + ww + colorfoot; 
-return(str); 
-} 
-function tick() 
-{ 
-var today; 
-today = new Date(); 
-document.getElementById("myClock").innerHTML = showLocale(today); 
-window.setTimeout("tick()", 1000); 
-} 
+// function tick() {
+//   var today;
+//   today = new Date();
+//   document.getElementById("myClock").innerHTML = showLocale(today);
+//   window.setTimeout("tick()", 1000);
+// }
 
+function fnAdd() {
+  // alert();
+  id_Edit = document.querySelector("#id_Edit");
+  id_Edit.value = "ADD";
+  clearFields();
+}
