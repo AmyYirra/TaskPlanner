@@ -19,21 +19,23 @@
     <link rel="stylesheet" href="css\styles.css" />
     <title>⏰Task Planner</title>
   </head>
-  <body  >
+  <body>
     <form id="newTaskForm">
       <!-- begin navbar here -->
       <nav class="navbar navbar-dark bg-dark navbar-expand-lg font-white-bold">
         <span class="h2 bg-success p-1 font-weight-bold">TP</span>
         <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
-         <span><div id="clockdate text-left d-flex flex-row-reverse">
-  <div class="clockdate-wrapper">
-    <div id="clock"></div>
-    <div id="date"></div>
-  </div>
-</div><br>
-</span>&nbsp;
+        <span
+          ><div id="clockdate text-left d-flex flex-row-reverse">
+            <div class="clockdate-wrapper">
+              <div id="clock"></div>
+              <div id="date"></div>
+            </div>
+          </div>
+          <br /> </span
+        >&nbsp;
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-         <!-- <ul class="navbar-nav mr-auto">
+          <!-- <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#"
                 >Home <span class="sr-only">(current)</span></a
@@ -43,41 +45,32 @@
               <a class="nav-link" href="#">News</a>
             </li> -->
 
-            <!-- <li class="nav-item">
+          <!-- <li class="nav-item">
               <a class="nav-link" href="#">About Us</a>
             </li> 
           </ul> -->
-        </div> 
+        </div>
 
-         <!-- <div> 
+        <!-- <div> 
           <div class="text-left d-flex flex-row-reverse" id="myClock"></div>
         </div>  -->
         <div>
-  <span class="text-right font-white-medium "> Weather </span></div>
-   <div>
-      
+          <span class="text-right font-white-medium"> Weather </span>
+        </div>
+        <div>
           <input
             id="city-input"
             class="form-control Nwidth m-1"
             type="text"
             placeholder="enter a city"
-        /> 
-        </div> <div>
-       
-          <button id="go-button" class="btn btn-success">Go!</button></div><br>&nbsp;
-         
-          <div
-            id="weather-container"
-            class="font-white-small d-flex flex-row-reverse" 
-          ></div>
-        
-        
-       
+          />
+        </div>
+        <div>
+          <button id="go-button" class="btn btn-success">Go!</button>
+        </div>
+        <br />&nbsp;
 
-         
-      
-       
-        
+        <div id="weather-container" class="font-white-small"></div>
       </nav>
 
       <!-- start crousel -->
@@ -169,18 +162,83 @@
               aria-labelledby="tab-1"
               role="tabpanel"
             >
+              <div class="form-row m-0 p-0" hidden="hidden">
+                <input
+                  type="text"
+                  autofocus="autofocus"
+                  class="form-control"
+                  id="id_Edit"
+                  tabindex="1"
+                  task
+                  TabStop="true"
+                />
+              </div>
+              <h2 class="text-center">Task List</h2>
               <a
-                class="btn-success"
+                class="btn-success ml-2"
                 data-toggle="modal"
                 data-target="#addModal"
               >
-                <button class="btn btn-success font-black btn-lg btn-block">
+                <button class="btn btn-success" id="btn_Add" onclick="fnAdd();">
                   Add Task +
                 </button></a
               >
-
-              <h2 class="text-center">Task List</h2>
-
+              <!-- dropdown -->
+              <div class="dropdown btn-group ">
+                <button
+                  class="btn btn-secondary dropdown-toggle"
+                  type="button"
+                  id="dropdownMenu2"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                    id="displayAll"
+                    onclick="taskManager.render()"
+                  >
+                    All
+                  </button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                    id="to-do"
+                    onclick="filterTodo()"
+                  >
+                    To-do
+                  </button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                    id="inProgress"
+                    onclick="filterInProgress()"
+                  >
+                    In progress
+                  </button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                    id="review"
+                    onclick="filterReview()"
+                  >
+                    Review
+                  </button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                    id="done"
+                    onclick="filterDone()"
+                  >
+                    Done
+                  </button>
+                </div>
+              </div>
+              <!-- end of dropdown -->
               <section class="container-task">
                 <!-- start task  -->
                 <div
@@ -188,6 +246,12 @@
                   id="tasksList"
                 ></div>
                 <!-- end task -->
+                <script
+                  type="text/javascript"
+                  src="https://www.gstatic.com/charts/loader.js"
+                ></script>
+                <script type="text/javascript"></script>
+                <div id="table_div"></div>
               </section>
             </div>
           </div>
@@ -427,7 +491,7 @@
                 </div>
                 <div class="form-row">
                   <div class="form-row col">
-                    <label for="newTaskAssignedTo" class="font-black"
+                    <label for="newTaskAssignedTo1" class="font-black"
                       >Assigned To</label
                     >&nbsp;
                     <span id="errorAssignTo" class="showerrormsg"></span>
@@ -468,14 +532,24 @@
             >
               Error message
             </div> -->
-            <div class="modal-footer">
+            <div class="modal-footer" id="idAdd">
               <button
                 type="submit"
                 class="btn btn-success btn-block"
                 tabindex="-1"
                 id="idBtnName"
               >
-                Add Task
+                Submit
+              </button>
+            </div>
+            <div class="modal-footer" id="idUpdate">
+              <button
+                type="submit"
+                class="btn btn-success btn-block"
+                tabindex="-1"
+                id="idBtnupdate"
+              >
+                Submit
               </button>
             </div>
             <!-- </form> -->
@@ -506,8 +580,13 @@
       integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
       crossorigin="anonymous"
     ></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
     <script src="js/app.js"></script>
     <script src="js/taskManager.js"></script>
+    <script src="js/table.js"></script>
     <script src="js/index.js"></script>
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS

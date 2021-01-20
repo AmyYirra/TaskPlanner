@@ -30,6 +30,15 @@ describe("Testing taskmangager function", () => {
     const reslut2 = taskManager.getTaskById(2).description;
     assert.strictEqual(reslut2, 'Hornsby');
   });
+it("Test getTaskById Function", () => {
+  const taskManager = new TaskManager(0);
+  taskManager.addTask("shoppping", "At Aldi", "Amy", "24/01/2021","To-do");
+  taskManager.addTask("payment", "Hotel", "Amy", "26/01/2021");
+  taskManager.addTask("appointment", "Hornsby", "Amy", "26/01/2021");
+  const reslut1 = taskManager.getTaskByStatus("To-do");
+  console.log(reslut1);
+});
+
 });
 /* Cecilia test cases
 const assert = require("assert");
