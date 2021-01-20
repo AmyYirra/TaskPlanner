@@ -38,7 +38,7 @@ const getDataForCity = (city) =>
 // createCardHtml function used to render the weather info
 const createCardHtml = (name, emoji, temp, feelsLike, description) => `
   
-    <p> ${name} ${emoji} <br> ${temp}&#8451 , feels like ${feelsLike}&#8451</p>
+    <p> ${name} ${emoji}  ${temp}&#8451 <br> feels like ${feelsLike}&#8451</p>
    `;
 
 // emojis object used to find the right emoji from the icon code sent from the api
