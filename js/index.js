@@ -222,6 +222,8 @@ function editTask(id) {
     }
   }
 
+
+
 }
 function updateAllDetails() {
   let idn = document.querySelector("#id_Edit").value;
@@ -245,7 +247,6 @@ function updateAllDetails() {
   $("#addModal .close").click();
   clearFields();
 }
-
 
 function fnDelete(taskId) {
   taskManager.deleteTask(taskId);
@@ -301,9 +302,12 @@ function renderByStatus(tasks) {
 } //end of filter
 
 
+
 function fnAdd() {
   // alert();
   id_Edit = document.querySelector("#id_Edit");
   id_Edit.value = "ADD";
   clearFields();
+
 }
+
