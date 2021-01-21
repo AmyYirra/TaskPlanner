@@ -1,14 +1,5 @@
-//
-//tick();
 //added new task
 const taskManager = new TaskManager(0);
-/*taskManager.addTask(
-  "Shopping",
-  "dsdg ddfdf dfdfd dfdfdf fdfdf vdd yeyhj efeej",
-  "Amy",
-  "22-12-2020",
-  "To-do"
-);*/
 
 taskManager.getTasks();
 taskManager.render();
@@ -231,6 +222,8 @@ function editTask(id) {
     }
   }
 
+
+
 }
 function updateAllDetails() {
   let idn = document.querySelector("#id_Edit").value;
@@ -260,62 +253,61 @@ function fnDelete(taskId) {
   taskManager.render();
   taskManager.storeTasks();
 }
+//filter
+function filterTodo() {
+  const tasks = taskManager.getTaskByStatus("To-do");
+
+  renderByStatus(tasks);
+}
+
+function filterInProgress() {
+  const tasks = taskManager.getTaskByStatus("In progress");
+
+  renderByStatus(tasks);
+}
+function filterReview() {
+  const tasks = taskManager.getTaskByStatus("Review");
+
+  renderByStatus(tasks);
+}
+function filterDone() {
+  const tasks = taskManager.getTaskByStatus("Done");
+
+  renderByStatus(tasks);
+}
+
+function renderByStatus(tasks) {
+  const tasksHtmlList = [];
+
+  for (let i = 0; i < tasks.length; i++) {
+    const task = tasks[i];
+    // Create a taskHtml variable to store the HTML of the current task, by calling the createTaskHtml function and using the properties of the current task, as well as the new formattedDate variable for the parameters.
+
+    const taskHtml = createTaskHtml(
+      task.id,
+      task.name,
+      task.description,
+      task.assignedTo,
+      task.dueDate,
+      task.status
+    );
+    //push the taskHtml into the tasksHtmlList array.
+    tasksHtmlList.push(taskHtml);
+  } //end of looping
+  //create a tasksHtml variable, set the variable to a string of HTML of all the tasks by joining the tasksHtmlList array together, separating each task's html with a newline.
+  const tasksHtml = tasksHtmlList.join("\n");
+  //Select the tasks list element and set its innerHTML to the tasksHtml.
+  const tasksList = document.querySelector("#tasksList");
+  tasksList.innerHTML = tasksHtml;
+} //end of filter
 
 
-// function showLocale(objD) {
-//   var str, colorhead, colorfoot;
-//   var yy = objD.getYear();
-//   if (yy < 1900) yy = yy + 1900;
-//   var MM = objD.getMonth() + 1;
-//   if (MM < 10) MM = "0" + MM;
-//   var dd = objD.getDate();
-//   if (dd < 10) dd = "0" + dd;
-//   var hh = objD.getHours();
-//   if (hh < 10) hh = "0" + hh;
-//   var mm = objD.getMinutes();
-//   if (mm < 10) mm = "0" + mm;
-//   var ss = objD.getSeconds();
-//   if (ss < 10) ss = "0" + ss;
-//   var ww = objD.getDay();
-//   if (ww == 0) colorhead = '<font color="#FFFFFF">';
-//   if (ww > 0 && ww < 6) colorhead = '<font color="#FFFFFF">';
-//   if (ww == 6) colorhead = '<font color="#FFFFFF">';
-//   if (ww == 0) ww = "Sunday";
-//   if (ww == 1) ww = "Monday";
-//   if (ww == 2) ww = "Tuesday";
-//   if (ww == 3) ww = "Wednesday";
-//   if (ww == 4) ww = "Thursday";
-//   if (ww == 5) ww = "Friday";
-//   if (ww == 6) ww = "Saturday";
-//   colorfoot = "</font>";
-//   str =
-//     colorhead +
-//     dd +
-//     "-" +
-//     MM +
-//     "-" +
-//     yy +
-//     " " +
-//     hh +
-//     ":" +
-//     mm +
-//     ":" +
-//     ss +
-//     " " +
-//     ww +
-//     colorfoot;
-//   return str;
-// }
-// function tick() {
-//   var today;
-//   today = new Date();
-//   document.getElementById("myClock").innerHTML = showLocale(today);
-//   window.setTimeout("tick()", 1000);
-// }
 
 function fnAdd() {
   // alert();
   id_Edit = document.querySelector("#id_Edit");
   id_Edit.value = "ADD";
   clearFields();
+
 }
+
