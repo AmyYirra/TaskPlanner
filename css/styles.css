@@ -36,6 +36,9 @@ body {
 .tab-pane .fade .nav-item .nav-link {
   color: #ffffff;
 }
+.btn-success {
+  background-color: #28a745;
+}
 .bg-green {
   background-color: #28a745;
 }

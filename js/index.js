@@ -300,5 +300,6 @@ function changetheme(){
    var changeTheme = document.getElementById("changeTheme");
    var selectedValue = changeTheme.options[changeTheme.selectedIndex].value;
    document.head.innerHTML += `<link rel="stylesheet" href="css/${selectedValue}">`;
+   
    //alert(selectedValue);
 }
