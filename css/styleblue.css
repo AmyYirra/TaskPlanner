@@ -261,3 +261,26 @@ hr {
     background-color:#0c57fa;
   
 }
+.filter {
+  /* margin:40px; */
+  background: #343a40;
+  color: #fff;
+  width: 150px;
+  height: 35px;
+
+  padding: 5px;
+  color: #fff;
+}
+#selectBox option:hover,
+select option:focus,
+select option:active {
+  background: linear-gradient(#000000, #000000);
+  background-color: #000000 !important; /* for IE */
+  color: #ffed00 !important;
+}
+
+select option:checked {
+  background: linear-gradient(#d6d6d6, #d6d6d6);
+  background-color: #d6d6d6 !important; /* for IE */
+  color: #000000 !important;
+}
