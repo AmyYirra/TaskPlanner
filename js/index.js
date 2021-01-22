@@ -264,32 +264,7 @@ function changefunction() {
   } else {
     renderByStatus(tasks);
   }
-} /*
-function filterTodo() {
-
-  const tasks = taskManager.getTaskByStatus("To-do");
-
-  renderByStatus(tasks);
 }
-
-function filterInProgress() {
-  
-  const tasks = taskManager.getTaskByStatus("In progress");
-
-  renderByStatus(tasks);
-}
-function filterReview() {
-  const tasks = taskManager.getTaskByStatus("Review");
-
-  renderByStatus(tasks);
-}
-function filterDone() {
-  const tasks = taskManager.getTaskByStatus("Done");
-
-  renderByStatus(tasks);
-}
-*/
-
 function renderByStatus(tasks) {
   const tasksHtmlList = [];
 
@@ -320,4 +295,10 @@ function fnAdd() {
   id_Edit = document.querySelector("#id_Edit");
   id_Edit.value = "ADD";
   clearFields();
+}
+function changetheme(){
+   var changeTheme = document.getElementById("changeTheme");
+   var selectedValue = changeTheme.options[changeTheme.selectedIndex].value;
+   document.head.innerHTML += `<link rel="stylesheet" href="css/${selectedValue}">`;
+   //alert(selectedValue);
 }

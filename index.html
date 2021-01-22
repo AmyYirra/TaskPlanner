@@ -199,7 +199,7 @@
               >
                <div class="dropdown btn-group ">
                
-              <select name="filter" id="selectBox" onchange="changefunction();" >
+              <select name="filter" id="selectBox" onchange="changefunction();" class="filter" >
                
                  <option value="All" id="All"  class="dropdown">  
                 
@@ -208,6 +208,18 @@
                     <option  value="In progress" id="In progress"> In progress</option>
                     <option value="Review" id="Review">Review</option>
                     <option value="Done" id="Done">Done</option>
+                    </select>
+               </div>
+               <div class="dropdown btn-group ">
+               
+              <select name="theme" id="changeTheme" class="filter" onchange='changetheme();' >
+               
+                 <option value="All" id="All"  class="dropdown">  
+                
+                  Change theme</option>
+                <option value="styles.css" id="Grass">Grass</option>
+                    <option  value="styleblue.css" id="sea">sea</option>
+                 
                     </select>
               <!-- dropdown -->
                   

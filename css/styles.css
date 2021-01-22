@@ -249,11 +249,11 @@ hr {
   bottom: 0px;
   position: relative;
 }
-#selectBox {
+.filter {
   /* margin:40px; */
   background: #343a40;
   color: #fff;
-  width: 140px;
+  width: 150px;
   height: 35px;
 
   padding: 5px;
