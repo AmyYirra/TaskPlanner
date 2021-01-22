@@ -8,7 +8,9 @@ body {
   /* background-size: auto; */
   background-repeat: no-gitrepeat; /* Do not repeat the image */
 }
-
+button {
+  background: none;
+}
 /* .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
@@ -36,8 +38,10 @@ body {
 .tab-pane .fade .nav-item .nav-link {
   color: #ffffff;
 }
-.btn-success {
+.btnsuccess {
   background-color: #28a745;
+  color: white;
+  font-weight: 600;
 }
 .bg-green {
   background-color: #28a745;
@@ -244,7 +248,14 @@ hr {
   right: 0;
 }
 .btn-Black:hover {
-  background-color: #3e8e41;
+  background-color: #058523;
+  color: black;
+  
+}
+.btnsuccess:hover {
+  background-color: #089c2a;
+  color: black;
+  font-weight: 600;
 }
 .more {
   margin: 0px 0px;

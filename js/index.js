@@ -296,6 +296,7 @@ function fnAdd() {
   id_Edit.value = "ADD";
   clearFields();
 }
+
 function changetheme(){
    var changeTheme = document.getElementById("changeTheme");
    var selectedValue = changeTheme.options[changeTheme.selectedIndex].value;

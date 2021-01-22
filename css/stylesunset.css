@@ -1,7 +1,9 @@
 body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url("../image/skyBlue.jfif");
+
+  background-image: url("../image/sunset.jpg");
+  /* background-image: url("https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"); */
   /* background-color: #9fe2bf; */
   /* background-size: auto; */
   background-repeat: no-gitrepeat; /* Do not repeat the image */
@@ -37,7 +39,7 @@ button {
   color: #ffffff;
 }
 .btnsuccess {
-  background-color: #0c57fa;
+  background-color: #ff6f01;
   color: white;
 font-weight: 600;
 }
@@ -105,7 +107,7 @@ input {
 } */
 .nav-link {
   color: #fff;
-  background-color:  #0c57fa;
+  background-color: #ff6f01;
 }
 .font-white-bold {
   color: #ffffff;
@@ -128,7 +130,7 @@ input {
   color: #ffffff;
 }
 .bg-green {
-  background-color:  #0c57fa;
+  background-color: #ff6f01;
 }
 .form-control1 {
   width: 200px;
@@ -233,7 +235,7 @@ hr {
   color: #fff;
 }
 .font-green {
-  color:  #42b3f5;
+  color: #eda05c;
 }
 .btn-Black {
   background-color: black;
@@ -245,15 +247,15 @@ hr {
   right: 0;
 }
 .btn-Black:hover {
-  background-color: #42b3f5;
+  background-color: #eda05c;
 }
 .btnsuccess:hover {
-  background-color: #42b3f5;
+  background-color: #eda05c;
   color: black;
   font-weight: 600;
 }
 .btnsuccess:click {
-  background-color: #42b3f5;
+  background-color: #eda05c;
 }
 .btn-Black:onclick {
   background: red;

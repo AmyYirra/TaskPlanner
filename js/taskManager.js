@@ -3,7 +3,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const value = "idDone" + id;
   const btnst = "btn_Status" + id;
   const btndelete = "btn_Delete" + id;
-  const divView="div_nameView" +id;
+  const divView = "div_nameView" + id;
   // alert(value);
   if (status == "Done") {
     return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 ">
@@ -58,7 +58,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             
                             <button id=${btndelete}
                               type="button"
-                              class="btn btn-success"
+                              class="btn btnsuccess"
                              
                               
                               onclick="getConfirmation(${id})"
@@ -120,7 +120,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             
                             <button id=${btnst}
                               type="button"
-                              class="btn btn-success"
+                              class="btn btnsuccess"
                              
                               
                               onclick="fnUpdate(${id})"
@@ -133,7 +133,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             
                             <button id=${btndelete}
                               type="button"
-                              class="btn btn-success"
+                              class="btn btnsuccess"
                              
                                                             onclick="getConfirmation(${id})"
                             >
@@ -278,7 +278,12 @@ class TaskManager {
     // Loop over the tasks
     for (let i = 0; i < this.tasks.length; i++) {
       // Get the current task in the loop
-      newTasks.push([this.tasks[i].name,this.tasks[i].assignedTo,this.tasks[i].status,this.tasks[i].dueDate]);
+      newTasks.push([
+        this.tasks[i].name,
+        this.tasks[i].assignedTo,
+        this.tasks[i].status,
+        this.tasks[i].dueDate,
+      ]);
     }
     return newTasks;
   }
