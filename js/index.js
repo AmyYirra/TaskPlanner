@@ -6,6 +6,7 @@ taskManager.render();
 //edit modal
 document.querySelector("#idAdd").style.display = "";
 document.querySelector("#idUpdate").style.display = "none";
+
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 // Select the inputs
@@ -120,7 +121,6 @@ newTaskForm.addEventListener("submit", (event) => {
       taskManager.storeTasks();
       taskManager.render();
       clearFields();
-      
     } else {
       updateAllDetails();
     }
@@ -221,9 +221,6 @@ function editTask(id) {
       return;
     }
   }
-
-
-
 }
 function updateAllDetails() {
   let idn = document.querySelector("#id_Edit").value;
@@ -254,13 +251,29 @@ function fnDelete(taskId) {
   taskManager.storeTasks();
 }
 //filter
+btnfilter = document.getElementById("btnfilter");
+btnfilter.addEventListener("click", changefunction);
+function changefunction() {
+  //alert();
+
+  var selectBox = document.getElementById("selectBox");
+  var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+  const tasks = taskManager.getTaskByStatus(selectedValue);
+  if (selectedValue == "All") {
+    taskManager.render();
+  } else {
+    renderByStatus(tasks);
+  }
+} /*
 function filterTodo() {
+
   const tasks = taskManager.getTaskByStatus("To-do");
 
   renderByStatus(tasks);
 }
 
 function filterInProgress() {
+  
   const tasks = taskManager.getTaskByStatus("In progress");
 
   renderByStatus(tasks);
@@ -275,6 +288,7 @@ function filterDone() {
 
   renderByStatus(tasks);
 }
+*/
 
 function renderByStatus(tasks) {
   const tasksHtmlList = [];
@@ -301,13 +315,9 @@ function renderByStatus(tasks) {
   tasksList.innerHTML = tasksHtml;
 } //end of filter
 
-
-
 function fnAdd() {
   // alert();
   id_Edit = document.querySelector("#id_Edit");
   id_Edit.value = "ADD";
   clearFields();
-
 }
-

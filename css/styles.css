@@ -1,8 +1,8 @@
 body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
- 
-  background-image:url("../image/greengrass.jpeg") ;
+
+  background-image: url("../image/greengrass.jpeg");
   /* background-image: url("https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"); */
   /* background-color: #9fe2bf; */
   /* background-size: auto; */
@@ -234,17 +234,41 @@ hr {
 .btn-Black {
   background-color: black;
   color: white;
-  width:fit-content
+  width: fit-content;
 }
-.editTask{
-  position:absolute; 
-  right:0;
+.editTask {
+  position: absolute;
+  right: 0;
 }
-.btn-Black:hover {background-color: #3e8e41}
+.btn-Black:hover {
+  background-color: #3e8e41;
+}
 .more {
-    margin: 0px 0px;
-    left: 0px;
-    bottom: 0px;
-    position: relative;
+  margin: 0px 0px;
+  left: 0px;
+  bottom: 0px;
+  position: relative;
+}
+#selectBox {
+  /* margin:40px; */
+  background: #343a40;
+  color: #fff;
+  width: 140px;
+  height: 35px;
 
+  padding: 5px;
+  color: #fff;
+}
+#selectBox option:hover,
+select option:focus,
+select option:active {
+  background: linear-gradient(#000000, #000000);
+  background-color: #000000 !important; /* for IE */
+  color: #ffed00 !important;
+}
+
+select option:checked {
+  background: linear-gradient(#d6d6d6, #d6d6d6);
+  background-color: #d6d6d6 !important; /* for IE */
+  color: #000000 !important;
 }

@@ -197,8 +197,22 @@
                   Add Task +
                 </button></a
               >
+               <div class="dropdown btn-group ">
+               
+              <select name="filter" id="selectBox" onchange="changefunction();" >
+               
+                 <option value="All" id="All"  class="dropdown">  
+                
+                  Filter</option>
+                <option value="To-do" id="To-do">To-do</option>
+                    <option  value="In progress" id="In progress"> In progress</option>
+                    <option value="Review" id="Review">Review</option>
+                    <option value="Done" id="Done">Done</option>
+                    </select>
               <!-- dropdown -->
-              <div class="dropdown btn-group ">
+                  
+                </div>
+              <!-- <div class="dropdown btn-group ">
                 <button
                   class="btn btn-secondary dropdown-toggle"
                   type="button"
@@ -210,6 +224,7 @@
                   Filter
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  
                   <button
                     class="dropdown-item"
                     type="button"
@@ -223,6 +238,7 @@
                     type="button"
                     id="to-do"
                     onclick="filterTodo()"
+                    AutoPostBack="False"
                   >
                     To-do
                   </button>
@@ -251,7 +267,7 @@
                     Done
                   </button>
                 </div>
-              </div>
+              </div> -->
               <!-- end of dropdown -->
 
               <section class="container-task">
