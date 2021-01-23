@@ -3,7 +3,48 @@ const taskManager = new TaskManager(0);
 
 taskManager.getTasks();
 taskManager.render();
-//edit modal
+
+//pie chart
+drawPieChart();
+//draw pie chart
+function drawPieChart() {
+  google.charts.load("current", { packages: ["corechart"] });
+  google.charts.setOnLoadCallback(drawChart);
+  function drawChart() {
+    let statusToDo = taskManager.countTaskByStatus("To-do");
+    const statusReview = taskManager.countTaskByStatus("Review");
+    const statusDone = taskManager.countTaskByStatus("Done");
+    const statusProgress = taskManager.countTaskByStatus("In progress");
+    const taskNumber = taskManager.taskCount();
+    if (taskNumber == 0) {
+      document.getElementById("piechart").style.display = none;
+    }
+    //alert(statusProgress);
+    var data = google.visualization.arrayToDataTable([
+      ["Task", "Total Task"],
+      ["To-Do", statusToDo],
+      ["In Progress", statusProgress],
+      ["Review", statusReview],
+      ["Done", statusDone],
+    ]);
+
+    // Optional; add a title and set the width and height of the chart
+    var options = {
+      title: "Task Status",
+      height: 400,
+
+      fontSize: "14",
+    };
+
+    // Display the chart inside the <div> element with id="piechart"
+    var chart = new google.visualization.PieChart(
+      document.getElementById("piechart")
+    );
+    chart.draw(data, options);
+    // taskManager.render();
+  }
+  //end pie chart
+}
 document.querySelector("#idAdd").style.display = "";
 document.querySelector("#idUpdate").style.display = "none";
 
@@ -121,8 +162,10 @@ newTaskForm.addEventListener("submit", (event) => {
       taskManager.storeTasks();
       taskManager.render();
       clearFields();
+      drawPieChart();
     } else {
       updateAllDetails();
+      drawPieChart();
     }
     //  $("#addModal").modal().hide();
     $("#addModal .close").click();
@@ -165,6 +208,7 @@ function getConfirmation(deleteId) {
   //var retVal = confirm("Do you want to delete the task?");
   if (retVal == true) {
     fnDelete(deleteId);
+    location.reload();
     return true;
   } else {
     return false;
@@ -193,6 +237,7 @@ function fnUpdate(id) {
 
   taskManager.render();
   taskManager.storeTasks();
+  location.reload();
 }
 function editTask(id) {
   const task = taskManager.getTaskById(id);
@@ -297,10 +342,10 @@ function fnAdd() {
   clearFields();
 }
 
-function changetheme(){
-   var changeTheme = document.getElementById("changeTheme");
-   var selectedValue = changeTheme.options[changeTheme.selectedIndex].value;
-   document.head.innerHTML += `<link rel="stylesheet" href="css/${selectedValue}">`;
-   
-   //alert(selectedValue);
+function changetheme() {
+  var changeTheme = document.getElementById("changeTheme");
+  var selectedValue = changeTheme.options[changeTheme.selectedIndex].value;
+  document.head.innerHTML += `<link rel="stylesheet" href="css/${selectedValue}">`;
+
+  //alert(selectedValue);
 }
