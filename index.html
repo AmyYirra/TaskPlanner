@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css\styles.css" />
     <title>⏰Task Planner</title>
   </head>
-  <body> 
+  <body>
     <form id="newTaskForm">
       <!-- begin navbar here -->
       <nav class="navbar navbar-dark bg-dark navbar-expand-lg font-white-bold">
@@ -162,11 +162,7 @@
               aria-labelledby="tab-1"
               role="tabpanel"
             >
-              <a
-                class="btnsuccess"
-                data-toggle="modal"
-                data-target="#addModal"
-              >
+              <a class="btnsuccess" data-toggle="modal" data-target="#addModal">
                 <button
                   class="btn btnsuccess font-black btn-lg btn-block"
                   id="btn_Add"
@@ -192,39 +188,42 @@
                 data-toggle="modal"
                 data-target="#addModal"
               >
-
                 <button class="btn btnsuccess" id="btn_Add" onclick="fnAdd();">
                   Add Task +
                 </button></a
               >
-               <div class="dropdown btn-group ">
-               
-              <select name="filter" id="selectBox" onchange="changefunction();" class="filter" >
-               
-                 <option value="All" id="All"  class="dropdown">  
-                
-                  Filter</option>
-                <option value="To-do" id="To-do">To-do</option>
-                    <option  value="In progress" id="In progress"> In progress</option>
-                    <option value="Review" id="Review">Review</option>
-                    <option value="Done" id="Done">Done</option>
-                    </select>
-               </div>
-               <div class="dropdown btn-group ">
-               
-              <select name="theme" id="changeTheme" class="filter" onchange='changetheme();' >
-               
-                 <option value="All" id="All"  class="dropdown">  
-                
-                  Change theme</option>
-                <option value="styles.css" id="Grass">Grass</option>
-                    <option  value="styleblue.css" id="sea">sea</option>
-                     <option  value="stylesunset.css" id="sea">Sunset</option>
-                 
-                    </select>
-              <!-- dropdown -->
-                  
-                </div>
+              <div class="dropdown btn-group">
+                <select
+                  name="filter"
+                  id="selectBox"
+                  onchange="changefunction();"
+                  class="filter"
+                >
+                  <option value="All" id="All" class="dropdown">Filter</option>
+                  <option value="To-do" id="To-do">To-do</option>
+                  <option value="In progress" id="In progress">
+                    In progress
+                  </option>
+                  <option value="Review" id="Review">Review</option>
+                  <option value="Done" id="Done">Done</option>
+                </select>
+              </div>
+              <div class="dropdown btn-group">
+                <select
+                  name="theme"
+                  id="changeTheme"
+                  class="filter"
+                  onchange="changetheme();"
+                >
+                  <option value="All" id="All" class="dropdown">
+                    Change theme
+                  </option>
+                  <option value="styles.css" id="Grass">Grass</option>
+                  <option value="styleblue.css" id="sea">Sea</option>
+                  <option value="stylesunset.css" id="sea">Sunset</option>
+                </select>
+                <!-- dropdown -->
+              </div>
               <!-- <div class="dropdown btn-group ">
                 <button
                   class="btn btn-secondary dropdown-toggle"
@@ -587,9 +586,7 @@
               </button>
             </div>
 
-
-             <div class="modal-footer" id="idUpdate" > 
-
+            <div class="modal-footer" id="idUpdate">
               <button
                 type="submit"
                 class="btn btnsuccess btn-block"
@@ -605,8 +602,6 @@
       </div>
       <!-- end add task modal -->
       <div id="piechart"></div>
-
-
     </form>
 
     <hr />
@@ -638,7 +633,10 @@
     <script src="js/taskManager.js"></script>
     <script src="js/table.js"></script>
     <script src="js/index.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
