@@ -168,7 +168,8 @@ class TaskManager {
   }
 
   // Create the render method to display the task on the browser
-  render() {
+  render() 
+  {
     //Create a variable storing an empty array to hold the HTML of all the tasks' html, tasksHtmlList.
     const tasksHtmlList = [];
 
