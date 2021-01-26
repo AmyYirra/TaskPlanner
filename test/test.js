@@ -103,7 +103,7 @@ describe("Deleting task function", () => {
 
     it("passing task id to delete the task", () => {
       const taskManager = new TaskManager(0);
-      taskManager.addTask("shoppping", "At Aldi", "Amy", "24/01/2021");
+      taskManager.addTask("shoppping", "At Aldi", "cecilia", "24/01/2021");
       taskManager.deleteTask(0);
       let len = taskManager.tasks.length;
       assert.strictEqual(len, 0);

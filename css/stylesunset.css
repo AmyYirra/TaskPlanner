@@ -1,7 +1,8 @@
 body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-image: url("../image/greengrass.jpeg");
+
+  background-image: url("../image/sunset.jpg");
   /* background-image: url("https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"); */
   /* background-color: #9fe2bf; */
   /* background-size: auto; */
@@ -13,7 +14,7 @@ button {
 /* .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #28a745;
+  background-color:  ;
   font-weight: bold;
 }  */
 .font-white-bold {
@@ -38,12 +39,12 @@ button {
   color: #ffffff;
 }
 .btnsuccess {
-  background-color: #28a745;
+  background-color: #ff6f01;
   color: white;
-  font-weight: 600;
+font-weight: 600;
 }
 .bg-green {
-  background-color: #28a745;
+  background-color: rgb(255, 255, 0);
 }
 .font-blackbig {
   color: black;
@@ -101,13 +102,12 @@ input {
 /* .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #28a745;
+  background-color:#ff6f01;
   font-weight: bold;
 } */
 .nav-link {
   color: #fff;
-  background-color: #28a745;
-  font-weight: bold;
+  background-color: #ff6f01;
 }
 .font-white-bold {
   color: #ffffff;
@@ -130,7 +130,7 @@ input {
   color: #ffffff;
 }
 .bg-green {
-  background-color: #28a745;
+  background-color: #ff6f01;
 }
 .form-control1 {
   width: 200px;
@@ -235,7 +235,7 @@ hr {
   color: #fff;
 }
 .font-green {
-  color: #28a745;
+  color: #eda05c;
 }
 .btn-Black {
   background-color: black;
@@ -247,14 +247,18 @@ hr {
   right: 0;
 }
 .btn-Black:hover {
-  background-color: #058523;
-  color: black;
-  
+  background-color: #eda05c;
 }
 .btnsuccess:hover {
-  background-color: #089c2a;
+  background-color: #eda05c;
   color: black;
   font-weight: 600;
+}
+.btnsuccess:click {
+  background-color: #eda05c;
+}
+.btn-Black:onclick {
+  background: red;
 }
 .more {
   margin: 0px 0px;

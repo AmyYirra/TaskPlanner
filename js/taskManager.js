@@ -54,7 +54,9 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             
                             <button id=${btndelete}
                               type="button"
+
                               class="btn btn-success fa fa-trash"
+
                              
                               
                               onclick="getConfirmation(${id})"
@@ -116,7 +118,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             
                             <button id=${btnst}
                               type="button"
-                              class="btn btn-success"
+                              class="btn btnsuccess"
                              
                               
                               onclick="fnUpdate(${id})"
@@ -129,7 +131,9 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             
                             <button id=${btndelete}
                               type="button"
+
                               class="btn btn-success fa fa-trash"
+
                              
                                                             onclick="getConfirmation(${id})"
                             >
@@ -241,8 +245,6 @@ class TaskManager {
   //get tasks from local storage
 
   getTasks() {
-    // 2) Get books out of localstorage and parse into JS array
-    // if localstorage is empty, assign books to empty array
     if (localStorage.getItem("tasks")) {
       this.tasks = JSON.parse(localStorage.getItem("tasks"));
     }
@@ -269,6 +271,24 @@ class TaskManager {
     }
     return newTasks;
   }
+  countTaskByStatus(status) {
+    // Create an empty array and store it in a new variable, newTasks
+    const newTasks = [];
+
+    let statusLength = 0;
+    // Loop over the tasks
+    for (let i = 0; i < this.tasks.length; i++) {
+      // Get the current task in the loop
+
+      const task = this.tasks[i];
+      // Check if the task status is the task status passed in as a parameter
+      if (task.status === status) {
+        newTasks.push(task);
+        statusLength = newTasks.length;
+      }
+    }
+    return statusLength;
+  }
   getTask() {
     const newTasks = [];
     // Loop over the tasks
@@ -283,12 +303,17 @@ class TaskManager {
     }
     return newTasks;
   }
-} // end of class
-// instances of TaskManager
-// const newTaskList = new TaskManager(0);
-// newTaskList.addTask("cooking", "prepare recipe", "Tom", "17-12-2020", "toDo");
-// //   newTaskList.addTask("pay bills", "electricity/gas/water", "Sam", "30-12-2020", "toDo");
-// newTaskList.render();
+  taskCount() {
+    let tasknumber = 0;
+    if (this.tasks.length <= 0) {
+      tasknumber = 0;
+    } else {
+      tasknumber = this.tasks.length;
+    }
+    return tasknumber;
+  }
+}
+// end of class
 
 if (typeof module != "undefined") {
   module.exports = TaskManager;

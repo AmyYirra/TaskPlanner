@@ -66,7 +66,7 @@
           />
         </div>
         <div>
-          <button id="go-button" class="btn btn-success">Go!</button>
+          <button id="go-button" class="btn btnsuccess">Go!</button>
         </div>
         <br />&nbsp;
 
@@ -162,6 +162,15 @@
               aria-labelledby="tab-1"
               role="tabpanel"
             >
+              <a class="btnsuccess" data-toggle="modal" data-target="#addModal">
+                <button
+                  class="btn btnsuccess font-black btn-lg btn-block"
+                  id="btn_Add"
+                  onclick="fnAdd();"
+                >
+                  Add Task +
+                </button></a
+              >
               <div class="form-row m-0 p-0" hidden="hidden">
                 <input
                   type="text"
@@ -175,10 +184,11 @@
               </div>
               <h2 class="text-center">Task List</h2>
               <a
-                class="btn-success ml-2"
+                class="btnsuccess ml-2"
                 data-toggle="modal"
                 data-target="#addModal"
               >
+
                 <button class="btn btn-success" id="btn_Add">
                   Add Task +
                 </button></a
@@ -187,13 +197,15 @@
                 Task Summary
               </button>
 
+
               <div class="dropdown btn-group">
                 <select
                   name="filter"
                   id="selectBox"
                   onchange="changefunction();"
-                >
-                  <option value="All" id="All" class="dropdown">Filter</option>
+                  class="filter"
+                ><option value="Filter" id="Filter" class="dropdown">Filter</option>
+                  <option value="All" id="All" class="dropdown">All</option>
                   <option value="To-do" id="To-do">To-do</option>
                   <option value="In progress" id="In progress">
                     In progress
@@ -203,6 +215,22 @@
                 </select>
               </div>
 
+              <div class="dropdown btn-group">
+                <select
+                  name="theme"
+                  id="changeTheme"
+                  class="filter"
+                  onchange="changetheme();"
+                >
+                  <option value="All" id="All" class="dropdown">
+                    Change theme
+                  </option>
+                  <option value="styles.css" id="Grass">Grass</option>
+                  <option value="styleblue.css" id="sea">Sea</option>
+                  <option value="stylesunset.css" id="sea">Sunset</option>
+                </select>
+                <!-- dropdown -->
+              </div>
               <!-- <div class="dropdown btn-group ">
                 <button
                   class="btn btn-secondary dropdown-toggle"
@@ -422,7 +450,7 @@
               <!-- End Modal body -->
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-success btn-block">
+              <button type="submit" class="btn btnsuccess btn-block">
                 Save Changes
               </button>
             </div>
@@ -557,7 +585,7 @@
             <div class="modal-footer" id="idAdd">
               <button
                 type="submit"
-                class="btn btn-success btn-block"
+                class="btn btnsuccess btn-block"
                 tabindex="-1"
                 id="idBtnName"
               >
@@ -568,7 +596,7 @@
             <div class="modal-footer" id="idUpdate">
               <button
                 type="submit"
-                class="btn btn-success btn-block"
+                class="btn btnsuccess btn-block"
                 tabindex="-1"
                 id="idBtnupdate"
               >
@@ -580,6 +608,7 @@
         </div>
       </div>
       <!-- end add task modal -->
+      <div id="piechart"></div>
     </form>
 
     <hr />
@@ -611,6 +640,10 @@
     <script src="js/taskManager.js"></script>
     <script src="js/table.js"></script>
     <script src="js/index.js"></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
 
     <!-- Option 2: jQuery, Popper.js, and Bootstrap JS
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
