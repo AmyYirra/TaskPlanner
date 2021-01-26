@@ -162,6 +162,7 @@ newTaskForm.addEventListener("submit", (event) => {
       taskManager.storeTasks();
       taskManager.render();
       clearFields();
+
       drawPieChart();
     } else {
       updateAllDetails();
@@ -300,6 +301,7 @@ btnfilter = document.getElementById("btnfilter");
 btnfilter.addEventListener("click", changefunction);
 function changefunction() {
   //alert();
+
   const taskNumber = taskManager.taskCount();
   if (taskNumber == 0) {
     document.getElementById("piechart").style.display = "none";
@@ -315,6 +317,7 @@ function changefunction() {
     document.getElementById("piechart").style.display = "none";
   }
 }
+
 function renderByStatus(tasks) {
   const tasksHtmlList = [];
 
@@ -346,6 +349,7 @@ function fnAdd() {
   id_Edit.value = "ADD";
   clearFields();
 }
+
 
 function changetheme() {
   var changeTheme = document.getElementById("changeTheme");

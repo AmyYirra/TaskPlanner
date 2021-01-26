@@ -188,10 +188,16 @@
                 data-toggle="modal"
                 data-target="#addModal"
               >
-                <button class="btn btnsuccess" id="btn_Add" onclick="fnAdd();">
+
+                <button class="btn btn-success" id="btn_Add">
                   Add Task +
                 </button></a
               >
+              <button class="btn btn-success" id="taskSummary">
+                Task Summary
+              </button>
+
+
               <div class="dropdown btn-group">
                 <select
                   name="filter"
@@ -208,6 +214,7 @@
                   <option value="Done" id="Done">Done</option>
                 </select>
               </div>
+
               <div class="dropdown btn-group">
                 <select
                   name="theme"
@@ -293,7 +300,7 @@
                   type="text/javascript"
                   src="https://www.gstatic.com/charts/loader.js"
                 ></script>
-                <script type="text/javascript"></script>
+
                 <div id="table_div"></div>
               </section>
             </div>
