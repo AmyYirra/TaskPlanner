@@ -162,15 +162,6 @@
               aria-labelledby="tab-1"
               role="tabpanel"
             >
-              <a class="btnsuccess" data-toggle="modal" data-target="#addModal">
-                <button
-                  class="btn btnsuccess font-black btn-lg btn-block"
-                  id="btn_Add"
-                  onclick="fnAdd();"
-                >
-                  Add Task +
-                </button></a
-              >
               <div class="form-row m-0 p-0" hidden="hidden">
                 <input
                   type="text"
@@ -188,23 +179,20 @@
                 data-toggle="modal"
                 data-target="#addModal"
               >
-
                 <button class="btn btn-success" id="btn_Add">
                   Add Task +
                 </button></a
               >
-              <button class="btn btn-success" id="taskSummary">
-                Task Summary
-              </button>
-
-
               <div class="dropdown btn-group">
                 <select
                   name="filter"
                   id="selectBox"
                   onchange="changefunction();"
                   class="filter"
-                ><option value="Filter" id="Filter" class="dropdown">Filter</option>
+                >
+                  <option value="Filter" id="Filter" class="dropdown">
+                    Filter
+                  </option>
                   <option value="All" id="All" class="dropdown">All</option>
                   <option value="To-do" id="To-do">To-do</option>
                   <option value="In progress" id="In progress">
@@ -300,8 +288,10 @@
                   type="text/javascript"
                   src="https://www.gstatic.com/charts/loader.js"
                 ></script>
-
-                <div id="table_div"></div>
+                <div class="d-flex justify-content-center flex-wrap p-2 b-1">
+                  <div id="table_div"></div>
+                  <div id="piechart"></div>
+                </div>
               </section>
             </div>
           </div>
@@ -608,7 +598,6 @@
         </div>
       </div>
       <!-- end add task modal -->
-      <div id="piechart"></div>
     </form>
 
     <hr />

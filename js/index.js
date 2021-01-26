@@ -31,8 +31,7 @@ function drawPieChart() {
     // Optional; add a title and set the width and height of the chart
     var options = {
       title: "Task Status",
-      height: 400,
-
+      height: "100%",
       fontSize: "14",
     };
 
@@ -312,9 +311,11 @@ function changefunction() {
   if (selectedValue == "All" || selectedValue == "Filter") {
     taskManager.render();
     document.getElementById("piechart").style.display = "block";
+    document.getElementById("table_div").style.display = "block";
   } else {
     renderByStatus(tasks);
     document.getElementById("piechart").style.display = "none";
+    document.getElementById("table_div").style.display = "none";
   }
 }
 
