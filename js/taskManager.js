@@ -3,15 +3,11 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const value = "idDone" + id;
   const btnst = "btn_Status" + id;
   const btndelete = "btn_Delete" + id;
-  const divView="div_nameView" +id;
+  const divView = "div_nameView" + id;
   // alert(value);
   if (status == "Done") {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 ">
-                   
-                    <div class="card-body p-0 m-0 border border-dark ">
-
-
-
+    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 shadow-lg">
+                     <div class="card-body p-0 m-0 border border-dark ">
                       <div id   class="card-title bg-green cardheader" >
                        <div class="p-1 m-1 text-right" > Task : ${name}  </div>  <div class="p-1 m-1 text-right "id="div_nameEdit"+${id}>  </div><div class="editTask" style="position:absolute; right:0;">
                       <!--  <button
@@ -26,7 +22,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
               >
                 <button class="btn-Black font-black btn-lg btn-block"  onclick="editTask(${id})">
 
-                  Edit
+                  &#xf304;Edit
 
                 </button></a
               >
@@ -58,7 +54,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             
                             <button id=${btndelete}
                               type="button"
-                              class="btn btn-success"
+                              class="btn btn-success fa fa-trash"
                              
                               
                               onclick="getConfirmation(${id})"
@@ -68,7 +64,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                        </div>
                        </div>`;
   } else {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4" >
+    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 shadow" >
                     <!-- <img src="..." class="card-img-top" alt="..." /> -->
                       <div class="card-body p-0 m-0 border border-dark ">
 
@@ -86,9 +82,9 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                 data-toggle="modal"
                 data-target="#addModal"
               >
-                <button class="btn-Black font-black btn-lg btn-block"  onclick="editTask(${id})">
+                              <button class="btn-Black font-black btn-lg btn-block"  onclick="editTask(${id})">
 
-                  Edit
+                 &#xf304;Edit
 
                 </button></a
               >
@@ -133,7 +129,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             
                             <button id=${btndelete}
                               type="button"
-                              class="btn btn-success"
+                              class="btn btn-success fa fa-trash"
                              
                                                             onclick="getConfirmation(${id})"
                             >
@@ -278,7 +274,12 @@ class TaskManager {
     // Loop over the tasks
     for (let i = 0; i < this.tasks.length; i++) {
       // Get the current task in the loop
-      newTasks.push([this.tasks[i].name,this.tasks[i].assignedTo,this.tasks[i].status,this.tasks[i].dueDate]);
+      newTasks.push([
+        this.tasks[i].name,
+        this.tasks[i].assignedTo,
+        this.tasks[i].status,
+        this.tasks[i].dueDate,
+      ]);
     }
     return newTasks;
   }

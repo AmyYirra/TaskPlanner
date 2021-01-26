@@ -2,9 +2,12 @@ body {
   margin: 0;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-image: url("https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
-  background-color: #9fe2bf;
+  background-color:#11698e;
   /* background-size: auto; */
   background-repeat: no-gitrepeat; /* Do not repeat the image */
+}
+.navbar{
+  background-color:#11698e;
 }
 
 /* .nav-pills .nav-link.active,

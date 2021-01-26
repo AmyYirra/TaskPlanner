@@ -23,7 +23,7 @@
     <form id="newTaskForm">
       <!-- begin navbar here -->
       <nav class="navbar navbar-dark bg-dark navbar-expand-lg font-white-bold">
-        <span class="h2 bg-success p-1 font-weight-bold">TP</span>
+        <span class="h2 bg-green p-1 font-weight-bold">TP</span>
         <span class="navbar-brand mb-0 h1 p-1">Task Planner</span>
         <span
           ><div id="clockdate text-left d-flex flex-row-reverse">
@@ -179,13 +179,31 @@
                 data-toggle="modal"
                 data-target="#addModal"
               >
-
-                <button class="btn btn-success" id="btn_Add" onclick="fnAdd();">
+                <button class="btn btn-success" id="btn_Add">
                   Add Task +
                 </button></a
               >
-              <!-- dropdown -->
-              <div class="dropdown btn-group ">
+              <button class="btn btn-success" id="taskSummary">
+                Task Summary
+              </button>
+
+              <div class="dropdown btn-group">
+                <select
+                  name="filter"
+                  id="selectBox"
+                  onchange="changefunction();"
+                >
+                  <option value="All" id="All" class="dropdown">Filter</option>
+                  <option value="To-do" id="To-do">To-do</option>
+                  <option value="In progress" id="In progress">
+                    In progress
+                  </option>
+                  <option value="Review" id="Review">Review</option>
+                  <option value="Done" id="Done">Done</option>
+                </select>
+              </div>
+
+              <!-- <div class="dropdown btn-group ">
                 <button
                   class="btn btn-secondary dropdown-toggle"
                   type="button"
@@ -197,6 +215,7 @@
                   Filter
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                  
                   <button
                     class="dropdown-item"
                     type="button"
@@ -210,6 +229,7 @@
                     type="button"
                     id="to-do"
                     onclick="filterTodo()"
+                    AutoPostBack="False"
                   >
                     To-do
                   </button>
@@ -238,7 +258,7 @@
                     Done
                   </button>
                 </div>
-              </div>
+              </div> -->
               <!-- end of dropdown -->
 
               <section class="container-task">
@@ -252,7 +272,7 @@
                   type="text/javascript"
                   src="https://www.gstatic.com/charts/loader.js"
                 ></script>
-                <script type="text/javascript"></script>
+
                 <div id="table_div"></div>
               </section>
             </div>
@@ -519,7 +539,7 @@
                       type="date"
                       class="form-control"
                       id="newTaskDueDate"
-                      tabindex="5" 
+                      tabindex="5"
                     />
                   </div>
                 </div>
@@ -545,9 +565,7 @@
               </button>
             </div>
 
-
-             <div class="modal-footer" id="idUpdate" > 
-
+            <div class="modal-footer" id="idUpdate">
               <button
                 type="submit"
                 class="btn btn-success btn-block"
