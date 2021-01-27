@@ -164,6 +164,7 @@ class TaskManager {
     };
 
     this.tasks.push(task);
+    //alert(this.tasks.id);
   }
 
   // Create the render method to display the task on the browser

@@ -329,7 +329,7 @@ function fnDelete(taskId) {
 }
 //filter
 btnfilter = document.getElementById("btnfilter");
-btnfilter.addEventListener("click", changefunction);
+//btnfilter.addEventListener("click", changefunction);
 function changefunction() {
   //alert();
 
