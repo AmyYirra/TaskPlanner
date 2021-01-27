@@ -3,9 +3,9 @@ const taskManager = new TaskManager(0);
 
 taskManager.getTasks();
 taskManager.render();
-
 //pie chart
 drawPieChart();
+//drawTableForPie();
 //draw pie chart
 function drawPieChart() {
   google.charts.load("current", { packages: ["corechart"] });
@@ -18,7 +18,9 @@ function drawPieChart() {
     const taskNumber = taskManager.taskCount();
     if (taskNumber == 0) {
       document.getElementById("piechart").style.display = "none";
+      document.getElementById("table_div").style.display = "none";
     }
+
     //alert(statusProgress);
     var data = google.visualization.arrayToDataTable([
       ["Task", "Total Task"],
@@ -44,6 +46,7 @@ function drawPieChart() {
   }
   //end pie chart
 }
+
 document.querySelector("#idAdd").style.display = "";
 document.querySelector("#idUpdate").style.display = "none";
 
@@ -343,14 +346,14 @@ function renderByStatus(tasks) {
   const tasksList = document.querySelector("#tasksList");
   tasksList.innerHTML = tasksHtml;
 } //end of filter
-
+let btn_Add = document.querySelector("#btn_Add");
+btn_Add.addEventListener("click", fnAdd);
 function fnAdd() {
-  // alert();
+  //alert();
   id_Edit = document.querySelector("#id_Edit");
   id_Edit.value = "ADD";
   clearFields();
 }
-
 
 function changetheme() {
   var changeTheme = document.getElementById("changeTheme");

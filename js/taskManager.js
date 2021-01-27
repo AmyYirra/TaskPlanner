@@ -22,7 +22,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
               >
                 <button class="btn-Black font-black btn-lg btn-block"  onclick="editTask(${id})">
 
-                  &#xf304;Edit
+                  Edit
 
                 </button></a
               >
@@ -55,7 +55,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             <button id=${btndelete}
                               type="button"
 
-                              class="btn btn-success fa fa-trash"
+                              class="btn btnsuccess fa fa-trash"
 
                              
                               
@@ -86,7 +86,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
               >
                               <button class="btn-Black font-black btn-lg btn-block"  onclick="editTask(${id})">
 
-                 &#xf304;Edit
+                 Edit
 
                 </button></a
               >
@@ -132,7 +132,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             <button id=${btndelete}
                               type="button"
 
-                              class="btn btn-success fa fa-trash"
+                              class="btn btnsuccess fa fa-trash"
 
                              
                                                             onclick="getConfirmation(${id})"
@@ -168,8 +168,7 @@ class TaskManager {
   }
 
   // Create the render method to display the task on the browser
-  render() 
-  {
+  render() {
     //Create a variable storing an empty array to hold the HTML of all the tasks' html, tasksHtmlList.
     const tasksHtmlList = [];
 
