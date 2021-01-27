@@ -3,9 +3,31 @@ const taskManager = new TaskManager(0);
 
 taskManager.getTasks();
 taskManager.render();
-//pie chart
+
 drawPieChart();
-//drawTableForPie();
+tableForPieChart();
+//draw table
+function tableForPieChart() {
+  google.charts.load("current", { packages: ["table"] });
+  google.charts.setOnLoadCallback(drawTable);
+  function drawTable() {
+    var data = new google.visualization.DataTable();
+    data.addColumn("string", "Task");
+    data.addColumn("string", "Assign");
+    data.addColumn("string", "Status");
+    data.addColumn("string", "DueDate");
+    console.log(taskManager.tasks);
+    data.addRows(taskManager.getTask());
+    var table = new google.visualization.Table(
+      document.getElementById("table_div")
+    );
+    console.log(data);
+    table.draw(data, {
+      showRowNumber: true,
+      height: "100%",
+    });
+  }
+}
 //draw pie chart
 function drawPieChart() {
   google.charts.load("current", { packages: ["corechart"] });
@@ -42,9 +64,32 @@ function drawPieChart() {
       document.getElementById("piechart")
     );
     chart.draw(data, options);
+    tableForPieChart();
+
     // taskManager.render();
   }
   //end pie chart
+}
+function drawTableForPie() {
+  google.charts.load("current", { packages: ["table"] });
+  google.charts.setOnLoadCallback(drawTable);
+  function drawTable() {
+    var data = new google.visualization.DataTable();
+    data.addColumn("string", "Task");
+    data.addColumn("string", "Assign To");
+    data.addColumn("string", "Status");
+    data.addColumn("string", "Due Date");
+    console.log(taskManager.tasks);
+    data.addRows(taskManager.getTask());
+    var table = new google.visualization.Table(
+      document.getElementById("table_div")
+    );
+    console.log(data);
+    table.draw(data, {
+      showRowNumber: true,
+      height: "100%",
+    });
+  }
 }
 
 document.querySelector("#idAdd").style.display = "";
@@ -166,9 +211,11 @@ newTaskForm.addEventListener("submit", (event) => {
       clearFields();
 
       drawPieChart();
+      location.reload();
     } else {
       updateAllDetails();
       drawPieChart();
+      location.reload();
     }
     //  $("#addModal").modal().hide();
     $("#addModal .close").click();
