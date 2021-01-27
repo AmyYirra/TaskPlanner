@@ -112,15 +112,11 @@ $(function () {
 //onload addmodal --to set focus on first element
 $("#addModal").on("shown.bs.modal", function () {
   newTaskNameInput.focus();
-
-  //document.querySelector("#id_Edit").value = "ADD"
   if (document.querySelector("#id_Edit").value == "ADD") {
     clearFields();
     document.querySelector("#value_Task").innerHTML = "Add Task";
     document.querySelector("#idUpdate").style.display = "none";
     document.querySelector("#idAdd").style.display = "block";
-    // document.querySelector("#edit_Header").style.display = "none";
-    // document.querySelector("#other_Header").style.display = "none";
   } else {
     document.querySelector("#value_Task").innerHTML = "Edit Task";
     document.querySelector("#idAdd").style.display = "none";
@@ -133,14 +129,12 @@ newTaskForm.addEventListener("submit", (event) => {
   // Prevent default action
   event.preventDefault();
   // Get the values of the inputs
-
   const name = newTaskNameInput.value;
   const description = newTaskDescription.value;
   const taskStatus = newTaskStatus.value;
   const txtTaskStatus = document.querySelector("#newTaskStatus").options[
     document.querySelector("#newTaskStatus").selectedIndex
   ].text;
-
   const assignedTo = newTaskAssignedTo.value;
   const txtAssignTo = document.querySelector("#newTaskAssignedTo").options[
     document.querySelector("#newTaskAssignedTo").selectedIndex
@@ -209,7 +203,6 @@ newTaskForm.addEventListener("submit", (event) => {
       taskManager.storeTasks();
       taskManager.render();
       clearFields();
-
       drawPieChart();
       location.reload();
     } else {
@@ -217,10 +210,7 @@ newTaskForm.addEventListener("submit", (event) => {
       drawPieChart();
       location.reload();
     }
-    //  $("#addModal").modal().hide();
     $("#addModal .close").click();
-
-    //taskManager.addTask("shopping", "milk", "Tom", "22-12-2020", "toDO");
   }
 });
 function clearFields() {
@@ -232,16 +222,13 @@ function clearFields() {
 }
 //Format due date
 function updateDueDate(dueDate) {
-  //var strDueDate = dueDate;
   var strDueDate = dueDate.split("-");
   var rtnDueDate = strDueDate[2] + "-" + strDueDate[1] + "-" + strDueDate[0];
   return rtnDueDate;
 } //to show date in date input box in the format yyyy/mm/dd
 function displayDueDate(dueDate) {
-  //var strDueDate = dueDate;
   var strDueDate = dueDate.split("-");
   var rtnDueDate = strDueDate[2] + "-" + strDueDate[1] + "-" + strDueDate[0];
-
   return rtnDueDate;
 }
 function validFormFieldInput(data) {
@@ -251,11 +238,9 @@ function validFormDropdown(data) {
   return data;
 }
 function getConfirmation(deleteId) {
-  //('#btnCancel').addClass('btn-secondary');
   const task = taskManager.getTaskById(deleteId);
   const taskName = task.name;
   var retVal = confirm(`Do you want to delete the task ${taskName}?`);
-  //var retVal = confirm("Do you want to delete the task?");
   if (retVal == true) {
     fnDelete(deleteId);
     location.reload();
@@ -282,9 +267,7 @@ function getTodayDate() {
 function fnUpdate(id) {
   //finding the task according to id
   const task = taskManager.getTaskById(id);
-  //updating the status
   task.status = "Done";
-
   taskManager.render();
   taskManager.storeTasks();
   location.reload();
@@ -335,7 +318,6 @@ function updateAllDetails() {
   task.dueDate = FormatDueDate;
   taskManager.render();
   taskManager.storeTasks();
-  // $("#addModal").modal().hide();
   $("#addModal .close").click();
   clearFields();
 }
@@ -406,6 +388,4 @@ function changetheme() {
   var changeTheme = document.getElementById("changeTheme");
   var selectedValue = changeTheme.options[changeTheme.selectedIndex].value;
   document.head.innerHTML += `<link rel="stylesheet" href="css/${selectedValue}">`;
-
-  //alert(selectedValue);
 }
