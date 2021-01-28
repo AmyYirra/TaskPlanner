@@ -240,7 +240,9 @@ hr {
 .btn-Black {
   background-color: black;
   color: white;
+  /* font-size:x-small; */
   width: fit-content;
+ 
 }
 .editTask {
   position: absolute;
@@ -249,7 +251,6 @@ hr {
 .btn-Black:hover {
   background-color: #058523;
   color: black;
-  
 }
 .btnsuccess:hover {
   background-color: #089c2a;
