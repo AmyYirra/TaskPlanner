@@ -10,11 +10,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                      <div class="card-body p-0 m-0 border border-dark ">
                       <div id   class="card-title bg-green cardheader" >
                        <div class="p-1 m-1 text-right" > Task : ${name}  </div>  <div class="p-1 m-1 text-right "id="div_nameEdit"+${id}>  </div><div class="editTask" style="position:absolute; right:0;">
-                      <!--  <button
-                              type="button"
-                               class="btn-Black"
-                              onclick="editTask(${id})" >  Edit 
-                           </button> -->
+                      
                       <a
                 class="btn-Black"
                 data-toggle="modal"
@@ -74,11 +70,7 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
 
                       <div id   class="card-title bg-green cardheader" >
                        <div class="p-1 m-1 text-right" > Task : ${name}  </div>  <div class="p-1 m-1 text-right "id="div_nameEdit"+${id}>  </div><div class="editTask" style="position:absolute; right:0;">
-                      <!--  <button
-                              type="button"
-                               class="btn-Black"
-                              onclick="editTask(${id})" >  Edit 
-                           </button> -->
+                      
                       <a
                 class="btn-Black"
                 data-toggle="modal"
@@ -212,7 +204,7 @@ class TaskManager {
     // Return the found task
     return foundTask;
   }
-
+  
   // Create the deleteTask method
   deleteTask(id) {
     // Create an empty array and store it in a new variable, newTasks

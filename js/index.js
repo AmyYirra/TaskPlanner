@@ -91,6 +91,7 @@ function drawTableForPie() {
     });
   }
 }
+let condition;
 
 document.querySelector("#idAdd").style.display = "";
 document.querySelector("#idUpdate").style.display = "none";
@@ -103,7 +104,14 @@ const newTaskDescription = document.querySelector("#newTaskDescription");
 const newTaskStatus = document.querySelector("#newTaskStatus");
 const newTaskAssignedTo = document.querySelector("#newTaskAssignedTo");
 const newTaskDueDate = document.querySelector("#newTaskDueDate");
+
 const errorMessage = document.querySelector("#alertMessage");
+
+const errorName = document.querySelector("#errorName");
+const errorTaskStatus = document.querySelector("#errorTaskStatus");
+const errorAssignTo = document.querySelector("#errorAssignTo");
+const errorDescription = document.querySelector("#errorDescription");
+const errorDueDate = document.querySelector("#errorDueDate");
 //to disable the past dates in calendar
 $(function () {
   let maxDate = getTodayDate();
@@ -112,8 +120,7 @@ $(function () {
 //onload addmodal --to set focus on first element
 $("#addModal").on("shown.bs.modal", function () {
   newTaskNameInput.focus();
-  if (document.querySelector("#id_Edit").value == "ADD") {
-    clearFields();
+  if (condition == "ADD") {
     document.querySelector("#value_Task").innerHTML = "Add Task";
     document.querySelector("#idUpdate").style.display = "none";
     document.querySelector("#idAdd").style.display = "block";
@@ -140,85 +147,97 @@ newTaskForm.addEventListener("submit", (event) => {
     document.querySelector("#newTaskAssignedTo").selectedIndex
   ].text;
   const dueDate = newTaskDueDate.value;
-  const status = newTaskStatus.innerHTML;
 
   if (!validFormFieldInput(name)) {
     errorName.innerHTML = "Invalid Name ";
     errorName.style.display = "block";
-
     newTaskNameInput.focus();
+    return false;
   } else {
     errorName.style.display = "none";
   }
+
   if (!validFormFieldInput(description)) {
-    errorDescription.innerHTML = "Invalid Description";
-    errorDescription.style.display = "block";
-    if (newTaskNameInput.value != "") {
-      newTaskDescription.focus();
-    }
+    document.querySelector("#errorDescription").innerHTML =
+      "Invalid Description";
+    document.querySelector("#errorDescription").style.display = "block";
+    newTaskDescription.focus();
+    return false;
   } else {
-    errorDescription.style.display = "none";
+    document.querySelector("#errorDescription").style.display = "none";
   }
-  if (
-    validFormDropdown(taskStatus) == 1 &&
-    validFormDropdown(assignedTo) == 0 &&
-    newTaskDescription.value != ""
-  ) {
-    // errorTaskStatus.innerHTML = "Invalid Status";
-    //errorTaskStatus.style.display = "block";
-    newTaskStatus.focus();
-    errorTaskStatus.style.display = "none";
-  }
+
   if (validFormDropdown(assignedTo) == 0) {
-    errorAssignTo.innerHTML = "Invalid Asignee";
-    errorAssignTo.style.display = "block";
-    if (newTaskStatus.value >= 1 && newTaskDescription.value != "") {
-      newTaskAssignedTo.focus();
-    }
+    document.querySelector("#errorAssignTo").innerHTML = "Invalid Asignee";
+    document.querySelector("#errorAssignTo").style.display = "block";
+    newTaskAssignedTo.focus();
+    return false;
   } else {
     errorAssignTo.style.display = "none";
   }
+
   if (!validFormFieldInput(dueDate)) {
     errorDueDate.innerHTML = "Invalid duedate";
     errorDueDate.style.display = "block";
-    if (
-      newTaskStatus.value >= 1 &&
-      newTaskDescription.value != "" &&
-      newTaskAssignedTo.value > 0
-    ) {
-      newTaskDueDate.focus();
-    }
+    newTaskDueDate.focus();
+    return false;
   } else {
     errorDueDate.style.display = "none";
-    var FormatDueDate = updateDueDate(dueDate);
-    if (document.querySelector("#id_Edit").value == "ADD") {
-      taskManager.addTask(
-        name,
-        description,
-        txtAssignTo,
-        FormatDueDate,
-        txtTaskStatus
-      );
-
-      taskManager.storeTasks();
-      taskManager.render();
-      clearFields();
-      drawPieChart();
-      location.reload();
-    } else {
-      updateAllDetails();
-      drawPieChart();
-      location.reload();
-    }
-    $("#addModal .close").click();
   }
+
+  var FormatDueDate = updateDueDate(dueDate);
+
+  if (condition == "ADD") {
+    taskManager.addTask(
+      name,
+      description,
+      txtAssignTo,
+      FormatDueDate,
+      txtTaskStatus
+    );
+
+    taskManager.storeTasks();
+    taskManager.render();
+    clearFields();
+    clearError();
+    drawPieChart();
+    location.reload();
+  } else {
+    result = parseInt(condition);
+    const task = taskManager.getTaskById(result);
+    task.id = result;
+    task.name = name;
+    task.description = description;
+    task.assignedTo = txtAssignTo;
+    task.dueDate = FormatDueDate;
+    task.status = txtTaskStatus;
+    taskManager.storeTasks();
+    taskManager.render();
+    clearFields();
+    drawPieChart();
+    location.reload();
+  }
+  $("#addModal .close").click();
 });
+
+function disabledSubmit() {
+  document.querySelector("#idBtnName").disabled = true;
+  document.querySelector("#idBtnupdate").disabled = true;
+}
+
 function clearFields() {
   newTaskNameInput.value = "";
   newTaskDescription.value = "";
   newTaskStatus.value = 1;
   newTaskAssignedTo.value = 0;
   newTaskDueDate.value = "";
+}
+function clearError() {
+  errorName.innerHTML = "";
+  errorTaskStatus.innerHTML = "";
+  errorAssignTo.innerHTML = "";
+  errorDescription.innerHTML = "";
+  errorDueDate.innerHTML = "";
 }
 //Format due date
 function updateDueDate(dueDate) {
@@ -272,9 +291,12 @@ function fnUpdate(id) {
   taskManager.storeTasks();
   location.reload();
 }
+
+//
 function editTask(id) {
   const task = taskManager.getTaskById(id);
-  document.querySelector("#id_Edit").value = id;
+  condition = id;
+  clearError();
   newTaskNameInput.value = task.name;
   newTaskDescription.value = task.description;
   let viewDate = displayDueDate(task.dueDate);
@@ -289,7 +311,7 @@ function editTask(id) {
       break;
     }
   }
-  let assignTo = task.assignedTo;
+
   for (var k = 0; k < newTaskAssignedTo.options.length; k++) {
     if (newTaskAssignedTo.options[k].text === task.assignedTo) {
       newTaskAssignedTo.selectedIndex = k;
@@ -300,27 +322,25 @@ function editTask(id) {
     }
   }
 }
-function updateAllDetails() {
-  let idn = document.querySelector("#id_Edit").value;
-  result = parseInt(idn);
-  const task = taskManager.getTaskById(result);
-  task.name = newTaskNameInput.value;
-  //alert(task.name);
-  task.status = document.querySelector("#newTaskStatus").options[
-    document.querySelector("#newTaskStatus").selectedIndex
-  ].text;
-  task.description = newTaskDescription.value;
-  task.assignedTo = document.querySelector("#newTaskAssignedTo").options[
-    document.querySelector("#newTaskAssignedTo").selectedIndex
-  ].text;
-  let dueDate = newTaskDueDate.value;
-  var FormatDueDate = updateDueDate(dueDate);
-  task.dueDate = FormatDueDate;
-  taskManager.render();
-  taskManager.storeTasks();
-  $("#addModal .close").click();
-  clearFields();
-}
+// function updateAllDetails() {
+//   // const task = taskManager.getTaskById(result);
+//   // task.name = newTaskNameInput.value;
+//   // //alert(task.name);
+//   // task.status = document.querySelector("#newTaskStatus").options[
+//   //   document.querySelector("#newTaskStatus").selectedIndex
+//   // ].text;
+//   // task.description = newTaskDescription.value;
+//   // task.assignedTo = document.querySelector("#newTaskAssignedTo").options[
+//   //   document.querySelector("#newTaskAssignedTo").selectedIndex
+//   // ].text;
+//   // let dueDate = newTaskDueDate.value;
+//   // var FormatDueDate = updateDueDate(dueDate);
+//   // task.dueDate = FormatDueDate;
+//   taskManager.render();
+//   taskManager.storeTasks();
+//   $("#addModal .close").click();
+//   clearFields();
+// }
 
 function fnDelete(taskId) {
   taskManager.deleteTask(taskId);
@@ -379,9 +399,9 @@ let btn_Add = document.querySelector("#btn_Add");
 btn_Add.addEventListener("click", fnAdd);
 function fnAdd() {
   //alert();
-  id_Edit = document.querySelector("#id_Edit");
-  id_Edit.value = "ADD";
+  condition = "ADD";
   clearFields();
+  clearError();
 }
 
 function changetheme() {
