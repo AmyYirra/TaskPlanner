@@ -6,23 +6,12 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
   const divView = "div_nameView" + id;
   // alert(value);
   if (status == "Done") {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 shadow-lg">
-                     <div class="card-body p-0 m-0 border border-dark ">
-                      <div id   class="card-title bg-green cardheader" >
-                       <div class="p-1 m-1 text-right" > Task : ${name}  </div>  <div class="p-1 m-1 text-right "id="div_nameEdit"+${id}>  </div><div class="editTask" style="position:absolute; right:0;">
+    return `<div class="card p-0 m-2  col-lg-3 col-md-6 mb-4 bg-info shadow-lg text-white">
+                     <div class="card-body p-0 m-2  ">
+                      <div  class="card-title  card-header" >
+                       <div class="p-1 m-1 text-left" >  ${name}  </div>  <div class="p-1 m-1 text-right "id="div_nameEdit"+${id}>  </div><div class="editTask" style="position:absolute; right:0;">
                       
-                      <a
-                class="btn-Black"
-                data-toggle="modal"
-                data-target="#addModal"
-              >
-                <button class="btn-Black font-black btn-lg btn-block"  onclick="editTask(${id})">
-
-                  Edit
-
-                </button></a
-              >
-                            </div>
+                        </div>
                     </div>
                       <p class="card-text p-1 m-1 text-left">
                         <span>Description :</span>
@@ -51,37 +40,34 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             <button id=${btndelete}
                               type="button"
 
-                              class="btn btnsuccess fa fa-trash"
+                              class="btn  fa fa-trash"
 
                              
                               
                               onclick="getConfirmation(${id})"
                             >
-                           Delete
-                            </button> </span> <span> </span>     </p>
-                       </div>
-                       </div>`;
-  } else {
-    return `<div class="card p-0 m-0  col-lg-3 col-md-6 mb-4 shadow" >
-                    <!-- <img src="..." class="card-img-top" alt="..." /> -->
-                      <div class="card-body p-0 m-0 border border-dark ">
-
-
-
-                      <div id   class="card-title bg-green cardheader" >
-                       <div class="p-1 m-1 text-right" > Task : ${name}  </div>  <div class="p-1 m-1 text-right "id="div_nameEdit"+${id}>  </div><div class="editTask" style="position:absolute; right:0;">
-                      
-                      <a
-                class="btn-Black"
+                           
+                            </button> </span> <span> </span>   <a
+                class=""
                 data-toggle="modal"
                 data-target="#addModal"
               >
-                              <button class="btn-Black font-black btn-lg btn-block"  onclick="editTask(${id})">
+                <button class="bi bi-pen"  onclick="editTask(${id})">
 
-                 Edit
+                 
 
                 </button></a
-              >
+              >  </p>
+                       </div>
+                       </div>`;
+  } else { 
+    return `<div class="card p-0 m-2  col-lg-3 col-md-6 mb-4 bg-info  shadow-lg text-white" >
+                   
+                      <div class="card-body p-0 m-2 ">
+                      <div class="card-title  card-header" >
+                       <div class="p-1 m-1 text-left" > ${name}  </div>  <div class="p-1 m-1 text-right "id="div_nameEdit"+${id}>  </div><div class="editTask" style="position:absolute; right:0;">
+                   
+                 
                             </div>
                     </div>
                       <p class="card-text p-1 m-1 text-left">
@@ -124,13 +110,24 @@ const createTaskHtml = (id, name, description, assignedTo, dueDate, status) => {
                             <button id=${btndelete}
                               type="button"
 
-                              class="btn btnsuccess fa fa-trash"
+                              class="btn  fa fa-trash "
 
                              
                                                             onclick="getConfirmation(${id})"
                             >
-                           Delete
-                            </button> </span>      </p>
+                           
+                            </button> </span>
+                                 <a
+                class=""
+                data-toggle="modal"
+                data-target="#addModal"
+              >
+                              <button class="bi bi-pen"  onclick="editTask(${id})">
+
+               
+
+                </button></a
+              >  </p>
                       
                     </div>
                   </div>`;

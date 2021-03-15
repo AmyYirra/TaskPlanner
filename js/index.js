@@ -322,45 +322,17 @@ function editTask(id) {
     }
   }
 }
-// function updateAllDetails() {
-//   // const task = taskManager.getTaskById(result);
-//   // task.name = newTaskNameInput.value;
-//   // //alert(task.name);
-//   // task.status = document.querySelector("#newTaskStatus").options[
-//   //   document.querySelector("#newTaskStatus").selectedIndex
-//   // ].text;
-//   // task.description = newTaskDescription.value;
-//   // task.assignedTo = document.querySelector("#newTaskAssignedTo").options[
-//   //   document.querySelector("#newTaskAssignedTo").selectedIndex
-//   // ].text;
-//   // let dueDate = newTaskDueDate.value;
-//   // var FormatDueDate = updateDueDate(dueDate);
-//   // task.dueDate = FormatDueDate;
-//   taskManager.render();
-//   taskManager.storeTasks();
-//   $("#addModal .close").click();
-//   clearFields();
-// }
 
 function fnDelete(taskId) {
   taskManager.deleteTask(taskId);
   taskManager.render();
   taskManager.storeTasks();
 }
-//filter
-btnfilter = document.getElementById("btnfilter");
-//btnfilter.addEventListener("click", changefunction);
-function changefunction() {
-  //alert();
-
-  const taskNumber = taskManager.taskCount();
-  if (taskNumber == 0) {
-    document.getElementById("piechart").style.display = "none";
-  }
-  var selectBox = document.getElementById("selectBox");
-  var selectedValue = selectBox.options[selectBox.selectedIndex].value;
+//
+document.getElementById("statusButton").addEventListener("click", function (e) {
+  var selectedValue = e.target.id;
   const tasks = taskManager.getTaskByStatus(selectedValue);
-  if (selectedValue == "All" || selectedValue == "Filter") {
+  if (selectedValue == "allTasks") {
     taskManager.render();
     document.getElementById("piechart").style.display = "block";
     document.getElementById("table_div").style.display = "block";
@@ -369,14 +341,34 @@ function changefunction() {
     document.getElementById("piechart").style.display = "none";
     document.getElementById("table_div").style.display = "none";
   }
-}
+});
+
+//
+
+document.getElementById(
+  "To-do"
+).innerHTML = `To-do <sup>${taskManager.countTaskByStatus("To-do")}</sup>`;
+document.getElementById("Review").innerHTML = `Revierw <sup>
+${taskManager.countTaskByStatus("Review")}</sup>`;
+
+document.getElementById(
+  "inProgress"
+).innerHTML = `In Progress <sup>${taskManager.countTaskByStatus(
+  "In progress"
+)} </sup>`;
+  document.getElementById(
+    "Done"
+  ).innerHTML = `Done <sup>${taskManager.countTaskByStatus("Done")}</sup>`;
+  const taskNumber=taskManager.taskCount();
+document.getElementById(
+  "allTasks"
+).innerHTML = `All Tasks <sup>${taskNumber}</sup>`;
 
 function renderByStatus(tasks) {
   const tasksHtmlList = [];
 
   for (let i = 0; i < tasks.length; i++) {
     const task = tasks[i];
-    // Create a taskHtml variable to store the HTML of the current task, by calling the createTaskHtml function and using the properties of the current task, as well as the new formattedDate variable for the parameters.
 
     const taskHtml = createTaskHtml(
       task.id,
@@ -395,6 +387,7 @@ function renderByStatus(tasks) {
   const tasksList = document.querySelector("#tasksList");
   tasksList.innerHTML = tasksHtml;
 } //end of filter
+
 let btn_Add = document.querySelector("#btn_Add");
 btn_Add.addEventListener("click", fnAdd);
 function fnAdd() {
