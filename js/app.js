@@ -68,6 +68,7 @@ const goButton = document.querySelector("#go-button");
 const cityInput = document.querySelector("#city-input");
 const weatherContainer = document.querySelector("#weather-container");
 
+weatherContainer.innerHTML = getDataForCity('Hornsby');
 // event listener for a click event on the "Go!" button
 goButton.addEventListener("click", (e) => {
   // get the city from the input field
